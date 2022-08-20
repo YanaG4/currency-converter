@@ -3,9 +3,9 @@ import React from 'react'
 export default function NavigationBar() {
     return (
 
-        <nav class='nav-header'>
+        <nav className='nav-header'>
             <img src='icons/dollar_white.png' alt="Logo" />
-            <ul class="menuItems">
+            <ul className="menuItems">
                 <li><a href='/' data-item='Personal'>Personal</a></li>
                 <li><a href='/' data-item='Business'>Business</a></li>
                 <li><a href='/' data-item='Converter'>Converter</a></li>

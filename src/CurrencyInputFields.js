@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 export default function CurrencyRow(currencies) {
     const {
@@ -9,16 +9,18 @@ export default function CurrencyRow(currencies) {
         onChangeAmount,
         amount
     } = currencies
+
+
     return (
         <div className='currency-input-fields'>
 
             <div className='fields-container'>
-                <label for='amount'>Amount</label>
-                <input id='amount' type='number' className='input input-fields' value={amount.toFixed(2)} onChange={onChangeAmount} />
+                <label htmlFor='amount'>Amount</label>
+                <input id='amount' type='number' className='input input-fields' value={Number(amount).toFixed(2)} onChange={onChangeAmount} />
             </div>
 
             <div className='fields-container'>
-                <label for='from'>From</label>
+                <label htmlFor='from'>From</label>
                 <select id='from' className='input-fields' value={from} onChange={onChangeCode} >
                     {currencyCodes
                         .map(code => (
@@ -27,11 +29,11 @@ export default function CurrencyRow(currencies) {
                 </select>
             </div>
             <div className='fields-container fields-container-reverse'>
-                <label class='hidden-label' for='reverse'>Reverse</label>
+                <label className='hidden-label' htmlFor='reverse'>Reverse</label>
                 <button id='reverse' className='reverse'><img src='icons/reverse.png' alt="reverse" /></button>
             </div>
             <div className='fields-container'>
-                <label for='to'>To</label>
+                <label htmlFor='to'>To</label>
                 <select id='to' className='input-fields' value={to} onChange={onChangeCode} >
                     {currencyCodes
                         .map(code => (
