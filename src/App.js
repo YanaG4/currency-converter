@@ -20,10 +20,26 @@ function App() {
   const [currencyCode, setCurrencyCode] = useState(['EUR', 'USD', 'JPY'])
   const [fromCurrency, setFromCurrency] = useState('EUR')
   const [toCurrency, setToCurrency] = useState('USD')
-  const [amount, setAmount] = useState(1.00)
+  const [amount, setAmount] = useState((1).toFixed(2))
   const [exchangeRate, setExchangeRate] = useState(0.7)
+  const [amountChanged, setAmountChanged] = useState(false)
 
-
+  function onFocusAmount() {
+    if (amountChanged == false) {
+      setAmount(null)
+    }
+  }
+  function onChangeAmount(e) {
+    setAmount(e.target.value)
+    setAmountChanged(true)
+  }
+  function onBlurAmount(e) {
+    if (amountChanged == false) {
+      setAmount((1).toFixed(2))
+      return
+    }
+    setAmount(Number(e.target.value).toFixed(2))
+  }
 
   return (
     <>
@@ -41,7 +57,9 @@ function App() {
               to={toCurrency}
               amount={amount}
               onChangeCode={e => setFromCurrency(e.target.value)}
-              onChangeAmount={e => setAmount(e.target.value)}
+              onChangeAmount={onChangeAmount}
+              onFocusAmount={onFocusAmount}
+              onBlurAmount={onBlurAmount}
             />
             <CurrencyOutput
               currencyCodes={currencyCode}

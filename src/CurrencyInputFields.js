@@ -7,6 +7,8 @@ export default function CurrencyRow(currencies) {
         from,
         onChangeCode,
         onChangeAmount,
+        onFocusAmount,
+        onBlurAmount,
         amount
     } = currencies
 
@@ -16,7 +18,7 @@ export default function CurrencyRow(currencies) {
 
             <div className='fields-container'>
                 <label htmlFor='amount'>Amount</label>
-                <input id='amount' type='number' className='input input-fields' value={Number(amount).toFixed(2)} onChange={onChangeAmount} />
+                <input id='amount' className='input input-fields' value={(amount == null) ? '' : amount} onChange={onChangeAmount} onFocus={onFocusAmount} onBlur={onBlurAmount} />
             </div>
 
             <div className='fields-container'>
