@@ -183,7 +183,7 @@ select:target, select:focus, select:hover,
   justify-content: center;
   max-width: 60px;
 }
-.hidden-label {
+.hidden-message {
   visibility: hidden;
 }
 label {
@@ -206,4 +206,18 @@ label {
 .text {
   width: 80vw;
   max-width: 100%;
+}
+.error-message {
+  font-size: .7rem;
+  color: rgb(230, 79, 127);
+  margin-top: .3rem;
+  text-align: left;
+}
+.input-container {
+  position: relative;
+  width: 100%;
+}
+.fields-container .error-message {
+  position: absolute;
+  top: 50px;
 }

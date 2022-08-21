@@ -23,22 +23,43 @@ function App() {
   const [amount, setAmount] = useState((1).toFixed(2))
   const [exchangeRate, setExchangeRate] = useState(0.7)
   const [amountChanged, setAmountChanged] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
   function onFocusAmount() {
     if (amountChanged == false) {
       setAmount(null)
     }
   }
+
+  function checkAmountIsCorrect(checkAmount) {
+    if (checkAmount <= 0) {
+      setAmount('')
+      setErrorMessage('Please enter an amount greater than 0')
+      return false
+    }
+    if (!checkAmount) {
+      setAmount('')
+      setErrorMessage('Please enter a valid amount')
+      return false
+    }
+    setErrorMessage('')
+    return true
+  }
+
   function onChangeAmount(e) {
     setAmount(e.target.value)
     setAmountChanged(true)
   }
+
   function onBlurAmount(e) {
     if (amountChanged == false) {
       setAmount((1).toFixed(2))
       return
     }
-    setAmount(Number(e.target.value).toFixed(2))
+    const checkAmount = parseFloat(e.target.value)
+    if (checkAmountIsCorrect(checkAmount)) {
+      setAmount(checkAmount.toFixed(2))
+    }
   }
 
   return (
@@ -60,6 +81,7 @@ function App() {
               onChangeAmount={onChangeAmount}
               onFocusAmount={onFocusAmount}
               onBlurAmount={onBlurAmount}
+              errorMessage={errorMessage}
             />
             <CurrencyOutput
               currencyCodes={currencyCode}

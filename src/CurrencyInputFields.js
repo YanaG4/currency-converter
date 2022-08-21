@@ -9,6 +9,7 @@ export default function CurrencyRow(currencies) {
         onChangeAmount,
         onFocusAmount,
         onBlurAmount,
+        errorMessage,
         amount
     } = currencies
 
@@ -18,7 +19,10 @@ export default function CurrencyRow(currencies) {
 
             <div className='fields-container'>
                 <label htmlFor='amount'>Amount</label>
-                <input id='amount' className='input input-fields' value={(amount == null) ? '' : amount} onChange={onChangeAmount} onFocus={onFocusAmount} onBlur={onBlurAmount} />
+                <div className='input-container'>
+                    <input id='amount' className='input input-fields' value={(amount == null) ? '' : amount} onChange={onChangeAmount} onFocus={onFocusAmount} onBlur={onBlurAmount} />
+                    <div className='error-message'>{errorMessage}</div>
+                </div>
             </div>
 
             <div className='fields-container'>
@@ -31,9 +35,10 @@ export default function CurrencyRow(currencies) {
                 </select>
             </div>
             <div className='fields-container fields-container-reverse'>
-                <label className='hidden-label' htmlFor='reverse'>Reverse</label>
+                <label className='hidden-message' htmlFor='reverse'>Reverse</label>
                 <button id='reverse' className='reverse'><img src='icons/reverse.png' alt="reverse" /></button>
             </div>
+
             <div className='fields-container'>
                 <label htmlFor='to'>To</label>
                 <select id='to' className='input-fields' value={to} onChange={onChangeCode} >
