@@ -6,24 +6,54 @@ import NavigationBar from './NavigationBar';
 import Header from './Header'
 import React, { useEffect, useState } from 'react'
 const BASE_URL = 'https://api.apilayer.com/exchangerates_data/latest'
+const REQUEST_URL = 'https://api.exchangerate.host/latest';
+// var request = new XMLHttpRequest();
+// request.open('GET', REQUEST_URL);
+// request.responseType = 'json';
+// request.send();
 
-var myHeaders = new Headers();
-myHeaders.append("apikey", process.env.REACT_APP_API_KEY);
+// request.onload = function() {
+//   var response = request.response;
+//   console.log(response);
+//}
+// var myHeaders = new Headers();
+// myHeaders.append("apikey", process.env.REACT_APP_API_KEY);
 
-var requestOptions = {
-  method: 'GET',
-  redirect: 'follow',
-  headers: myHeaders
-};
+// var requestOptions = {
+//   method: 'GET',
+//   redirect: 'follow',
+//   headers: myHeaders
+// };
 
 function App() {
-  const [currencyCode, setCurrencyCode] = useState(['EUR', 'USD', 'JPY'])
-  const [fromCurrency, setFromCurrency] = useState('EUR')
-  const [toCurrency, setToCurrency] = useState('USD')
+  const [currencyCode, setCurrencyCode] = useState([])
+  const [fromCurrency, setFromCurrency] = useState()
+  const [toCurrency, setToCurrency] = useState()
   const [amount, setAmount] = useState((1).toFixed(2))
-  const [exchangeRate, setExchangeRate] = useState(1.343)
+  const [exchangeRate, setExchangeRate] = useState()
   const [amountChanged, setAmountChanged] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
+
+  useEffect(() => {
+    fetch(REQUEST_URL, { method: "GET" })
+      .then(res => res.json())
+      .then(result => {
+        const firstCurrency = Object.keys(result.rates)[149]
+        setCurrencyCode(Object.keys(result.rates))
+        setFromCurrency(result.base)
+        setToCurrency(firstCurrency)
+        setExchangeRate(result.rates[firstCurrency])
+      })
+      .catch(error => console.log('error', error));
+  }, [])
+
+  useEffect(() => {
+    if (fromCurrency != null && toCurrency != null) {
+      fetch(`${REQUEST_URL}?symbols=${toCurrency}&base=${fromCurrency}`, { method: "GET" })
+        .then(response => response.json())
+        .then(result => { setExchangeRate(result.rates[toCurrency]) })
+    }
+  }, [fromCurrency, toCurrency])
 
   function onFocusAmount() {
     if (amountChanged == false) {
@@ -85,7 +115,7 @@ function App() {
                 from={fromCurrency}
                 to={toCurrency}
                 amount={amount}
-                onChangeCode={e => setFromCurrency(e.target.value)}
+                onChangeCode={e => e.target.id == 'from' ? setFromCurrency(e.target.value) : setToCurrency(e.target.value)}
                 onChangeAmount={onChangeAmount}
                 onFocusAmount={onFocusAmount}
                 onBlurAmount={onBlurAmount}
