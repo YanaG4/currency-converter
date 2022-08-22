@@ -24,7 +24,7 @@ background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 }
 .main-container {
   
-  background-color: rgb(255, 255, 255, 0.1);
+  background-color: rgb(255, 255, 255, 0);
   border-radius: 1rem;
   border: none;
   max-width: 1000px;
@@ -46,6 +46,7 @@ background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
   width: 100%;
   position: sticky;
  top: 0;
+ z-index: 5;
 }
 .menuItems {
   display: flex;
@@ -94,22 +95,22 @@ background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
 .converter-container {
   background-color: rgb(255, 255, 255, 0.8);
   border-radius: 1rem;
-  padding: 3rem;
-  padding-top: 2.5rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border: none;
-  
   max-width: 1000px;
   margin-top: 2rem;
+}
+.converter-container-items {
+  padding: 3rem;
   margin-bottom: 2rem;
 }
 .currency-input-fields{
   display: flex;
   align-items: center;
   justify-content: center;
-
   gap: 0.5rem;
   width: 100%;
+  margin-bottom: 2rem;
 }
 .fields-container{
   display:flex;
@@ -220,4 +221,116 @@ label {
 .fields-container .error-message {
   position: absolute;
   top: 50px;
+}
+.to-currency-result-converter {
+  text-align: left;
+}
+.from-currency-result {
+  color: rgb(123, 92, 105);
+  font-size: .9rem;
+  font-weight: 600;
+}
+.to-currency-result {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+.to-currency-result span{
+  color: 	rgb(176, 161, 166)
+}
+.exchange-rate-reverse {
+  color: rgb(123, 92, 105);
+  font-size: .9rem;
+  font-weight: 300;
+  margin-top: .7rem;
+  margin-bottom: 1.1rem;
+}
+
+.main-button {
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: .5rem 1.2rem .5rem 1.2rem;
+  background-color: rgb(230, 79, 127);
+  border-radius: .5rem;
+  cursor: pointer;
+}
+.main-button:focus, .main-button:active, .main-button:hover{
+  border:none;
+  outline: none;
+}
+.main-button:hover{
+  background-color: hsl(341, 100%, 70%);
+}
+.main-button:focus{
+  background-color: hsl(341, 100%, 70%);
+  outline: 2px solid rgb(183, 52, 93);
+}
+.main-button:active {
+  background-color: rgb(183, 52, 93);
+}
+.notification{
+  display: flex;
+  align-items: center;
+  position: absolute;
+  font-size: .6rem;
+  color: rgb(63, 47, 54);
+  font-weight: 300;
+  background-color: rgb(230, 79, 127, .1);
+  padding: .4rem .4rem .4rem 0;
+  text-align: left;
+  max-width: 430px;
+  width: 50vw;
+}
+.main-button-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.converter-menu-item {
+  display: flex;
+}
+.converter-menu-item li {
+    list-style: none;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4dfdf;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;    
+    cursor: pointer;
+}
+.converter-menu-item a {
+  color: rgb(230, 79, 127);
+  font-weight: 500;
+  text-decoration: none;
+  font-size: .8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem .3rem;
+}
+.converter-menu-item li:first-child {
+  border-top-left-radius: 1rem;
+  background-color: transparent;
+}
+.converter-menu-item li:last-child {
+  border-top-right-radius: 1rem;
+}
+.converter-menu-item i {
+  margin-right: .5rem;
+  font-size: large;
+}
+.converter-menu-item li:hover {
+  background-color: transparent;
+  opacity: 60%;
+}
+.converter-menu-item a:focus {
+  outline: none;
+  border:none;
+  border-bottom: .15rem solid rgb(230, 79, 127);
+  margin-bottom: -.15rem;
 }

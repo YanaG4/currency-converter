@@ -20,7 +20,7 @@ export default function CurrencyRow(currencies) {
             <div className='fields-container'>
                 <label htmlFor='amount'>Amount</label>
                 <div className='input-container'>
-                    <input id='amount' className='input input-fields' value={(amount == null) ? '' : amount} onChange={onChangeAmount} onFocus={onFocusAmount} onBlur={onBlurAmount} />
+                    <input id='amount' className='input input-fields' maxLength="13" value={(amount == null) ? '' : amount} onChange={onChangeAmount} onFocus={onFocusAmount} onBlur={onBlurAmount} />
                     <div className='error-message'>{errorMessage}</div>
                 </div>
             </div>

@@ -21,7 +21,7 @@ function App() {
   const [fromCurrency, setFromCurrency] = useState('EUR')
   const [toCurrency, setToCurrency] = useState('USD')
   const [amount, setAmount] = useState((1).toFixed(2))
-  const [exchangeRate, setExchangeRate] = useState(0.7)
+  const [exchangeRate, setExchangeRate] = useState(1.343)
   const [amountChanged, setAmountChanged] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
@@ -71,22 +71,42 @@ function App() {
           <NavigationBar />
           <Header />
           <div className='converter-container'>
-            <h1>Currency converter</h1>
-            <CurrencyInputFields
-              currencyCodes={currencyCode}
-              from={fromCurrency}
-              to={toCurrency}
-              amount={amount}
-              onChangeCode={e => setFromCurrency(e.target.value)}
-              onChangeAmount={onChangeAmount}
-              onFocusAmount={onFocusAmount}
-              onBlurAmount={onBlurAmount}
-              errorMessage={errorMessage}
-            />
-            <CurrencyOutput
-              currencyCodes={currencyCode}
-              to={toCurrency}
-            />
+            <div>
+              <ul className="converter-menu-item">
+                <li><a href='/' data-item='Convert'><i className="fa fa-bitcoin"></i>Convert</a></li>
+                <li><a href='/' data-item='Send'><i className="fa fa-euro"></i>Send</a></li>
+                <li><a href='/' data-item='Charts'><i className="fa fa-cny"></i>Charts</a></li>
+                <li><a href='/' data-item='Alerts'><i className="	fa fa-gbp"></i>Alerts</a></li>
+              </ul>
+            </div>
+            <div className='converter-container-items'>
+              <CurrencyInputFields
+                currencyCodes={currencyCode}
+                from={fromCurrency}
+                to={toCurrency}
+                amount={amount}
+                onChangeCode={e => setFromCurrency(e.target.value)}
+                onChangeAmount={onChangeAmount}
+                onFocusAmount={onFocusAmount}
+                onBlurAmount={onBlurAmount}
+                errorMessage={errorMessage}
+              />
+              <CurrencyOutput
+                amount={amount}
+                from={fromCurrency}
+                to={toCurrency}
+                exchangeRate={exchangeRate}
+                errorMessage={errorMessage}
+              />
+
+              <div className='notification'>
+                <div style={{ margin: "0 .6rem", paddingTop: ".1rem" }}><i className="material-icons">new_releases</i></div>
+                <div>We use the mid-market rate for our Converter. This is for informational purposes only. You won’t receive this rate when sending money. Check send rates</div>
+              </div>
+              <div className='main-button-container'>
+                <button className='main-button'>Convert</button>
+              </div>
+            </div>
           </div>
           <div className='text-container'>
             <div className='text'>
