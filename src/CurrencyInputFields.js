@@ -9,6 +9,7 @@ export default function CurrencyRow(currencies) {
         onChangeAmount,
         onFocusAmount,
         onBlurAmount,
+        onClickReverse,
         errorMessage,
         amount
     } = currencies
@@ -36,7 +37,7 @@ export default function CurrencyRow(currencies) {
             </div>
             <div className='fields-container fields-container-reverse'>
                 <label className='hidden-message' htmlFor='reverse'>Reverse</label>
-                <button id='reverse' className='reverse'><img src='icons/reverse.png' alt="reverse" /></button>
+                <button id='reverse' className='reverse' onClick={onClickReverse}><img src='icons/reverse.png' alt="reverse" /></button>
             </div>
 
             <div className='fields-container'>

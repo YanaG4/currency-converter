@@ -5,25 +5,8 @@ import CurrencyOutput from './CurrencyOutput';
 import NavigationBar from './NavigationBar';
 import Header from './Header'
 import React, { useEffect, useState } from 'react'
-const BASE_URL = 'https://api.apilayer.com/exchangerates_data/latest'
 const REQUEST_URL = 'https://api.exchangerate.host/latest';
-// var request = new XMLHttpRequest();
-// request.open('GET', REQUEST_URL);
-// request.responseType = 'json';
-// request.send();
 
-// request.onload = function() {
-//   var response = request.response;
-//   console.log(response);
-//}
-// var myHeaders = new Headers();
-// myHeaders.append("apikey", process.env.REACT_APP_API_KEY);
-
-// var requestOptions = {
-//   method: 'GET',
-//   redirect: 'follow',
-//   headers: myHeaders
-// };
 
 function App() {
   const [currencyCode, setCurrencyCode] = useState([])
@@ -91,6 +74,11 @@ function App() {
       setAmount(checkAmount.toFixed(2))
     }
   }
+  function onClickReverse() {
+    const temporaryFromCode = fromCurrency
+    setFromCurrency(toCurrency)
+    setToCurrency(temporaryFromCode)
+  }
 
   return (
     <>
@@ -120,6 +108,7 @@ function App() {
                 onFocusAmount={onFocusAmount}
                 onBlurAmount={onBlurAmount}
                 errorMessage={errorMessage}
+                onClickReverse={onClickReverse}
               />
               <CurrencyOutput
                 amount={amount}
