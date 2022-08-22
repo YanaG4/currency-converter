@@ -1,4 +1,5 @@
 
+import './VariablesLightTheme.css'
 import './App.css';
 import CurrencyInputFields from './CurrencyInputFields';
 import CurrencyOutput from './CurrencyOutput';
