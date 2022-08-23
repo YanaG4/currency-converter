@@ -6,13 +6,12 @@ export default function CurrencyOutput(params) {
         from,
         to,
         amount,
-        exchangeRate,
-        errorMessage
+        exchangeRate
     } = params
 
 
     function formatCurrencyResult(exchangeRate) {
-        if (errorMessage == '' && amount > 0 && amount) {
+        if (amount > 0 && amount) {
             const separatedIntegerDecimalParts = (Number(amount).toFixed(2) * exchangeRate).toString().split('.')
             if (!separatedIntegerDecimalParts[1]) {
                 separatedIntegerDecimalParts[1] = '00'

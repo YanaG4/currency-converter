@@ -6,13 +6,53 @@ export default function CurrencyRow(currencies) {
         to,
         from,
         onChangeCode,
-        onChangeAmount,
-        onFocusAmount,
-        onBlurAmount,
+        setAmount,
         onClickReverse,
-        errorMessage,
         amount
     } = currencies
+    const [errorMessage, setErrorMessage] = useState('')
+    const [amountChanged, setAmountChanged] = useState(false)
+
+    useEffect(() => {
+        if (amount != '') {
+            if (amount <= 0) {
+                setErrorMessage('Please enter an amount greater than 0')
+                return
+            } else if (!parseFloat(amount)) {
+                setErrorMessage('Please enter a valid amount')
+                return
+            }
+        }
+        setErrorMessage('')
+    }, [amount])
+
+    function amountChangedHandler() {
+        setAmountChanged(true)
+    }
+
+
+    function onFocusAmount() {
+        if (amountChanged == false) {
+            setAmount('')
+        }
+    }
+    function onChangeAmount(e) {
+        setAmount(e.target.value)
+        setAmountChanged(true)
+    }
+    function onBlurAmount(e) {
+        if (amountChanged == false) {
+            setAmount((1).toFixed(2))
+            return
+        }
+        const checkAmount = parseFloat(e.target.value)
+        if (checkAmount <= 0 || !checkAmount) {
+            setAmount('')
+            return
+        }
+        setAmount(checkAmount.toFixed(2))
+    }
+
 
 
     return (
@@ -21,7 +61,7 @@ export default function CurrencyRow(currencies) {
             <div className='fields-container'>
                 <label htmlFor='amount'>Amount</label>
                 <div className='input-container'>
-                    <input id='amount' className='input input-fields' maxLength="13" value={(amount == null) ? '' : amount} onChange={onChangeAmount} onFocus={onFocusAmount} onBlur={onBlurAmount} />
+                    <input id='amount' className='input input-fields' maxLength="13" value={(amount == null) ? '' : amount} onChange={e => { onChangeAmount(e); amountChangedHandler() }} onFocus={onFocusAmount} onBlur={onBlurAmount} />
                     <div className='error-message'>{errorMessage}</div>
                 </div>
             </div>
