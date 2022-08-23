@@ -1,0 +1,26 @@
+
+.main-button {
+    border: none;
+    outline: none;
+    color: var(--main-button-text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: .5rem 1.2rem .5rem 1.2rem;
+    background-color: var(--main-element-color);
+    border-radius: .5rem;
+    cursor: pointer;
+  }
+  .main-button:focus, .main-button:active, .main-button:hover{
+    border:none;
+    outline: none;
+  }
+  .main-button:hover{
+    background-color: var(--main-button-background-color);
+  }
+  .main-button:focus{
+    background-color: var(--main-button-background-color);
+    outline: 2px solid var(--main-button-active-color);
+  }
+  .main-button:active {
+    background-color: var(--main-button-active-color);
+  }

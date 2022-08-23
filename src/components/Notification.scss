@@ -1,0 +1,14 @@
+
+.notification{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    font-size: .6rem;
+    color: var(--notification-color);
+    font-weight: 300;
+    background-color: var(--notification-background-color);
+    padding: .4rem .4rem .4rem 0;
+    text-align: left;
+    max-width: 430px;
+    width: 50vw;
+  }

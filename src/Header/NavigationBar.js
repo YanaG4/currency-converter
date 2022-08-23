@@ -1,4 +1,5 @@
 import React from 'react'
+import './NavigationBar.scss'
 
 export default function NavigationBar() {
     return (

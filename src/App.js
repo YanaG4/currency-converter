@@ -1,85 +1,10 @@
-
-import './VariablesLightTheme.css'
+import './styles/VariablesWarmTheme.css'
 import './App.css';
-import CurrencyInputFields from './CurrencyInputFields';
-import CurrencyOutput from './CurrencyOutput';
-import NavigationBar from './NavigationBar';
-import Header from './Header'
-import React, { useEffect, useState } from 'react'
-const REQUEST_URL = 'https://api.exchangerate.host/latest';
-
+import Converter from './Converter/Converter';
+import NavigationBar from './Header/NavigationBar';
+import Header from './Header/Header'
 
 function App() {
-  const [currencyCode, setCurrencyCode] = useState([])
-  const [fromCurrency, setFromCurrency] = useState()
-  const [toCurrency, setToCurrency] = useState()
-  const [amount, setAmount] = useState((1).toFixed(2))
-  const [exchangeRate, setExchangeRate] = useState()
-  const [amountChanged, setAmountChanged] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
-
-  useEffect(() => {
-    fetch(REQUEST_URL, { method: "GET" })
-      .then(res => res.json())
-      .then(result => {
-        const firstCurrency = Object.keys(result.rates)[149]
-        setCurrencyCode(Object.keys(result.rates))
-        setFromCurrency(result.base)
-        setToCurrency(firstCurrency)
-        setExchangeRate(result.rates[firstCurrency])
-      })
-      .catch(error => console.log('error', error));
-  }, [])
-
-  useEffect(() => {
-    if (fromCurrency != null && toCurrency != null) {
-      fetch(`${REQUEST_URL}?symbols=${toCurrency}&base=${fromCurrency}`, { method: "GET" })
-        .then(response => response.json())
-        .then(result => { setExchangeRate(result.rates[toCurrency]) })
-    }
-  }, [fromCurrency, toCurrency])
-
-  function onFocusAmount() {
-    if (amountChanged == false) {
-      setAmount(null)
-    }
-  }
-
-  function checkAmountIsCorrect(checkAmount) {
-    if (checkAmount <= 0) {
-      setAmount('')
-      setErrorMessage('Please enter an amount greater than 0')
-      return false
-    }
-    if (!checkAmount) {
-      setAmount('')
-      setErrorMessage('Please enter a valid amount')
-      return false
-    }
-    setErrorMessage('')
-    return true
-  }
-
-  function onChangeAmount(e) {
-    setAmount(e.target.value)
-    setAmountChanged(true)
-  }
-
-  function onBlurAmount(e) {
-    if (amountChanged == false) {
-      setAmount((1).toFixed(2))
-      return
-    }
-    const checkAmount = parseFloat(e.target.value)
-    if (checkAmountIsCorrect(checkAmount)) {
-      setAmount(checkAmount.toFixed(2))
-    }
-  }
-  function onClickReverse() {
-    const temporaryFromCode = fromCurrency
-    setFromCurrency(toCurrency)
-    setToCurrency(temporaryFromCode)
-  }
 
   return (
     <>
@@ -89,45 +14,7 @@ function App() {
 
           <NavigationBar />
           <Header />
-          <div className='converter-container'>
-            <div>
-              <ul className="converter-menu-item">
-                <li><a href='/' data-item='Convert'><i className="fa fa-bitcoin"></i>Convert</a></li>
-                <li><a href='/' data-item='Send'><i className="fa fa-euro"></i>Send</a></li>
-                <li><a href='/' data-item='Charts'><i className="fa fa-cny"></i>Charts</a></li>
-                <li><a href='/' data-item='Alerts'><i className="	fa fa-gbp"></i>Alerts</a></li>
-              </ul>
-            </div>
-            <div className='converter-container-items'>
-              <CurrencyInputFields
-                currencyCodes={currencyCode}
-                from={fromCurrency}
-                to={toCurrency}
-                amount={amount}
-                onChangeCode={e => e.target.id == 'from' ? setFromCurrency(e.target.value) : setToCurrency(e.target.value)}
-                onChangeAmount={onChangeAmount}
-                onFocusAmount={onFocusAmount}
-                onBlurAmount={onBlurAmount}
-                errorMessage={errorMessage}
-                onClickReverse={onClickReverse}
-              />
-              <CurrencyOutput
-                amount={amount}
-                from={fromCurrency}
-                to={toCurrency}
-                exchangeRate={exchangeRate}
-                errorMessage={errorMessage}
-              />
-
-              <div className='notification'>
-                <div style={{ margin: "0 .6rem", paddingTop: ".1rem" }}><i className="material-icons">new_releases</i></div>
-                <div>We use the mid-market rate for our Converter. This is for informational purposes only. You won’t receive this rate when sending money. Check send rates</div>
-              </div>
-              <div className='main-button-container'>
-                <button className='main-button'>Convert</button>
-              </div>
-            </div>
-          </div>
+          <Converter />
           <div className='text-container'>
             <div className='text'>
               <strong>Beyond the Wall of Sleep

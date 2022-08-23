@@ -1,0 +1,22 @@
+.to-currency-result-container {
+    text-align: left;
+  }
+  .from-currency-result {
+    color: var(--text-subtle-color);
+    font-size: .9rem;
+    font-weight: 600;
+  }
+  .to-currency-result {
+    font-size: 1.7rem;
+    font-weight: 600;
+  }
+  .to-currency-result span{
+    color: 	var(--to-currency-color);
+  }
+  .exchange-rate-reverse {
+    color: var(--text-subtle-color);
+    font-size: .9rem;
+    font-weight: 300;
+    margin-top: .7rem;
+    margin-bottom: 1.1rem;
+  }
