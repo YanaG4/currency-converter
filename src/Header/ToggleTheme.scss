@@ -1,0 +1,34 @@
+.toggle-container {
+    margin-top: 5px;
+}
+
+.switch-theme{
+    position: relative;
+    display: inline-block;
+    width: 110px;
+    height: 24px;
+  }
+  
+  .switch-theme > label.slider-theme{
+    margin: 0px;
+    width: 110px;
+    height: 25px;
+    background: #E0E0E0;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    display: block;
+  }
+  
+.switch-theme input{
+    cursor: pointer;
+    width: 110px;
+    height: 25px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left:0;
+    z-index: 1;
+    margin: 0px;
+  }

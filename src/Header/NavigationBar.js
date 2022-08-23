@@ -1,5 +1,6 @@
 import React from 'react'
 import './NavigationBar.scss'
+import ToggleTheme from './ToggleTheme'
 
 export default function NavigationBar() {
     return (
@@ -13,6 +14,7 @@ export default function NavigationBar() {
                 <li><a href='/' data-item='Currency API'>Currency API</a></li>
                 <li><a href='/' data-item='Tools'>Tools</a></li>
             </ul>
+            <ToggleTheme />
         </nav>
 
     )
