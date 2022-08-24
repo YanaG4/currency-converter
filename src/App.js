@@ -1,13 +1,15 @@
 import './styles/VariablesWarmTheme.css'
-import './App.css';
+import './App.scss';
 import Converter from './Converter/Converter';
 import NavigationBar from './Header/NavigationBar';
 import Header from './Header/Header'
 
-function App() {
+import { useTheme } from "./utils/useTheme";
 
+function App() {
+  const theme = useTheme();
   return (
-    <>
+    <div className={theme}>
       <div className='nav-header-full-width'></div>
       <section className='body-section'>
         <div className='main-container'>
@@ -30,7 +32,7 @@ function App() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 

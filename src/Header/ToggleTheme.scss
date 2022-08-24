@@ -42,7 +42,7 @@ label{
     width: 48px;
     height: 17px;
     color: var(--main-button-background-color);
-    background: white;
+    background: var(--secondary-button-background-color);
     border-radius: 15px;
    position: absolute;
     left: 2px;
@@ -67,14 +67,14 @@ label{
   
   .switch-theme input:checked + label.slider-theme{
     background: #1041aa;
-    color: #fff;
+    color: var(--heading-text-color);
   }
   
   .switch-theme input:checked + label.slider-theme:after{
     content: attr(data-cold);
     left: 60px;
     background: #68acf1;
-    color: white;
+    color: var(--heading-text-color);
   }
   
   .switch-theme input:checked + label.slider-theme:before{

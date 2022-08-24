@@ -1,0 +1,104 @@
+$themes: (
+    main-theme-color: (
+        warmTheme: rgb(65, 88, 208),
+        coldTheme: rgb(30, 154, 198)
+        ),
+    accent-gradient-color: (
+        warmTheme: rgb(255, 204, 112),
+        coldTheme: rgb(134, 239, 233)
+        ), 
+    secondary-gradient-color: (
+        warmTheme: rgb(200, 80, 140),
+        coldTheme: rgb(53, 83, 227)
+        ), 
+         
+    main-element-color: (
+        warmTheme: rgb(230, 79, 127),
+        coldTheme: rgb(41, 177, 222)
+        ), 
+    active-element-color: (
+        warmTheme: rgb(230, 79, 127),
+        coldTheme: rgb(40, 162, 203)
+        ),
+    error-message:(
+        warmTheme: rgb(230, 79, 127),
+        coldTheme: rgb(230, 79, 127)
+        ), 
+
+    main-button-background-color:(
+        warmTheme: rgb(255, 102, 150),
+        coldTheme: rgb(40, 162, 203)
+        ), 
+    main-button-active-color:(
+        warmTheme:  rgb(183, 52, 93),
+        coldTheme: rgb(4, 134, 177)
+        ), 
+
+    to-currency-color:(
+        warmTheme: rgb(176, 161, 166),
+        coldTheme: rgb(156, 175, 180)
+        ), 
+    text-subtle-color:(
+        warmTheme: rgb(123, 92, 105),
+        coldTheme: rgb(92, 119, 123)
+        ), 
+
+    background-inactive-menu-color:(
+        warmTheme:  rgb(244, 223, 223),
+        coldTheme: rgb(212, 239, 249),
+        ), 
+
+    notification-background-color:(
+        warmTheme: rgb(230, 79, 127, .1),
+        coldTheme: rgba(79, 222, 230, 0.1),
+        ), 
+    notification-color: (
+        warmTheme: rgb(63, 47, 54),
+        coldTheme: rgb(37, 93, 123)
+        ), 
+
+    border-color:(
+        warmTheme: rgb(215, 215, 215),
+        coldTheme: rgb(194, 197, 220),
+        ), 
+        
+    secondary-button-background-color:(
+        warmTheme: white,
+        coldTheme: white,
+        ), 
+    heading-text-color:(
+        warmTheme: white,
+        coldTheme: white
+        ), 
+    main-button-text-color: (
+        warmTheme: white,
+        coldTheme: white
+        ),
+    nav-bar-link-color:(
+        warmTheme:  white,
+        coldTheme: white
+        ), 
+    container-background-color:(
+        warmTheme:  rgb(255, 255, 255, 0.8),
+        coldTheme: rgb(255, 255, 255, 0.9),
+        )
+    );
+
+    
+@mixin styles($mode) {
+    @each $key, $map in $themes {
+        @each $prop, $color in $map {
+            @if $prop == $mode {
+                --#{$key}: #{$color};
+              }
+        }
+    }
+}
+.dark-mode {
+    @include styles("coldTheme");
+  }
+  
+  .light-mode {
+    @include styles("warmTheme");
+  }
+
