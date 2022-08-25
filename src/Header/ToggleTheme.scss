@@ -1,3 +1,5 @@
+
+
 label{
     font-size: .7rem;
     color: var(--active-element-color);
@@ -83,4 +85,9 @@ label{
     left: 14px;
   }
   
-  
+  .switch-theme input:checked:focus + label.slider-theme:after{
+    background: var(--main-theme-color);
+  }
+  .switch-theme input:focus + label.slider-theme:after{
+    background: var(--main-theme-color);
+  }
