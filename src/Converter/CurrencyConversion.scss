@@ -1,0 +1,21 @@
+.container-with-background{
+    position: relative;
+    padding-bottom: 2rem;
+}
+
+.single-color-background-container{
+    background-color: rgb(255, 255, 255, .9);
+    width: 100vw;
+    position: absolute;
+    top: -9.5rem;
+    bottom: -1rem;
+    left: calc(-50vw + 50%);
+    overflow: hidden;
+    z-index: -100;
+    
+}
+.table-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}

@@ -11,8 +11,9 @@ export default function CurrencyOutput(params) {
 
 
     function formatCurrencyResult(exchangeRate) {
-        if (amount > 0 && amount) {
-            const separatedIntegerDecimalParts = (Number(amount).toFixed(2) * exchangeRate).toString().split('.')
+        const processedAmount = parseFloat((amount.toString()).replaceAll(',', ''))
+        if (processedAmount > 0 && processedAmount) {
+            const separatedIntegerDecimalParts = (Number(processedAmount).toFixed(2) * exchangeRate).toString().split('.')
             if (!separatedIntegerDecimalParts[1]) {
                 separatedIntegerDecimalParts[1] = '00'
             }

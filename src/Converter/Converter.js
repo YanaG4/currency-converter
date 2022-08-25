@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react'
 import { EXCHANGE_RATE_API } from '../constants/api';
 import Button from '../components/Button';
 import './Converter.scss'
+import CurrencyConversion from './CurrencyConversion'
 
 function Converter() {
     const [currencyCode, setCurrencyCode] = useState([])
@@ -45,31 +46,37 @@ function Converter() {
     }
 
     return (
-        <div className='converter-container'>
-            <ConverterNavigationBar />
-            <div className='converter-container-items'>
-                <CurrencyInputFields
-                    currencyCodes={currencyCode}
-                    from={fromCurrency}
-                    to={toCurrency}
-                    amount={amount}
-                    onChangeCode={e => e.target.id == 'from' ? setFromCurrency(e.target.value) : setToCurrency(e.target.value)}
-                    setAmount={changeAmountHandler}
-                    onClickReverse={onClickReverse}
-                />
-                <CurrencyOutput
-                    amount={amount}
-                    from={fromCurrency}
-                    to={toCurrency}
-                    exchangeRate={exchangeRate}
-                />
+        <>
+            <div className='data-container converter-container'>
+                <ConverterNavigationBar />
+                <div className='converter-container-items'>
+                    <CurrencyInputFields
+                        currencyCodes={currencyCode}
+                        from={fromCurrency}
+                        to={toCurrency}
+                        amount={amount}
+                        onChangeCode={e => e.target.id == 'from' ? setFromCurrency(e.target.value) : setToCurrency(e.target.value)}
+                        setAmount={changeAmountHandler}
+                        onClickReverse={onClickReverse}
+                    />
+                    <CurrencyOutput
+                        amount={amount}
+                        from={fromCurrency}
+                        to={toCurrency}
+                        exchangeRate={exchangeRate}
+                    />
 
-                <Notification text='We use the mid-market rate for our Converter. This is for informational purposes only. You won’t receive this rate when sending money. Check send rates' />
-                <div className='main-button-container'>
-                    <Button text='Convert' />
+                    <Notification text='We use the mid-market rate for our Converter. This is for informational purposes only. You won’t receive this rate when sending money. Check send rates' />
+                    {/* <div className='main-button-container'>
+                        <Button text='Convert' />
+                    </div> */}
                 </div>
             </div>
-        </div>
+            <CurrencyConversion
+                from={fromCurrency}
+                to={toCurrency}
+                exchangeRate={exchangeRate} />
+        </>
     );
 }
 

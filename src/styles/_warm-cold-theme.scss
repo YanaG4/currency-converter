@@ -61,7 +61,7 @@ $themes: (
         warmTheme: rgb(215, 215, 215),
         coldTheme: rgb(194, 197, 220),
         ), 
-        
+
     secondary-button-background-color:(
         warmTheme: white,
         coldTheme: white,
@@ -79,8 +79,14 @@ $themes: (
         coldTheme: white
         ), 
     container-background-color:(
-        warmTheme:  rgb(255, 255, 255, 0.8),
-        coldTheme: rgb(255, 255, 255, 0.9),
+        // warmTheme:  rgb(255, 255, 255, 0.8),
+        warmTheme:  rgba(255, 237, 237, 1),
+        // coldTheme: rgb(253, 254, 255),
+        coldTheme: rgb(240, 247, 253)
+        ),
+        table-container-background-color: (
+            warmTheme:  rgb(252, 240, 240),
+            coldTheme: rgb(253, 254, 255)
         )
     );
 
@@ -95,10 +101,10 @@ $themes: (
     }
 }
 .dark-mode {
-    @include styles("coldTheme");
+    @include styles("warmTheme");
   }
   
   .light-mode {
-    @include styles("warmTheme");
+    @include styles("coldTheme");
   }
 

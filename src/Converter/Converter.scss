@@ -1,14 +1,11 @@
 
-.converter-container {
-    background-color: var(--container-background-color);
-    border-radius: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border: none;
-    max-width: 1000px;
-    margin-top: 2rem;
-  }
+// .converter-container {
+    
+    
+//   }
   .converter-container-items {
     padding: 3rem;
+    padding-bottom: 5.1rem;
     margin-bottom: 2rem;
   }
   .currency-input-fields{
@@ -28,6 +25,10 @@
   }
   .fields-container:first-child{
     margin-right: .7rem;
+  }
+  .fields-container label{
+    font-size: .9rem;
+    font-weight: 600;
   }
   
   input {

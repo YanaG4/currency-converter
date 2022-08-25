@@ -44,3 +44,10 @@
     border-bottom: .15rem solid var(--active-element-color);
     margin-bottom: -.15rem;
   }
+
+  @media only screen and (max-width: 600px) {
+    .converter-menu-item i{   
+      display: none;
+    }
+   
+  }

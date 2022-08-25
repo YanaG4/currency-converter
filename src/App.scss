@@ -15,6 +15,8 @@ body{
   text-align: center;
   background-color: var(--main-theme-color);
   background-image: linear-gradient(43deg, var(--main-theme-color) 0%, var(--secondary-gradient-color) 46%, var(--accent-gradient-color) 100%);
+  overflow-x:hidden;
+  font-size: 1rem;
 }
 .body-section {
   display: flex;
@@ -28,16 +30,21 @@ body{
   max-width: 1000px;
   width: 90vw;
 }
-.text-container {
+
+.data-container {
   background-color: var(--container-background-color);
-  border-radius: 1rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: none;
+    max-width: 1000px;
+    margin-top: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+
+.text-container {
   padding: 3rem;
   padding-top: 2.5rem;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border: none;
-  max-width: 1000px;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
   text-align: justify;
 }
 .text {

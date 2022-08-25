@@ -6,13 +6,11 @@ import { useTheme } from "../utils/useTheme";
 export default function ToggleTheme() {
     const darkMode = useDarkMode(true);
     const theme = useTheme();
-
-
     return (
-        <div class="toggle-container">
-            <label class="switch-theme">
+        <div className="toggle-container">
+            <label className="switch-theme">
                 <input type="checkbox" id="input-theme" onClick={darkMode.toggle} />
-                <label for="input-theme" data-warm="Warm" data-cold="Cold" class="slider-theme"></label>
+                <label htmlFor="input-theme" data-warm="Warm" data-cold="Cold" className="slider-theme"></label>
             </label>
         </div>
     )

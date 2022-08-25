@@ -12,6 +12,8 @@ export default function NavigationBar() {
                 <li><a href='/' data-item='Converter'>Converter</a></li>
                 <li><a href='/' data-item='Currency API'>Currency API</a></li>
                 <li><a href='/' data-item='Tools'>Tools</a></li>
+                <li className="icon"><a href="/" data-item='Menu'>☰</a>
+                </li>
             </ul>
             <ToggleTheme />
         </nav>
