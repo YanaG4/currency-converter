@@ -7,6 +7,7 @@ import { EXCHANGE_RATE_API } from '../constants/api';
 import Button from '../components/Button';
 import './Converter.scss'
 import CurrencyConversion from './CurrencyConversion'
+import Carousel from './Carousel'
 
 function Converter() {
     const [currencyCode, setCurrencyCode] = useState([])
@@ -73,6 +74,10 @@ function Converter() {
                 </div>
             </div>
             <CurrencyConversion
+                from={fromCurrency}
+                to={toCurrency}
+                exchangeRate={exchangeRate} />
+            <Carousel
                 from={fromCurrency}
                 to={toCurrency}
                 exchangeRate={exchangeRate} />
