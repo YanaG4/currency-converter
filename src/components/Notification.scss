@@ -13,3 +13,12 @@
     width: 60vw;
     min-width: 250px;
   }
+  .notification {
+    transition: font-size .5s, min-width .5s;
+  }
+  @media only screen and (max-width: 330px){
+    .notification {
+      font-size: .55rem;
+      min-width: 230px;
+    }
+  }

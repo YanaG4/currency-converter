@@ -113,3 +113,45 @@
     width: 100%;
     justify-content: flex-end;
   }
+  .converter-container-items{
+    transition: padding .5s;
+}
+
+  @media only screen and (max-width: 800px) {
+    .converter-container-items {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    .currency-input-fields{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;  
+      gap: 0;    
+    }
+    .fields-container{
+      width: 100%;
+     max-width: 600px;
+    }
+    .fields-container:first-child{
+      margin-right: 0rem;
+    }
+    
+    .reverse {
+      margin-top: 20px;
+      transform: rotate(90deg);
+    }
+    .converter-container-items {
+      padding: 2rem;
+      padding-bottom: 5.5rem;
+    }
+    .hidden-message {
+      display: none;
+    }
+    .fields-container:first-child{
+      margin-bottom: 20px;
+    }
+  }
+ 

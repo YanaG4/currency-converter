@@ -20,3 +20,11 @@
     margin-top: .7rem;
     margin-bottom: 1.1rem;
   }
+  .to-currency-result{
+    transition: font-size .5s;
+}
+  @media only screen and (max-width: 360px){
+    .to-currency-result {
+      font-size: 1.4rem;
+    }
+  }

@@ -44,7 +44,7 @@
     content: '';
     display: inline-block;
     visibility: visible;
-    border: 2px solid white;
+    border: 2px solid white;  
 }
 .slider [type='radio']:checked:after {
     width: 20px;
@@ -58,6 +58,9 @@
     display: inline-block;
     visibility: visible;
     border: 2px solid white;
+}
+.slider [type='radio']:not(:checked){
+    cursor: pointer;
 }
  
   
@@ -103,4 +106,19 @@
     z-index: -5;
 }
   
+  }
+  .slider [type=radio]{
+    transition: top 1s;
+  }
+  .slider{
+    transition: height 1s;
+  }
+
+  @media only screen and (max-width: 360px){
+    .slider [type=radio]{
+      top: 650px;
+    }
+    .slider{
+      height: 675px;
+    }
   }
