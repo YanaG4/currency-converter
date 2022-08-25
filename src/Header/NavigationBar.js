@@ -6,15 +6,14 @@ export default function NavigationBar() {
     return (
         <nav className='nav-header'>
             <img src='icons/dollar_white.png' alt="Logo" />
-            <ul className="menuItems">
-                <li><a href='/' data-item='Personal'>Personal</a></li>
-                <li><a href='/' data-item='Business'>Business</a></li>
-                <li><a href='/' data-item='Converter'>Converter</a></li>
-                <li><a href='/' data-item='Currency API'>Currency API</a></li>
-                <li><a href='/' data-item='Tools'>Tools</a></li>
-                <li className="icon"><a href="/" data-item='Menu'>☰</a>
-                </li>
-            </ul>
+            <div className='menu'><a href='/'>☰</a>
+                <ul className="menuItems dropdown">
+                    <li className='link'><a href='/' data-item='Converter'>Converter</a></li>
+                    <li className='link'><a href='/' data-item='Currency API'>Currency API</a></li>
+                    <li className='link'><a href='/' data-item='Tech stack'>Tech stack</a></li>
+                    <li className='link'><a href='/' data-item='About'>About</a></li>
+                </ul>
+            </div>
             <ToggleTheme />
         </nav>
 
