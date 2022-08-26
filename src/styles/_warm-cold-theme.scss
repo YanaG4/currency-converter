@@ -87,6 +87,10 @@ $themes: (
         table-container-background-color: (
             warmTheme:  hsl(0, 67%, 97%),
             coldTheme: rgb(253, 254, 255)
+        ),
+        button-reverse-color: (
+            warmTheme:  none,
+            coldTheme:  invert(48%) sepia(79%) saturate(2476%) hue-rotate(186deg) brightness(118%) contrast(119%)
         )
     );
 

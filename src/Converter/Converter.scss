@@ -74,10 +74,12 @@
     align-items: center;
     justify-content: center;
   }
-  .reverse img {
+  .reverse object {
     max-width: 1.3rem;
     max-height: 1.3rem;
+    filter: var(--button-reverse-color);
   }
+ 
   .fields-container-reverse{
     display: flex;
     flex-direction:column;
