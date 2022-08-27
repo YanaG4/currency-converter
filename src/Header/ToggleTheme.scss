@@ -68,15 +68,15 @@ label{
   }
   
   .switch-theme input:checked + label.slider-theme{
-    background: #1041aa;
-    color: var(--heading-text-color);
+    // background: #1041aa;
+    // color: var(--heading-text-color);
   }
   
   .switch-theme input:checked + label.slider-theme:after{
     content: attr(data-cold);
     left: 60px;
-    background: #68acf1;
-    color: var(--heading-text-color);
+    // background: #68acf1;
+    // color: var(--heading-text-color);
   }
   
   .switch-theme input:checked + label.slider-theme:before{
@@ -86,8 +86,10 @@ label{
   }
   
   .switch-theme input:checked:focus + label.slider-theme:after{
-    background: var(--main-theme-color);
+    background: var(--theme-switch-focus-color);
+    color: white;
   }
   .switch-theme input:focus + label.slider-theme:after{
-    background: var(--main-theme-color);
+    background: var(--theme-switch-focus-color);
+    color: white;
   }

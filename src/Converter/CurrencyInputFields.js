@@ -58,8 +58,6 @@ export default function CurrencyRow(currencies) {
 
     return (
         <div className='currency-input-fields'>
-            {/* <button><object data="icons/reverse.svg" width="300" height="300"> </object></button>
-            <button><img src='icons/reverse.svg' alt="reverse" /></button> */}
             <div className='fields-container'>
                 <label htmlFor='amount'>Amount</label>
                 <div className='input-container'>

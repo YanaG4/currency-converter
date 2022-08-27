@@ -91,6 +91,10 @@ $themes: (
         button-reverse-color: (
             warmTheme:  none,
             coldTheme:  invert(48%) sepia(79%) saturate(2476%) hue-rotate(186deg) brightness(118%) contrast(119%)
+        ),
+        theme-switch-focus-color: (
+            warmTheme:  rgb(65, 88, 208),
+            coldTheme: rgb(30, 154, 198)
         )
     );
 
@@ -105,10 +109,10 @@ $themes: (
     }
 }
 .dark-mode {
-    @include styles("warmTheme");
+    @include styles("coldTheme");
   }
   
   .light-mode {
-    @include styles("coldTheme");
+    @include styles("warmTheme");
   }
 

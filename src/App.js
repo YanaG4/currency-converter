@@ -5,6 +5,7 @@ import NavigationBar from './Header/NavigationBar';
 import Header from './Header/Header'
 import { useTheme } from "./utils/useTheme";
 import React, { useEffect, useState } from 'react'
+import MobileSection from './MobileSection/MobileSection'
 
 function App() {
   const theme = useTheme();
@@ -17,6 +18,7 @@ function App() {
           <NavigationBar />
           <Header />
           <Converter />
+          <MobileSection />
           <div className='data-container text-container'>
             <div className='text'>
               <strong>Beyond the Wall of Sleep

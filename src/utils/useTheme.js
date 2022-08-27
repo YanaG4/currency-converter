@@ -1,14 +1,14 @@
 import React from "react";
 import useDarkMode from "use-dark-mode";
 
-const coldTheme = "light-mode";
-const warmTheme = "dark-mode";
+const warmTheme = "light-mode";
+const coldTheme = "dark-mode";
 
 export const useTheme = () => {
     const darkMode = useDarkMode();
-    const [theme, setTheme] = React.useState(warmTheme);
+    const [theme, setTheme] = React.useState(coldTheme);
     React.useEffect(() => {
-        setTheme(darkMode?.value ? warmTheme : coldTheme);
+        setTheme(darkMode?.value ? coldTheme : warmTheme);
     }, [darkMode.value]);
 
     return theme;

@@ -1,0 +1,54 @@
+.mobile-container {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    display: flex;
+    gap: 7%;
+    align-items: center;
+}
+.mobile-container img{
+    max-width: 55%;
+
+}
+.mobile-text {
+    text-align: center;
+    color: white;
+    min-width: 30%;
+}
+.mobile-text h4 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    
+}
+.mobile-text h4:first-child {
+    margin-top: 0;
+}
+.mobile-text h4:last-of-type {
+    //margin-bottom: 1rem;
+    background: linear-gradient(-45deg, #ffb868, #ff5f84, #30c6fd, #33ecc1);
+	background-size: 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 10s ease infinite;
+}
+
+.mobile-text .button {
+    margin-top: 1.5rem
+}
+.small-text {
+    font-size: .9rem;
+    opacity: .6;
+    margin-top: .7rem;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
