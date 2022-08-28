@@ -1,6 +1,6 @@
 import React from 'react'
 import './MobileSection.scss'
-import ToggleTheme from '../Header/ToggleTheme'
+import ToggleTheme from '../components/ToggleTheme'
 
 export default function MobileSection() {
     return (

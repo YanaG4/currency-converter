@@ -1,6 +1,6 @@
 import React from 'react'
 import './NavigationBar.scss'
-import ToggleTheme from './ToggleTheme'
+import ToggleTheme from '../components/ToggleTheme'
 
 export default function NavigationBar() {
     return (
