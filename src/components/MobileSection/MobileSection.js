@@ -1,12 +1,12 @@
 import React from 'react'
 import './MobileSection.scss'
-import ToggleTheme from '../components/ToggleTheme'
+import ToggleTheme from '../Elements/ToggleTheme'
 
 export default function MobileSection() {
     return (
         <>
             <div className='mobile-container'>
-                <img src='images/iphone_ipad2.png' />
+                <img src='images/iphone_ipad2.png' alt='Mobile and tablet view of the currency converter.' />
                 <div className='mobile-text'>
                     <h4>Responsive Design.</h4>
                     <div className='text'>

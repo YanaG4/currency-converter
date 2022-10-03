@@ -1,7 +1,7 @@
 import React from 'react'
 import './ToggleTheme.scss'
 import useDarkMode from "use-dark-mode";
-import { useTheme } from "../utils/useTheme";
+import { useTheme } from "../../utils/useTheme";
 import { useRef, useEffect } from 'react';
 
 export default function ToggleTheme() {
@@ -9,7 +9,7 @@ export default function ToggleTheme() {
     const theme = useTheme();
     const inputElement = useRef();
     useEffect(() => {
-        if (darkMode.value != inputElement.current.checked)
+        if (darkMode.value !== inputElement.current.checked)
             inputElement.current.checked = darkMode.value
         console.log(darkMode.value);
     }, [darkMode])

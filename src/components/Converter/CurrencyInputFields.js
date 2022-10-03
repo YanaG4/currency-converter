@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import { currencyInfo } from '../../stores/currencyFullInfo'
+import ReverseButton from './ReverseButton'
 
 export default function CurrencyRow(currencies) {
     const {
@@ -14,7 +16,7 @@ export default function CurrencyRow(currencies) {
     const [amountChanged, setAmountChanged] = useState(false)
 
     useEffect(() => {
-        if (amount != '') {
+        if (amount !== '') {
             if (amount <= 0) {
                 setErrorMessage('Please enter an amount greater than 0')
                 return
@@ -32,7 +34,7 @@ export default function CurrencyRow(currencies) {
 
 
     function onFocusAmount() {
-        if (amountChanged == false) {
+        if (!amountChanged) {
             setAmount('')
         }
     }
@@ -42,7 +44,7 @@ export default function CurrencyRow(currencies) {
 
     }
     function onBlurAmount(e) {
-        if (amountChanged == false) {
+        if (!amountChanged) {
             setAmount((1).toFixed(2))
             return
         }
@@ -77,7 +79,7 @@ export default function CurrencyRow(currencies) {
             </div>
             <div className='fields-container fields-container-reverse'>
                 <label className='hidden-message' htmlFor='reverse'>Reverse</label>
-                <button id='reverse' className='reverse' onClick={onClickReverse}><object data="icons/reverse.svg" width="300" height="300"></object></button>
+                <ReverseButton onClickReverse={onClickReverse} />
             </div>
 
             <div className='fields-container'>

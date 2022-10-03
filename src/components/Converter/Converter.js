@@ -1,12 +1,11 @@
 import ConverterNavigationBar from './ConverterNavigationBar'
 import CurrencyInputFields from './CurrencyInputFields';
 import CurrencyOutput from './CurrencyOutput';
-import { Notification } from '../components/Notification';
+import { Notification } from '../Elements/Notification'
 import React, { useEffect, useState } from 'react'
-import { EXCHANGE_RATE_API } from '../constants/api';
-import Button from '../components/Button';
+import { EXCHANGE_RATE_API } from '../../constants/api';
 import './Converter.scss'
-import CurrencyConversion from './CurrencyConversion'
+import CurrencyTable from './CurrencyTable'
 
 function Converter() {
     const [currencyCode, setCurrencyCode] = useState([])
@@ -29,7 +28,7 @@ function Converter() {
     }, [])
 
     useEffect(() => {
-        if (fromCurrency != null && toCurrency != null) {
+        if (fromCurrency !== null && toCurrency !== null) {
             fetch(`${EXCHANGE_RATE_API}?symbols=${toCurrency}&base=${fromCurrency}`, { method: "GET" })
                 .then(response => response.json())
                 .then(result => { setExchangeRate(result.rates[toCurrency]) })
@@ -55,7 +54,7 @@ function Converter() {
                         from={fromCurrency}
                         to={toCurrency}
                         amount={amount}
-                        onChangeCode={e => e.target.id == 'from' ? setFromCurrency(e.target.value) : setToCurrency(e.target.value)}
+                        onChangeCode={e => e.target.id === 'from' ? setFromCurrency(e.target.value) : setToCurrency(e.target.value)}
                         setAmount={changeAmountHandler}
                         onClickReverse={onClickReverse}
                     />
@@ -72,7 +71,7 @@ function Converter() {
                     </div> */}
                 </div>
             </div>
-            <CurrencyConversion
+            <CurrencyTable
                 from={fromCurrency}
                 to={toCurrency}
                 exchangeRate={exchangeRate} />
