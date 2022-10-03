@@ -15,7 +15,6 @@ export default function CurrencyTable(params) {
 
                 <input type="radio" name="slider" id="s1" />
                 <input type="radio" name="slider" id="s2" defaultChecked={true} />
-                {/* <div className='flex-class'> */}
                 <label htmlFor="s1" id="slide1">
                     <div>
                         <CurrencyConversionTable
@@ -33,7 +32,6 @@ export default function CurrencyTable(params) {
                         />
                     </div>
                 </label>
-                {/* </div> */}
             </div>
         </div>
     )

@@ -1,5 +1,5 @@
 import ConverterNavigationBar from './ConverterNavigationBar'
-import CurrencyInputFields from './CurrencyInputFields';
+import CurrencyInputFields from './CurrencyInput/CurrencyInputFields';
 import CurrencyOutput from './CurrencyOutput';
 import { Notification } from '../Elements/Notification'
 import React, { useEffect, useState } from 'react'

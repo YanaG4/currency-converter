@@ -1,0 +1,110 @@
+.currency-input-fields{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  .fields-container{
+    display:flex;
+    flex-direction:column;
+    align-items: flex-start;
+    width: 24vw;
+    max-width: 300px;
+  }
+  .fields-container:first-child{
+    margin-right: .7rem;
+  }
+  .fields-container label{
+    font-size: .9rem;
+    font-weight: 600;
+  }
+  
+  input {
+    outline: none;
+    border: 1px solid var(--border-color);
+    border-radius: .3rem;
+    padding: .7em;
+    margin-top: .2rem;
+    font-size: 1rem;  
+    width: 100%;
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+     margin: 0;
+  }
+  
+  select {
+    border: 1px solid var(--border-color);
+    border-radius: .3rem;
+    padding: .7em;
+    cursor: pointer;
+    margin-top: .2rem;
+    width: 100%;
+    font-size: 1rem;
+    
+  }
+  select:target, select:focus, select:hover,
+   input:target, input:focus,
+    button:focus, button:hover, button:active {
+    border: 1px solid var(--active-element-color);
+    outline: none;
+  }
+  
+  .fields-container-reverse{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    max-width: 60px;
+  }
+  .hidden-message {
+    visibility: hidden;
+  }
+  label {
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+  
+.error-message {
+    font-size: .7rem;
+    color: var(--error-message);
+    margin-top: .3rem;
+    text-align: left;
+  }
+  .input-container {
+    position: relative;
+    width: 100%;
+  }
+  .fields-container .error-message {
+    position: absolute;
+    top: 50px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .currency-input-fields{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;  
+      gap: 0;    
+    }
+    .fields-container{
+      width: 100%;
+     max-width: 600px;
+    }
+    .fields-container:first-child{
+      margin-right: 0rem;
+    }
+    .reverse {
+      margin-top: 20px;
+      transform: rotate(90deg);
+    }
+    .hidden-message {
+      display: none;
+    }
+    .fields-container:first-child{
+      margin-bottom: 20px;
+    }
+  }
