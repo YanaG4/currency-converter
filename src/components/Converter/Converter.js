@@ -2,27 +2,43 @@ import ConverterNavigationBar from './ConverterNavigationBar'
 import CurrencyInputFields from './CurrencyInput/CurrencyInputFields';
 import CurrencyOutput from './CurrencyOutput';
 import { Notification } from '../Elements/Notification'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { EXCHANGE_RATE_API } from '../../constants/api';
 import './Converter.scss'
 import CurrencyTable from './CurrencyTable'
+import { currencyInfo } from '../../stores/CurrencyInfo'
 
 function Converter() {
     const [currencyCode, setCurrencyCode] = useState([])
-    const [fromCurrency, setFromCurrency] = useState()
-    const [toCurrency, setToCurrency] = useState()
+    const [currencies, setCurrencies] = useState([{
+        currencyCode: '',
+        symbol: '',
+        minorUnitValue: 2,
+        name: '',
+        countries: [],
+        countryCode: ''
+    }])
+    const [fromCurrency, setFromCurrency] = useState("")
+    const [toCurrency, setToCurrency] = useState("")
     const [amount, setAmount] = useState((1).toFixed(2))
     const [exchangeRate, setExchangeRate] = useState()
+
+    const handleFetchingData = useCallback((result) => {
+        const filteredCurrency = (Object.keys(result.rates)).filter(code => currencyInfo.some(currency => currency.code === code))
+        setCurrencyCode(filteredCurrency)
+        setCurrencies(currencyInfo.filter(currency => filteredCurrency.some(code => code === currency.code)))
+        console.log(currencies);
+        const firstCurrency = filteredCurrency[134]
+        setFromCurrency(result.base)
+        setToCurrency(firstCurrency)
+        setExchangeRate(result.rates[firstCurrency])
+    }, [currencyCode.length, currencies.length]);
 
     useEffect(() => {
         fetch(EXCHANGE_RATE_API, { method: "GET" })
             .then(res => res.json())
             .then(result => {
-                const firstCurrency = Object.keys(result.rates)[149]
-                setCurrencyCode(Object.keys(result.rates))
-                setFromCurrency(result.base)
-                setToCurrency(firstCurrency)
-                setExchangeRate(result.rates[firstCurrency])
+                handleFetchingData(result)
             })
             .catch(error => console.log('error', error));
     }, [])
@@ -50,7 +66,7 @@ function Converter() {
                 <ConverterNavigationBar />
                 <div className='converter-container-items'>
                     <CurrencyInputFields
-                        currencyCodes={currencyCode}
+                        currencyCodes={currencies}
                         from={fromCurrency}
                         to={toCurrency}
                         amount={amount}
