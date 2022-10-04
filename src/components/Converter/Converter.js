@@ -11,12 +11,12 @@ import { currencyInfo } from '../../stores/CurrencyInfo'
 function Converter() {
     const [currencyCode, setCurrencyCode] = useState([])
     const [currencies, setCurrencies] = useState([{
-        currencyCode: '',
         symbol: '',
         minorUnitValue: 2,
         name: '',
-        countries: [],
-        countryCode: ''
+        countries: "",
+        countryCode: '',
+        currencyCode: ''
     }])
     const [fromCurrency, setFromCurrency] = useState("")
     const [toCurrency, setToCurrency] = useState("")
@@ -24,6 +24,8 @@ function Converter() {
     const [exchangeRate, setExchangeRate] = useState()
 
     const handleFetchingData = useCallback((result) => {
+        if (currencies.length > 1)
+            return
         const filteredCurrency = (Object.keys(result.rates)).filter(code => currencyInfo.some(currency => currency.code === code))
         setCurrencyCode(filteredCurrency)
         setCurrencies(currencyInfo.filter(currency => filteredCurrency.some(code => code === currency.code)))
@@ -32,7 +34,8 @@ function Converter() {
         setFromCurrency(result.base)
         setToCurrency(firstCurrency)
         setExchangeRate(result.rates[firstCurrency])
-    }, [currencyCode.length, currencies.length]);
+        console.log(fromCurrency, toCurrency);
+    }, [currencies]);
 
     useEffect(() => {
         fetch(EXCHANGE_RATE_API, { method: "GET" })
@@ -70,7 +73,10 @@ function Converter() {
                         from={fromCurrency}
                         to={toCurrency}
                         amount={amount}
-                        onChangeCode={e => e.target.id === 'from' ? setFromCurrency(e.target.value) : setToCurrency(e.target.value)}
+                        onChangeCode={(e, value) => {
+                            console.log(value, e)
+                            return e === 'from' ? setFromCurrency(value) : setToCurrency(value)
+                        }}
                         setAmount={changeAmountHandler}
                         onClickReverse={onClickReverse}
                     />
