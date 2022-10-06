@@ -6,14 +6,20 @@ export default function CurrencyInfoSection() {
     const randomNumber = () => {
         return Math.floor(Math.random() * currency_history_info.length)
     }
+    function textWithNewLine() {
+        return currencyHistoryText.info.replace(/\n/g, "<br /><br />")
+    }
     const currencyHistoryText = currency_history_info[randomNumber()]
     return (
         <div className='data-container text-container'>
             <div className='text'>
                 <strong>Did you know?
-                    <br /><br />{currencyHistoryText.title}</strong>
-                <br /><br />{currencyHistoryText.info}
-                <br /><br /><a href={currencyHistoryText.source} target="_blank">Source link</a>
+                    <br /><br />
+                    {currencyHistoryText.title}</strong>
+                <br /><br />
+                <p dangerouslySetInnerHTML={{ __html: textWithNewLine() }} />
+                <br /><br />
+                <a href={currencyHistoryText.source} target="_blank">Source link</a>
             </div>
         </div>
     )
