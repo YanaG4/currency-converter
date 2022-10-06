@@ -1,11 +1,12 @@
 import React from 'react'
-import { currencyInfo } from '../../stores/currencyFullInfo'
+import { currencyInfo } from '../../stores/CurrencyInfo'
 
 export default function CurrencyInfoTables() {
-  const currency1 = currencyInfo[42]
+
+  const currency1 = currencyInfo[37]
   return (
     <div className='conversion-container'>
-      <h2 className='container-header'>EUR</h2>
+      <h2 className='container-header'>{currency1.code}</h2>
       <table className='conversion-container-table'>
         <tbody>
           <tr>
@@ -25,8 +26,11 @@ export default function CurrencyInfoTables() {
             <td>{currency1.countries}</td>
           </tr>
           <tr>
-            <td>flag</td>
-            <td>flag</td>
+            <td>Flag</td>
+            <td><img
+              src={`https://flagcdn.com/w40/${currency1.countryCode?.toLowerCase()}.png`}
+              alt="Country flag."
+            /></td>
           </tr>
         </tbody>
       </table>
