@@ -21,7 +21,8 @@ export default function CurrencyRow(currencies) {
             <div className='fields-container'>
                 <InputAmountField
                     amount={amount}
-                    setAmount={setAmount} />
+                    setAmount={setAmount}
+                    fromCurrencySymbol={currencyCodes.find(currency => currency.code === from)?.symbol || '€'} />
             </div>
             <div className='fields-container'>
                 <CurrencyCodeSelector
