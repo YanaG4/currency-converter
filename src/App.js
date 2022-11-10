@@ -9,10 +9,15 @@ import MobileSection from './components/MobileSection/MobileSection'
 import Footer from './components/Footer/Footer';
 import CurrencyInfoSection from './components/CurrencyInfoSection/CurrencyInfoSection';
 import CurrencyInfoTables from './components/CurrencyInfoSection/CurrencyInfoTables';
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchCurrencyCodes } from './features/currency/currencySlice';
 
 function App() {
   const theme = useTheme();
-
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchCurrencyCodes())
+  }, [dispatch])
   return (
     <div className={theme}>
       <div className='nav-header-full-width'></div>
