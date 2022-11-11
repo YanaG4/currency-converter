@@ -10,13 +10,14 @@ import Footer from './components/Footer/Footer';
 import CurrencyInfoSection from './components/CurrencyInfoSection/CurrencyInfoSection';
 import CurrencyInfoTables from './components/CurrencyInfoSection/CurrencyInfoTables';
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchCurrencyCodes } from './features/currency/currencySlice';
+import { fetchCurrencyRates, fetchCurrencyInfo } from './features/currency/currencySlice';
 
 function App() {
   const theme = useTheme();
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchCurrencyCodes())
+    dispatch(fetchCurrencyInfo())
+      .then(() => dispatch(fetchCurrencyRates()))
   }, [dispatch])
   return (
     <div className={theme}>
