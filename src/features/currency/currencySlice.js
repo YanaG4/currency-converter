@@ -7,9 +7,9 @@ const initialState = {
     cuurencyBase: '',
     fromCurrency: '',
     toCurrency: '',
-    currentExchangeRate: 0, // or 1?
+    currentExchangeRate: 1,
     exchangeRates: {},
-    amount: 1, // or 1?
+    amount: 1.00,
     currencyInfo: [{}],
     date: '',
     status: 'idle',
@@ -36,6 +36,9 @@ const currencySlice = createSlice({
         setToCurrency: (state, { payload }) => {
             state.toCurrency = payload
             state.currentExchangeRate = 1 / state.exchangeRates[state.fromCurrency] * state.exchangeRates[payload]
+        },
+        setAmount: (state, { payload }) => {
+            state.Amount = payload
         },
     },
     extraReducers: {
@@ -69,7 +72,7 @@ const currencySlice = createSlice({
     }
 })
 
-export const { setFromCurrency, setToCurrency } = currencySlice.actions
+export const { setFromCurrency, setToCurrency, setAmount } = currencySlice.actions
 
 export const getCurrencyCodes = (state) => state.currency.currencyCodes
 export const getFromCurrency = (state) => state.currency.fromCurrency

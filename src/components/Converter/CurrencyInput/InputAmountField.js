@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import './InputAmountField.css'
 
+import { useSelector, useDispatch } from 'react-redux'
+import { setAmount, getAmount } from '../../../features/currency/currencySlice'
+
+
 export default function InputAmountField({ amount, setAmount, fromCurrencySymbol }) {
+
+    const reduxAmount = useSelector(getAmount)
+
     const [errorMessage, setErrorMessage] = useState('')
     const [amountChanged, setAmountChanged] = useState(false)
 
@@ -48,7 +55,15 @@ export default function InputAmountField({ amount, setAmount, fromCurrencySymbol
         <>
             <label htmlFor='amount'>Amount</label>
             <div className='input-container'>
-                <input id='amount' className='input input-fields' maxLength="13" value={(amount == null || amount == '') ? '' : amount} onChange={e => { onChangeAmount(e); amountChangedHandler() }} onFocus={onFocusAmount} onBlur={onBlurAmount} autoComplete="off" />
+                <input
+                    id='amount'
+                    className='input input-fields'
+                    maxLength="13"
+                    value={(amount == null || amount == '') ? '' : amount}
+                    onChange={e => { onChangeAmount(e); amountChangedHandler() }}
+                    onFocus={onFocusAmount}
+                    onBlur={onBlurAmount}
+                    autoComplete="off" />
                 <div className='currency-symbol'>{fromCurrencySymbol.split('|')[0]}</div>
                 <div className='error-message'>{errorMessage}</div>
             </div>
