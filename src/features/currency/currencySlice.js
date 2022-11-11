@@ -61,13 +61,13 @@ const currencySlice = createSlice({
 
 export const { } = currencySlice.actions
 
-export const getCurrencyCodes = (state) => state.currecy.currencyCodes
-export const getFromCurrency = (state) => state.currecy.fromCurrency
-export const getToCurrency = (state) => state.currecy.toCurrency
-export const getExchangeRate = (state) => state.currecy.currentExchangeRate
-export const getCurrecyInfo = (state) => state.currecy.currencyInfo
-export const getAmount = (state) => state.currecy.amount
-export const getDate = (state) => state.currecy.date
-export const getStatus = (state) => state.currecy.status
+export const getCurrencyCodes = (state) => state.currency.currencyCodes
+export const getFromCurrency = (state) => state.currency.fromCurrency
+export const getToCurrency = (state) => state.currency.toCurrency
+export const getExchangeRate = (state) => state.currency.currentExchangeRate
+export const getcurrencyInfo = (state) => state.currency.currencyInfo
+export const getAmount = (state) => state.currency.amount
+export const getDate = (state) => state.currency.date
+export const getStatus = (state) => state.currency.status
 
 export default currencySlice.reducer

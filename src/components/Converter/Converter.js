@@ -7,8 +7,13 @@ import { EXCHANGE_RATE_API } from '../../constants/api';
 import './Converter.scss'
 import CurrencyTable from './CurrencyTable'
 import { currencyInfo } from '../../stores/CurrencyInfo'
+import { useSelector, useDispatch } from 'react-redux'
+import { getCurrencyCodes } from '../../features/currency/currencySlice';
 
 function Converter() {
+    //
+    const currencyCodes = useSelector(getCurrencyCodes)
+    //
     const [currencyCode, setCurrencyCode] = useState([])
     const [currencies, setCurrencies] = useState([{
         symbol: '',
