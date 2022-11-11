@@ -1,42 +1,39 @@
 import React from 'react'
-import { currencyInfo } from '../../../stores/currencyFullInfo'
 import CurrencyCodeSelector from './CurrencyCodeSelector'
 import InputAmountField from './InputAmountField'
 import ReverseButton from './ReverseButton'
 import './CurrencyInputFields.css'
 
-export default function CurrencyRow(currencies) {
-    const {
-        currencyCodes,
-        to,
-        from,
-        onChangeCode,
-        setAmount,
-        onClickReverse,
-        amount
-    } = currencies
+import { useSelector } from 'react-redux'
+import { getCurrencyInfo, getFromCurrency, getToCurrency } from '../../../features/currency/currencySlice';
 
+export default function CurrencyRow(props) {
+    const {
+        setAmount,
+        amount
+    } = props
+    const reduxCurrencyInfo = useSelector(getCurrencyInfo)
+    const fromCurrency = useSelector(getFromCurrency)
+    const toCurrency = useSelector(getToCurrency)
     return (
         <div className='currency-input-fields'>
             <div className='fields-container'>
                 <InputAmountField
                     amount={amount}
                     setAmount={setAmount}
-                    fromCurrencySymbol={currencyCodes.find(currency => currency.code === from)?.symbol || '€'} />
+                    fromCurrencySymbol={reduxCurrencyInfo.find(currency => currency.code === fromCurrency)?.symbol || '€'} />
             </div>
             <div className='fields-container'>
                 <CurrencyCodeSelector
-                    currentCode={from}
-                    onChangeCode={onChangeCode}
+                    currentCode={fromCurrency}
                     labelName={"From"} />
             </div>
             <div className='fields-container fields-container-reverse'>
-                <ReverseButton onClickReverse={onClickReverse} />
+                <ReverseButton />
             </div>
             <div className='fields-container'>
                 <CurrencyCodeSelector
-                    currentCode={to}
-                    onChangeCode={onChangeCode}
+                    currentCode={toCurrency}
                     labelName={"To"} />
             </div>
         </div>

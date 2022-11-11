@@ -21,8 +21,6 @@ export default function InputAmountField({ amount, setAmount, fromCurrencySymbol
     function amountChangedHandler() {
         setAmountChanged(true)
     }
-
-
     function onFocusAmount() {
         if (!amountChanged) {
             setAmount('')

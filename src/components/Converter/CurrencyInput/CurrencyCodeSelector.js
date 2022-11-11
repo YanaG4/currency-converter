@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -7,11 +7,14 @@ import InputAdornment from '@mui/material/InputAdornment';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { useSelector, useDispatch } from 'react-redux'
-import { getCurrencyCodes, getcurrencyInfo } from '../../../features/currency/currencySlice';
+import { setFromCurrency, setToCurrency, getCurrencyInfo } from '../../../features/currency/currencySlice';
 
-export default function CurrencyCodeSelector({ currentCode, onChangeCode, labelName }) {
-
-    const reduxCurrencyInfo = useSelector(getcurrencyInfo)
+export default function CurrencyCodeSelector({ currentCode, labelName }) {
+    const dispatch = useDispatch()
+    const reduxCurrencyInfo = useSelector(getCurrencyInfo)
+    function handleChangeCode(code) {
+        labelName === 'From' ? dispatch(setFromCurrency(code)) : dispatch(setToCurrency(code))
+    }
 
     const theme = createTheme({
         components: {
@@ -44,7 +47,7 @@ export default function CurrencyCodeSelector({ currentCode, onChangeCode, labelN
                 id={labelName.toLowerCase()}
                 sx={{ width: '100%' }}
                 options={reduxCurrencyInfo}
-                onChange={(event, value) => { onChangeCode(labelName.toLowerCase(), value?.code) }}
+                onChange={(event, value) => { handleChangeCode(value?.code) }}
                 value={reduxCurrencyInfo.find(currencyCode => currencyCode.code === currentCode) || null}
                 autoHighlight
                 getOptionLabel={(option) => option.code + " — " + option.name}
@@ -73,7 +76,7 @@ export default function CurrencyCodeSelector({ currentCode, onChangeCode, labelN
                 renderInput={(params) => {
                     params.InputProps.startAdornment = (
                         <>
-                            <InputAdornment position="start"><img src={`https://flagcdn.com/w40/${reduxCurrencyInfo.find(currencyCode => currencyCode.code === (params.inputProps?.value).split(' ')[0])?.countryCode.toLowerCase() || 'eu'}.png`} onClick={console.log(params.inputProps?.value)} /></InputAdornment>
+                            <InputAdornment position="start"><img src={`https://flagcdn.com/w40/${reduxCurrencyInfo.find(currencyCode => currencyCode.code === (params.inputProps?.value).split(' ')[0])?.countryCode.toLowerCase() || 'eu'}.png`} /></InputAdornment>
                             {params.InputProps.startAdornment}
                         </>
                     );

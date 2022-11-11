@@ -4,6 +4,7 @@ import currencyInfoApi from '../../api/currencyInfoApi';
 
 const initialState = {
     currencyCodes: [],
+    cuurencyBase: '',
     fromCurrency: '',
     toCurrency: '',
     currentExchangeRate: 0, // or 1?
@@ -28,7 +29,14 @@ const currencySlice = createSlice({
     name: 'currency',
     initialState,
     reducers: {
-
+        setFromCurrency: (state, { payload }) => {
+            state.fromCurrency = payload
+            state.currentExchangeRate = 1 / state.exchangeRates[payload] * state.exchangeRates[state.toCurrency]
+        },
+        setToCurrency: (state, { payload }) => {
+            state.toCurrency = payload
+            state.currentExchangeRate = 1 / state.exchangeRates[state.fromCurrency] * state.exchangeRates[payload]
+        },
     },
     extraReducers: {
         [fetchCurrencyRates.pending]: () => {
@@ -44,9 +52,11 @@ const currencySlice = createSlice({
             const currencyCodes = state.currencyCodes.filter(code => apiCurrencyCodes.includes(code))
 
             let exchangeRates = {}
-            exchangeRates = currencyCodes.map(code => { return { ...exchangeRates, [code]: payload.rates[code] } })
+            currencyCodes.forEach(code => {
+                exchangeRates[code] = payload.rates[code]
+            });
 
-            return { ...state, currencyCodes, fromCurrency, toCurrency, currentExchangeRate, exchangeRates, date: payload.date, status: 'success' }
+            return { ...state, currencyCodes, currencyBase: payload.base, fromCurrency, toCurrency, currentExchangeRate, exchangeRates, date: payload.date, status: 'success' }
         },
         [fetchCurrencyInfo.pending]: () => {
             console.log("Currency Info fetching in progress...")
@@ -59,13 +69,13 @@ const currencySlice = createSlice({
     }
 })
 
-export const { } = currencySlice.actions
+export const { setFromCurrency, setToCurrency } = currencySlice.actions
 
 export const getCurrencyCodes = (state) => state.currency.currencyCodes
 export const getFromCurrency = (state) => state.currency.fromCurrency
 export const getToCurrency = (state) => state.currency.toCurrency
 export const getExchangeRate = (state) => state.currency.currentExchangeRate
-export const getcurrencyInfo = (state) => state.currency.currencyInfo
+export const getCurrencyInfo = (state) => state.currency.currencyInfo
 export const getAmount = (state) => state.currency.amount
 export const getDate = (state) => state.currency.date
 export const getStatus = (state) => state.currency.status

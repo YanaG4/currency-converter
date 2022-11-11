@@ -1,14 +1,16 @@
 import React from 'react'
 import './CurrencyOutput.scss'
 
-export default function CurrencyOutput(params) {
-    const {
-        from,
-        to,
-        amount,
-        exchangeRate
-    } = params
+import { useSelector } from 'react-redux'
+import { getToCurrency, getFromCurrency, getExchangeRate } from '../../features/currency/currencySlice'
 
+
+export default function CurrencyOutput({ amount }) {
+
+
+    const toCurrency = useSelector(getToCurrency)
+    const fromCurrency = useSelector(getFromCurrency)
+    const exchangeRate = useSelector(getExchangeRate)
 
     function formatCurrencyResult(exchangeRate) {
         const processedAmount = parseFloat((amount.toString()).replaceAll(',', ''))
@@ -30,9 +32,9 @@ export default function CurrencyOutput(params) {
 
     return (
         <div className='to-currency-result-container'>
-            <div className='from-currency-result'>{fromCurrencyAmount} {from} =</div>
-            <div className='to-currency-result'>{integerPartPointTwoDecimalDigits}<span>{remainingDecimalDigits}</span> {to}</div>
-            <div className='exchange-rate-reverse'>1 {to} = {(1 / exchangeRate).toFixed(5)} {from}</div>
+            <div className='from-currency-result'>{fromCurrencyAmount} {fromCurrency} =</div>
+            <div className='to-currency-result'>{integerPartPointTwoDecimalDigits}<span>{remainingDecimalDigits}</span> {toCurrency}</div>
+            <div className='exchange-rate-reverse'>1 {toCurrency} = {(1 / exchangeRate).toFixed(5)} {fromCurrency}</div>
         </div>
     )
 }
