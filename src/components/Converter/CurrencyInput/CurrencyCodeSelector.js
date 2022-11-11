@@ -9,16 +9,9 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useSelector, useDispatch } from 'react-redux'
 import { getCurrencyCodes, getcurrencyInfo } from '../../../features/currency/currencySlice';
 
-export default function CurrencyCodeSelector({ currentCode, onChangeCode, currencyCodes, labelName }) {
+export default function CurrencyCodeSelector({ currentCode, onChangeCode, labelName }) {
 
-    const reduxCurrencyCodes = useSelector(getCurrencyCodes)
     const reduxCurrencyInfo = useSelector(getcurrencyInfo)
-    //console.log('reduxCurrencyCodes : ' + reduxCurrencyCodes);
-    useEffect(() => {
-        // console.log(currentCode);
-        //console.log(currencyCodes[0].code);
-        //console.log(currencyCodes.find(currencyCode => currencyCode.code === currentCode));
-    }, [currentCode])
 
     const theme = createTheme({
         components: {
@@ -47,19 +40,12 @@ export default function CurrencyCodeSelector({ currentCode, onChangeCode, curren
     return (
         <>
             <label htmlFor={labelName.toLowerCase()}>{labelName}</label>
-            {/* <select id={labelName.toLowerCase()} className='input-fields' value={currentCode} onChange={onChangeCode} >
-                {currencyCodes
-                    .map(currencyCode => (
-                        <option key={currencyCode.name} value={currencyCode.code}>{`${currencyCode.code} — ${currencyCode.name}`}</option>
-                    ))}
-            </select> */}
-
             <Autocomplete
                 id={labelName.toLowerCase()}
                 sx={{ width: '100%' }}
-                options={currencyCodes}
+                options={reduxCurrencyInfo}
                 onChange={(event, value) => { onChangeCode(labelName.toLowerCase(), value?.code) }}
-                value={currencyCodes.find(currencyCode => currencyCode.code === currentCode) || null}
+                value={reduxCurrencyInfo.find(currencyCode => currencyCode.code === currentCode) || null}
                 autoHighlight
                 getOptionLabel={(option) => option.code + " — " + option.name}
                 disableClearable={true}
@@ -87,7 +73,7 @@ export default function CurrencyCodeSelector({ currentCode, onChangeCode, curren
                 renderInput={(params) => {
                     params.InputProps.startAdornment = (
                         <>
-                            <InputAdornment position="start"><img src={`https://flagcdn.com/w40/${currencyCodes.find(currencyCode => currencyCode.code === (params.inputProps?.value).split(' ')[0])?.countryCode.toLowerCase() || 'eu'}.png`} onClick={console.log(params.inputProps?.value)} /></InputAdornment>
+                            <InputAdornment position="start"><img src={`https://flagcdn.com/w40/${reduxCurrencyInfo.find(currencyCode => currencyCode.code === (params.inputProps?.value).split(' ')[0])?.countryCode.toLowerCase() || 'eu'}.png`} onClick={console.log(params.inputProps?.value)} /></InputAdornment>
                             {params.InputProps.startAdornment}
                         </>
                     );

@@ -28,7 +28,6 @@ export default function CurrencyRow(currencies) {
                 <CurrencyCodeSelector
                     currentCode={from}
                     onChangeCode={onChangeCode}
-                    currencyCodes={currencyCodes}
                     labelName={"From"} />
             </div>
             <div className='fields-container fields-container-reverse'>
@@ -38,7 +37,6 @@ export default function CurrencyRow(currencies) {
                 <CurrencyCodeSelector
                     currentCode={to}
                     onChangeCode={onChangeCode}
-                    currencyCodes={currencyCodes}
                     labelName={"To"} />
             </div>
         </div>
