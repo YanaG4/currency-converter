@@ -20,7 +20,7 @@ function Converter() {
                     <Notification text='We use the mid-market rate for our Converter. This is for informational purposes only. You won’t receive this rate when sending money. Check send rates' />
                 </div>
             </div>
-            <CurrencyTable />
+            {/* <CurrencyTable /> */}
         </>
     );
 }

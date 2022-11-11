@@ -30,7 +30,6 @@ function App() {
           <MobileSection />
           <CurrencyInfoSection />
           <CurrencyInfoTables />
-          <CurrencyInfoTables />
           <Footer />
         </div>
       </section>
