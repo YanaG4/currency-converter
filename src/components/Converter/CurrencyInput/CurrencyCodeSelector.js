@@ -7,12 +7,13 @@ import InputAdornment from '@mui/material/InputAdornment';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { useSelector, useDispatch } from 'react-redux'
-import { getCurrencyCodes } from '../../../features/currency/currencySlice';
+import { getCurrencyCodes, getcurrencyInfo } from '../../../features/currency/currencySlice';
 
 export default function CurrencyCodeSelector({ currentCode, onChangeCode, currencyCodes, labelName }) {
 
     const reduxCurrencyCodes = useSelector(getCurrencyCodes)
-    console.log(reduxCurrencyCodes);
+    const reduxCurrencyInfo = useSelector(getcurrencyInfo)
+    //console.log('reduxCurrencyCodes : ' + reduxCurrencyCodes);
     useEffect(() => {
         // console.log(currentCode);
         //console.log(currencyCodes[0].code);
