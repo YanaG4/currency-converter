@@ -1,16 +1,22 @@
-import React, { useState } from 'react'
-import { currency_history_info } from '../../stores/CurrencyHistory'
+import React, { useEffect } from 'react'
 import './CurrencyInfoSection.css'
 
-export default function CurrencyInfoSection() {
+import { useDispatch, useSelector } from 'react-redux'
+import { getFacts, fetchInterestingFacts } from '../../features/interestingFacts/interestingFactsSlice'
 
+export default function CurrencyInfoSection() {
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(fetchInterestingFacts())
+    }, [])
+    const interestingFacts = useSelector(getFacts)
     const randomNumber = () => {
-        return Math.floor(Math.random() * currency_history_info.length)
+        return Math.floor(Math.random() * interestingFacts.length)
     }
     function textWithNewLine() {
-        return currencyHistoryText.info.replace(/\n/g, "<br /><br />").replace(/\(/g, '<i>(').replace(/\)/g, ')</i>')
+        return currencyHistoryText?.info?.replace(/\n/g, "<br /><br />").replace(/\(/g, '<i>(').replace(/\)/g, ')</i>')
     }
-    const currencyHistoryText = currency_history_info[randomNumber()]
+    const currencyHistoryText = interestingFacts[randomNumber()]
     return (
         <div className='data-container text-container'>
             <div className='text-header-background'></div>

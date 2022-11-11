@@ -1,5 +1,4 @@
 import React from 'react'
-import { currencyInfo } from '../../stores/CurrencyInfo'
 
 import { useSelector } from 'react-redux'
 import { getToCurrency, getFromCurrency, getCurrencyInfo } from '../../features/currency/currencySlice'

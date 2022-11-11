@@ -6,7 +6,7 @@ const initialState = {
     status: 'idle',
 }
 
-const fetchInterestingFacts = createAsyncThunk('interestingFacts/fetchInterestingFacts', async () => {
+export const fetchInterestingFacts = createAsyncThunk('interestingFacts/fetchInterestingFacts', async () => {
     const response = await interestingFactsApi.get('data/interestingFacts.json')
     return response.data
 })
@@ -24,3 +24,9 @@ const interestingFactsSlice = createSlice({
         }
     }
 })
+
+export const { } = interestingFactsSlice.actions
+
+export const getFacts = (state) => state.interestingFacts.facts
+
+export default interestingFactsSlice.reducer

@@ -1,5 +1,6 @@
 
-import React, { useState } from 'react'
+import React from 'react'
+
 import ConverterNavigationBar from './ConverterNavigationBar'
 import CurrencyInputFields from './CurrencyInput/CurrencyInputFields';
 import CurrencyOutput from './CurrencyOutput';
@@ -16,11 +17,7 @@ function Converter() {
                 <div className='converter-container-items'>
                     <CurrencyInputFields />
                     <CurrencyOutput />
-
                     <Notification text='We use the mid-market rate for our Converter. This is for informational purposes only. You won’t receive this rate when sending money. Check send rates' />
-                    {/* <div className='main-button-container'>
-                        <Button text='Convert' />
-                    </div> */}
                 </div>
             </div>
             <CurrencyTable />
