@@ -7,11 +7,7 @@ import './CurrencyInputFields.css'
 import { useSelector } from 'react-redux'
 import { getCurrencyInfo, getFromCurrency, getToCurrency } from '../../../features/currency/currencySlice';
 
-export default function CurrencyRow(props) {
-    const {
-        setAmount,
-        amount
-    } = props
+export default function CurrencyRow() {
     const reduxCurrencyInfo = useSelector(getCurrencyInfo)
     const fromCurrency = useSelector(getFromCurrency)
     const toCurrency = useSelector(getToCurrency)
@@ -19,8 +15,6 @@ export default function CurrencyRow(props) {
         <div className='currency-input-fields'>
             <div className='fields-container'>
                 <InputAmountField
-                    amount={amount}
-                    setAmount={setAmount}
                     fromCurrencySymbol={reduxCurrencyInfo.find(currency => currency.code === fromCurrency)?.symbol || '€'} />
             </div>
             <div className='fields-container'>

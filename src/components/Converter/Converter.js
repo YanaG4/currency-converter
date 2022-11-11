@@ -9,24 +9,13 @@ import CurrencyTable from './CurrencyTable'
 import './Converter.scss'
 
 function Converter() {
-    const [amount, setAmount] = useState((1).toFixed(2))
-
-    function changeAmountHandler(value) {
-        setAmount(value)
-    }
-
     return (
         <>
             <div className='data-container converter-container'>
                 <ConverterNavigationBar />
                 <div className='converter-container-items'>
-                    <CurrencyInputFields
-                        amount={amount}
-                        setAmount={changeAmountHandler}
-                    />
-                    <CurrencyOutput
-                        amount={amount}
-                    />
+                    <CurrencyInputFields />
+                    <CurrencyOutput />
 
                     <Notification text='We use the mid-market rate for our Converter. This is for informational purposes only. You won’t receive this rate when sending money. Check send rates' />
                     {/* <div className='main-button-container'>

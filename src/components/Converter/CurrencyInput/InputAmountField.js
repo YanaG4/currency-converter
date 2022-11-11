@@ -1,54 +1,54 @@
 import React, { useState, useEffect } from 'react'
 import './InputAmountField.css'
 
-import { useSelector, useDispatch } from 'react-redux'
-import { setAmount, getAmount } from '../../../features/currency/currencySlice'
+import { useDispatch } from 'react-redux'
+import { setAmount } from '../../../features/currency/currencySlice'
 
 
-export default function InputAmountField({ amount, setAmount, fromCurrencySymbol }) {
+export default function InputAmountField({ fromCurrencySymbol }) {
 
-    const reduxAmount = useSelector(getAmount)
+    const dispatch = useDispatch(setAmount)
+    const [amount, setCurrentAmount] = useState((1).toFixed(2))
 
     const [errorMessage, setErrorMessage] = useState('')
-    const [amountChanged, setAmountChanged] = useState(false)
+    const [amountChanged, setCurrentAmountChaned] = useState(false)
 
     useEffect(() => {
-        if (amount !== '') {
-            if (amount <= 0) {
-                setErrorMessage('Please enter an amount greater than 0')
-                return
-            } else if (!parseFloat(amount)) {
-                setErrorMessage('Please enter a valid amount')
-                return
-            }
+        if (amount === '' || !amountChanged)
+            return
+        if (amount <= 0) {
+            setErrorMessage('Please enter an amount greater than 0')
+            return
+        } else if (!parseFloat(amount)) {
+            setErrorMessage('Please enter a valid amount')
+            return
         }
+
+        dispatch(setAmount(amount))
         setErrorMessage('')
     }, [amount])
 
-    function amountChangedHandler() {
-        setAmountChanged(true)
-    }
     function onFocusAmount() {
         if (!amountChanged) {
-            setAmount('')
+            setCurrentAmount('')
         }
     }
     function onChangeAmount(e) {
-        setAmountChanged(true)
-        setAmount(e.target.value)
+        setCurrentAmountChaned(true)
+        setCurrentAmount(e)
 
     }
     function onBlurAmount(e) {
         if (!amountChanged) {
-            setAmount((1).toFixed(2))
+            setCurrentAmount((1).toFixed(2))
             return
         }
         const checkAmount = parseFloat(((e.target.value).toString()).replaceAll(',', ''))
         if (checkAmount <= 0 || !checkAmount) {
-            setAmount('')
+            setCurrentAmount('')
             return
         }
-        setAmount(checkAmount.toFixed(2))
+        setCurrentAmount(checkAmount.toFixed(2))
     }
 
     return (
@@ -60,7 +60,7 @@ export default function InputAmountField({ amount, setAmount, fromCurrencySymbol
                     className='input input-fields'
                     maxLength="13"
                     value={(amount == null || amount == '') ? '' : amount}
-                    onChange={e => { onChangeAmount(e); amountChangedHandler() }}
+                    onChange={(e) => onChangeAmount(e.target.value)}
                     onFocus={onFocusAmount}
                     onBlur={onBlurAmount}
                     autoComplete="off" />

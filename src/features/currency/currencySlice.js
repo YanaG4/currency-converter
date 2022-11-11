@@ -38,7 +38,7 @@ const currencySlice = createSlice({
             state.currentExchangeRate = 1 / state.exchangeRates[state.fromCurrency] * state.exchangeRates[payload]
         },
         setAmount: (state, { payload }) => {
-            state.Amount = payload
+            state.amount = payload
         },
     },
     extraReducers: {

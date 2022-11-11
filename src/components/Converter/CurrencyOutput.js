@@ -2,15 +2,16 @@ import React from 'react'
 import './CurrencyOutput.scss'
 
 import { useSelector } from 'react-redux'
-import { getToCurrency, getFromCurrency, getExchangeRate } from '../../features/currency/currencySlice'
+import { getToCurrency, getFromCurrency, getExchangeRate, getAmount } from '../../features/currency/currencySlice'
 
 
-export default function CurrencyOutput({ amount }) {
+export default function CurrencyOutput() {
 
 
     const toCurrency = useSelector(getToCurrency)
     const fromCurrency = useSelector(getFromCurrency)
     const exchangeRate = useSelector(getExchangeRate)
+    const amount = useSelector(getAmount)
 
     function formatCurrencyResult(exchangeRate) {
         const processedAmount = parseFloat((amount.toString()).replaceAll(',', ''))
