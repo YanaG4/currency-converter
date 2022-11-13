@@ -1,31 +1,17 @@
-import React, { useEffect, useState, Children } from 'react'
+import React, { Children } from 'react'
+import useWindowSize from '../../../utils/useWindowSize';
 //Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper";
 
 export default function CarouselWrapper({ children }) {
-    const [windowSize, setWindowSize] = useState(getWindowSize());
-
-    useEffect(() => {
-        function handleWindowResize() {
-            setWindowSize(getWindowSize())
-        }
-        window.addEventListener('resize', handleWindowResize)
-        return () => {
-            window.removeEventListener('resize', handleWindowResize)
-        }
-    }, []);
-
-    function getWindowSize() {
-        const { innerWidth, innerHeight } = window
-        return { innerWidth, innerHeight }
-    }
-
+    const { innerWidth } = useWindowSize()
     let renderWithOrWithoutCarousel = ''
-    renderWithOrWithoutCarousel = windowSize.innerWidth < 800 ?
+
+    renderWithOrWithoutCarousel = innerWidth < 800 ?
         (
             <Swiper
                 slidesPerView={1}

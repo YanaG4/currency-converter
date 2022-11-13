@@ -1,7 +1,7 @@
 import React from 'react'
 import './ToggleTheme.scss'
 import useDarkMode from "use-dark-mode";
-import { useTheme } from "../../utils/useTheme";
+import { useTheme } from "../../../utils/useTheme";
 import { useRef, useEffect } from 'react';
 
 export default function ToggleTheme() {

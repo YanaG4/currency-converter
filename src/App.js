@@ -1,16 +1,19 @@
-import './styles/VariablesWarmTheme.css'
-import './App.scss';
+import React, { useEffect } from 'react'
+//sections
 import Converter from './components/Converter/Converter';
 import NavigationBar from './components/Header/NavigationBar';
 import Header from './components/Header/Header'
-import { useTheme } from "./utils/useTheme";
-import React, { useEffect, useState } from 'react'
 import MobileSection from './components/MobileSection/MobileSection'
 import Footer from './components/Footer/Footer';
 import CurrencyInfoSection from './components/CurrencyInfoSection/CurrencyInfoSection';
 import CurrencyInfoTables from './components/CurrencyInfoSection/CurrencyInfoTables';
-import { useSelector, useDispatch } from 'react-redux'
+//redux
+import { useDispatch } from 'react-redux'
 import { fetchCurrencyRates, fetchCurrencyInfo } from './features/currency/currencySlice';
+//styles
+import { useTheme } from "./utils/useTheme";
+import './styles/VariablesWarmTheme.css'
+import './App.scss';
 
 function App() {
   const theme = useTheme();

@@ -4,7 +4,7 @@ import React from 'react'
 import ConverterNavigationBar from './ConverterNavigationBar'
 import CurrencyInputFields from './CurrencyInput/CurrencyInputFields';
 import CurrencyOutput from './CurrencyOutput';
-import { Notification } from '../Elements/Notification'
+import { Notification } from '../Elements/Notifications/Notification'
 import CurrencyTable from './CurrencyTable'
 
 import './Converter.scss'
