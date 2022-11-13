@@ -14,6 +14,7 @@ import { fetchCurrencyRates, fetchCurrencyInfo } from './features/currency/curre
 import { useTheme } from "./utils/useTheme";
 import './styles/VariablesWarmTheme.css'
 import './App.scss';
+import CurrencyChart from './components/CurrencyCharts/CurrencyChart';
 
 function App() {
   const theme = useTheme();

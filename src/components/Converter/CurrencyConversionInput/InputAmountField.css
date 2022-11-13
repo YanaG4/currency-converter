@@ -24,11 +24,7 @@
     top: 0;
     height: 100%;
     width: 49px;
-    /* border-bottom-left-radius: .3rem;
-    border-top-left-radius: .3rem; */
     pointer-events: none;
-    /* background-color: var(--container-background-color); */
-    /* border: 1px solid var(--border-color); */
     border-right: none;
     color: var(--text-subtle-color)
 }
