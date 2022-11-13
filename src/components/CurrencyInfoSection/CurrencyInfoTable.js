@@ -5,7 +5,7 @@ export default function CurrencyInfoTables({ currencyInfo }) {
     return (
         <div className='conversion-container'>
             <h2 className='container-header'>{currencyInfo?.code}</h2>
-            <table className='conversion-container-table'>
+            <table className='conversion-container-table info-table'>
                 <tbody>
                     <tr>
                         <td>Symbol</td>
