@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import './InputAmountField.css'
-
+//redux
 import { useDispatch } from 'react-redux'
 import { setAmount } from '../../../features/currency/currencySlice'
-
+//styles
+import './InputAmountField.css'
 
 export default function InputAmountField({ fromCurrencySymbol }) {
-
     const dispatch = useDispatch(setAmount)
     const [amount, setCurrentAmount] = useState((1).toFixed(2))
 
@@ -19,11 +18,11 @@ export default function InputAmountField({ fromCurrencySymbol }) {
         if (amount <= 0) {
             setErrorMessage('Please enter an amount greater than 0')
             return
-        } else if (!parseFloat(amount)) {
+        }
+        if (!parseFloat(amount)) {
             setErrorMessage('Please enter a valid amount')
             return
         }
-
         dispatch(setAmount(amount))
         setErrorMessage('')
     }, [amount])

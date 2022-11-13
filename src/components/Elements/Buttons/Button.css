@@ -23,3 +23,17 @@
   .main-button:active {
     background-color: var(--main-button-active-color);
   }
+/* .secondary-button */
+  .secondary-button:focus, .secondary-button:active, .secondary-button:hover{
+    border:none;
+    outline: none;
+  }
+  .secondary-button:hover{
+    outline: 1px solid var(--main-button-background-color);
+  }
+  .secondary-button:focus{
+    outline: 2px solid var(--main-button-background-color);
+  }
+  .secondary-button:active {
+    outline: 2px solid var(--main-button-background-color);
+  }

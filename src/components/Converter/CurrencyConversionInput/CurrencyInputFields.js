@@ -1,11 +1,13 @@
 import React from 'react'
+//components
 import CurrencyCodeSelector from './CurrencyCodeSelector'
 import InputAmountField from './InputAmountField'
-import ReverseButton from './ReverseButton'
-import './CurrencyInputFields.css'
-
+import ReverseButton from './ReverseButton/ReverseButton'
+//redux
 import { useSelector } from 'react-redux'
 import { getCurrencyInfo, getFromCurrency, getToCurrency } from '../../../features/currency/currencySlice';
+//styles
+import './CurrencyInputFields.css'
 
 export default function CurrencyRow() {
     const reduxCurrencyInfo = useSelector(getCurrencyInfo)

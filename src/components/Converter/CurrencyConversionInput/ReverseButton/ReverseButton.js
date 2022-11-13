@@ -3,9 +3,10 @@ import React from 'react'
 import SvgComponent from './ReverseSvg'
 //redux
 import { useDispatch, useSelector } from 'react-redux'
-import { setToCurrency, setFromCurrency, getToCurrency, getFromCurrency } from '../../../features/currency/currencySlice'
+import { setToCurrency, setFromCurrency, getToCurrency, getFromCurrency } from '../../../../features/currency/currencySlice'
 //styles
 import './ReverseButton.css'
+import '../../../Elements/Buttons/Button.css'
 
 export default function ReverseButton() {
     const dispatch = useDispatch()
@@ -20,7 +21,7 @@ export default function ReverseButton() {
     return (
         <>
             <label className='hidden-message' htmlFor='reverse'>Reverse</label>
-            <button id='reverse' className='reverse' onClick={handleReverseButtonClick}>
+            <button id='reverse' className='reverse secondary-button' onClick={handleReverseButtonClick}>
                 <SvgComponent className='reverse-svg' width='30px' />
             </button>
         </>
