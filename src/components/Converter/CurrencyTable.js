@@ -1,6 +1,6 @@
 import React from 'react'
 import CurrencyConversionTable from './CurrencyConversionTable'
-import Slider from '../Elements/Slider/Slider'
+import CarouselWrapper from '../Elements/CarouselWrapper/CarouselWrapper'
 
 import { useSelector } from 'react-redux'
 import { getToCurrency, getFromCurrency, getExchangeRate } from '../../features/currency/currencySlice'
@@ -13,16 +13,21 @@ export default function CurrencyTable() {
     const fromCurrency = useSelector(getFromCurrency)
     const exchangeRate = useSelector(getExchangeRate)
     return (
-        <Slider>
-            <CurrencyConversionTable
-                from={fromCurrency}
-                to={toCurrency}
-                exchangeRate={exchangeRate} />
-            <CurrencyConversionTable
-                from={toCurrency}
-                to={fromCurrency}
-                exchangeRate={1 / exchangeRate}
-            />
-        </Slider>
+        <div className='container-with-background'>
+            <div className='single-color-background-container'></div>
+            <div className="slider table-container">
+                <CarouselWrapper>
+                    <CurrencyConversionTable
+                        from={fromCurrency}
+                        to={toCurrency}
+                        exchangeRate={exchangeRate} />
+                    <CurrencyConversionTable
+                        from={toCurrency}
+                        to={fromCurrency}
+                        exchangeRate={1 / exchangeRate}
+                    />
+                </CarouselWrapper>
+            </div>
+        </div>
     )
 }

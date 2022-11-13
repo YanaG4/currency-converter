@@ -6,8 +6,6 @@ import CurrencyInfoTable from './CurrencyInfoTable'
 import { useSelector } from 'react-redux'
 import { getToCurrency, getFromCurrency, getCurrencyInfo } from '../../features/currency/currencySlice'
 
-import '../Elements/Slider/Slider.scss'
-
 export default function CurrencyInfoTables() {
 
   const toCurrency = useSelector(getToCurrency)
