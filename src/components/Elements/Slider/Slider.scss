@@ -48,19 +48,19 @@
       visibility: hidden;
       display: unset;
     }
-  //   .s1 {
-  //    right: 5vw;
-  //   }
-  //  .s2 {
-  //    left: 5vw;
-  //   }
+    .s1 {
+     right: 2vw;
+    }
+   .s2 {
+     left: 2vw;
+    }
   
    .slider [type='radio']:after {
       width:  16px;
       height: 16px;
       border-radius: 15px;
       top: -2px;
-      left: -1px;
+      left: 0px;
       position: relative;
       background-color: var(--background-inactive-menu-color);
       content: '';
@@ -73,7 +73,7 @@
       height: 16px;
       border-radius: 15px;
       top: -2px;
-      left: -1px;
+      left: 0px;
       position: relative;
       background-color: var(--main-button-background-color);
       content: '';
@@ -109,21 +109,26 @@
   
     .s2:checked ~ .slide1 {
       box-shadow: 0 1px 4px 0 rgba(0,0,0,.37);
-      transform: translate(-10%, 0);
+      transform: translate(5vw, 0);
       opacity: 60%;
       z-index: -5;
     }
     
-  .s1:checked ~ .slide1,
-    .s2:checked .slide2 {
+  .s1:checked ~ .slide1{
       box-shadow: 0 13px 25px 0 rgba(0,0,0,.3), 0 11px 7px 0 rgba(0,0,0,.19); 
-      transform: translate(0, 0);
+      transform: translate(-5vw, 0);
       cursor: context-menu; 
     }
+    .s2:checked ~ .slide2 {
+      box-shadow: 0 13px 25px 0 rgba(0,0,0,.3), 0 11px 7px 0 rgba(0,0,0,.19); 
+      transform: translate(5vw, 0);
+      cursor: context-menu; 
+    }
+
     
      .s1:checked ~ .slide2{
       box-shadow: 0 6px 10px 0 rgba(0,0,0,.3), 0 2px 2px 0 rgba(0,0,0,.2);
-      transform: translate(10%, 0);
+      transform: translate(-5vw, 0);
       opacity: 60%;
       z-index: -5;
   }

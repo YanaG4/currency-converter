@@ -12,7 +12,6 @@
 body{
   margin: 0;
   min-height: 100vh;
-  height: 6000px;
   text-align: center;
   background-color: var(--main-theme-color);
   background-image: linear-gradient(43deg, var(--main-theme-color) 0%, var(--secondary-gradient-color) 46%, var(--accent-gradient-color) 100%);
@@ -31,5 +30,29 @@ body{
   max-width: 1000px;
   width: 90vw;
 }
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
 
 
