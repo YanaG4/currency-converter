@@ -21,7 +21,7 @@ function Converter() {
                 <div className='converter-container-items'>
                     <CurrencyInputFields />
                     <CurrencyOutput />
-                    <Notification>{`The latest update of the rates was on ${date}. We use the api.exchangerate.host to get the latest exchange rates.`}</Notification>
+                    <Notification>{`The latest update of the rates was on ${date}. We use api.exchangerate.host to get the latest exchange rates.`}</Notification>
                 </div>
             </div>
             <CurrencyTable />
