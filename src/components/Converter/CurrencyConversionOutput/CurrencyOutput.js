@@ -2,7 +2,7 @@ import React from 'react'
 import './CurrencyOutput.scss'
 
 import { useSelector } from 'react-redux'
-import { getToCurrency, getFromCurrency, getExchangeRate, getAmount } from '../../features/currency/currencySlice'
+import { getToCurrency, getFromCurrency, getExchangeRate, getAmount } from '../../../features/currency/currencySlice'
 
 
 export default function CurrencyOutput() {

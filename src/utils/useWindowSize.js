@@ -16,7 +16,6 @@ const useWindowSize = () => {
         const { innerWidth, innerHeight } = window
         return { innerWidth, innerHeight }
     }
-    //return windowSize
     return { innerWidth: windowSize.innerWidth, innerHeight: windowSize.innerHeight }
 }
 export default useWindowSize;

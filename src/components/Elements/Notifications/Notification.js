@@ -1,11 +1,11 @@
 import React from 'react'
-import './Notification.scss'
+import './Notification.css'
 
-export const Notification = ({ text }) => {
+export const Notification = ({ children }) => {
     return (
         <div className='notification'>
-            <div style={{ margin: "0 .6rem", paddingTop: ".1rem" }}><i className="material-icons">new_releases</i></div>
-            <div>{text}</div>
+            <i className="material-icons">new_releases</i>
+            <div>{children}</div>
         </div>
     )
 }

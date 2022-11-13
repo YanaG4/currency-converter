@@ -1,15 +1,19 @@
 
 import React from 'react'
-
+//redux
+import { useSelector } from 'react-redux';
+import { getDate } from '../../features/currency/currencySlice';
+//components
 import ConverterNavigationBar from './ConverterNavigationBar'
-import CurrencyInputFields from './CurrencyInput/CurrencyInputFields';
-import CurrencyOutput from './CurrencyOutput';
+import CurrencyInputFields from './CurrencyConversionInput/CurrencyInputFields';
+import CurrencyOutput from './CurrencyConversionOutput/CurrencyOutput';
+import CurrencyTable from './CurrencyConversionOutput/CurrencyTable'
 import { Notification } from '../Elements/Notifications/Notification'
-import CurrencyTable from './CurrencyTable'
-
+//styles
 import './Converter.scss'
 
 function Converter() {
+    const date = useSelector(getDate)
     return (
         <>
             <div className='data-container converter-container'>
@@ -17,7 +21,7 @@ function Converter() {
                 <div className='converter-container-items'>
                     <CurrencyInputFields />
                     <CurrencyOutput />
-                    <Notification text='We use the mid-market rate for our Converter. This is for informational purposes only. You won’t receive this rate when sending money. Check send rates' />
+                    <Notification>{`The latest update of the rates was on ${date}. We use the api.exchangerate.host to get the latest exchange rates.`}</Notification>
                 </div>
             </div>
             <CurrencyTable />

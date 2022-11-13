@@ -1,9 +1,9 @@
 import React from 'react'
 import CurrencyConversionTable from './CurrencyConversionTable'
-import CarouselWrapper from '../Elements/CarouselWrapper/CarouselWrapper'
+import CarouselWrapper from '../../Elements/CarouselWrapper/CarouselWrapper'
 
 import { useSelector } from 'react-redux'
-import { getToCurrency, getFromCurrency, getExchangeRate } from '../../features/currency/currencySlice'
+import { getToCurrency, getFromCurrency, getExchangeRate } from '../../../features/currency/currencySlice'
 
 import './CurrencyTable.scss'
 
