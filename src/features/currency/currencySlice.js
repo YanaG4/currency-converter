@@ -1,20 +1,32 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import currencyApi from '../../api/currencyApi';
 import currencyInfoApi from '../../api/currencyInfoApi';
-
+//InitialState
 const initialState = {
     currencyCodes: [],
-    cuurencyBase: '',
+    curencyBase: '',
     fromCurrency: '',
     toCurrency: '',
     currentExchangeRate: 1,
     exchangeRates: {},
     amount: 1.00,
     currencyInfo: [{}],
+    currencyChartTimeseries: [{}],
+    currencyChartEndtDate: (() => {
+        const now = new Date();
+        const [formatedDate] = now.toISOString().split('T');
+        return formatedDate
+    })(),
+    currencyChartStartDate: (() => {
+        const now = new Date();
+        const weekAgo = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 6);
+        const [formatedDate] = weekAgo.toISOString().split('T');
+        return formatedDate
+    })(),
     date: '',
     status: 'idle',
 }
-
+//Fetching data
 export const fetchCurrencyRates = createAsyncThunk('currency/fetchCurrencyRates', async () => {
     const response = await currencyApi.get('latest')
     return response.data
@@ -25,6 +37,20 @@ export const fetchCurrencyInfo = createAsyncThunk('currency/fetchCurrencyInfo', 
     return response.data
 })
 
+export const fetchCurrencyTimeseries = createAsyncThunk('currency/fetchCurrencyTimeseries',
+    async (_, { getState }) => {
+        const { currency } = getState()
+        console.log(`timeseries?start_date=${currency.currencyChartStartDate}&end_date=${currency.currencyChartEndtDate}&base=${currency.fromCurrency}&symbols=${currency.toCurrency}`);
+        const response = await currencyApi
+            .get(`timeseries?start_date=${currency.currencyChartStartDate}&end_date=${currency.currencyChartEndtDate}&base=${currency.fromCurrency}&symbols=${currency.toCurrency}`)
+        //.get(`timeseries?start_date=
+        // ${currencyChartStartDate ? currencyChartStartDate : currency.currencyChartStartDate}
+        // &end_date=${currencyChartEndDate ? currencyChartEndDate : currency.currencyChartEndDate}
+        // &base=${fromCurrency ? fromCurrency : currency.fromCurrency}
+        // &symbols=${toCurrency ? toCurrency : currency.toCurrency}`)
+        return response.data
+    })
+//Slice
 const currencySlice = createSlice({
     name: 'currency',
     initialState,
@@ -68,7 +94,21 @@ const currencySlice = createSlice({
             console.log("Currency Info fetched successfully")
             const currencyCodes = payload.map(currency => currency.code)
             return { ...state, currencyCodes, currencyInfo: payload, status: 'fetching' }
-        }
+        },
+        [fetchCurrencyTimeseries.pending]: () => {
+            console.log("Currency Charts fetching in progress...")
+        },
+        [fetchCurrencyTimeseries.fulfilled]: (state, { payload }) => {
+            console.log("Currency Charts fetched successfully")
+            const currencyChartTimeseries = []
+            for (const [date, exchnageRateObject] of Object.entries(payload.rates)) {
+                currencyChartTimeseries.push({
+                    'date': date,
+                    'exchangeRate': Object.values(exchnageRateObject)[0]
+                })
+            }
+            return { ...state, currencyChartTimeseries, status: 'fetching' }
+        },
     }
 })
 
@@ -82,5 +122,6 @@ export const getCurrencyInfo = (state) => state.currency.currencyInfo
 export const getAmount = (state) => state.currency.amount
 export const getDate = (state) => state.currency.date
 export const getStatus = (state) => state.currency.status
+export const getCurrencyChartTimeseries = (state) => state.currency.currencyChartTimeseries
 
 export default currencySlice.reducer

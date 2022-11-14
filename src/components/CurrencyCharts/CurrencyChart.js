@@ -1,15 +1,11 @@
 import React from 'react'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-
-
-const data = [
-    { name: '1', Total: '0.8' },
-    { name: '2', Total: '0.86' },
-    { name: '3', Total: '0.87' },
-    { name: '3', Total: '0.79' }
-];
+import CustomTooltip from './CustomTooltip';
+import { useSelector } from 'react-redux';
+import { getCurrencyChartTimeseries } from '../../features/currency/currencySlice';
 
 export default function CurrencyChart() {
+    const data = useSelector(getCurrencyChartTimeseries)
     return (
         <div style={{ backgroundColor: 'white', flex: 4, display: 'flex', justifyContent: 'center', alignItems: 'center', width: '600px', height: '600px' }}>
             <ResponsiveContainer width="70%" height="50%">
@@ -26,15 +22,15 @@ export default function CurrencyChart() {
                 >
                     <defs>
                         <linearGradient id="currencyChartGradient" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-                            <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+                            <stop offset="5%" stopColor="rgb(65, 88, 208)" stopOpacity={1} />
+                            <stop offset="95%" stopColor="rgb(200, 80, 140)" stopOpacity={0.6} />
                         </linearGradient>
                     </defs>
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis dataKey='Total' domain={[dataMin => ((dataMin) / 1.1).toFixed(2), dataMax => (dataMax * 1.1).toFixed(2)]} />
-                    <Tooltip />
-                    <Area type="monotone" dataKey="Total" stroke="#8884d8" fillOpacity={1} fill="url(#currencyChartGradient)" />
+                    <CartesianGrid strokeDasharray="4" vertical={false} />
+                    <XAxis dataKey="date" interval={0} />
+                    <YAxis dataKey='exchangeRate' domain={[dataMin => ((dataMin) / 1.1).toFixed(4), dataMax => (dataMax * 1.1).toFixed(4)]} />
+                    <Tooltip wrapperStyle={{ border: 'none', outline: 'none' }} content={<CustomTooltip />} />
+                    <Area type="monotone" dataKey="exchangeRate" stroke="rgb(65, 88, 208)" fillOpacity={1} fill="url(#currencyChartGradient)" />
                 </AreaChart>
             </ResponsiveContainer>
         </div>

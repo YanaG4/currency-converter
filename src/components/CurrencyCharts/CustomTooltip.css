@@ -1,0 +1,24 @@
+.custom-tooltip {
+padding: 10px 25px;
+background-color: rgb(255, 255, 255);
+box-shadow: 1px 3px 10px rgb(0, 0, 0, .5);
+outline: none !important;
+border: none !important;
+text-align: left;
+}
+
+.tooltip-label {
+font-weight: 600;
+}
+
+.tooltip-value {
+ font-weight: 300;
+}
+
+.custom-tooltip:hover,
+.custom-tooltip:focus,
+.custom-tooltip:active {
+    box-shadow: 1px 3px 10px rgb(0, 0, 0, .5);
+outline: none !important;
+border: none !important;
+}

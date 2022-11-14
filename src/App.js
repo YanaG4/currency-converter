@@ -9,7 +9,7 @@ import CurrencyInfoSection from './components/CurrencyInfoSection/CurrencyInfoSe
 import CurrencyInfoTables from './components/CurrencyInfoSection/CurrencyInfoTables';
 //redux
 import { useDispatch } from 'react-redux'
-import { fetchCurrencyRates, fetchCurrencyInfo } from './features/currency/currencySlice';
+import { fetchCurrencyRates, fetchCurrencyInfo, fetchCurrencyTimeseries } from './features/currency/currencySlice';
 //styles
 import { useTheme } from "./utils/useTheme";
 import './styles/VariablesWarmTheme.css'
@@ -21,7 +21,10 @@ function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchCurrencyInfo())
-      .then(() => dispatch(fetchCurrencyRates()))
+      .then(() =>
+        dispatch(fetchCurrencyRates())
+          .then(() =>
+            dispatch(fetchCurrencyTimeseries())))
   }, [dispatch])
   return (
     <div className={theme}>
@@ -34,6 +37,7 @@ function App() {
           <MobileSection />
           <CurrencyInfoSection />
           <CurrencyInfoTables />
+          <CurrencyChart />
           <Footer />
         </div>
       </section>
