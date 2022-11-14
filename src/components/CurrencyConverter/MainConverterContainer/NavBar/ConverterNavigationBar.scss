@@ -1,4 +1,5 @@
 
+
 .converter-menu-item {
     display: flex;
   }
@@ -13,7 +14,7 @@
       text-align: center;    
       cursor: pointer;
   }
-  .converter-menu-item a {
+  .converter-menu-item div {
     color: var(--main-element-color);
     font-weight: 500;
     text-decoration: none;
@@ -25,7 +26,6 @@
   }
   .converter-menu-item li:first-child {
     border-top-left-radius: 1rem;
-    background-color: transparent;
   }
   .converter-menu-item li:last-child {
     border-top-right-radius: 1rem;

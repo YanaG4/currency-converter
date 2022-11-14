@@ -2,13 +2,13 @@ import React from 'react'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import CustomTooltip from './CustomTooltip';
 import { useSelector } from 'react-redux';
-import { getCurrencyChartTimeseries } from '../../../../features/currency'
+import { getCurrencyChartTimeseries } from '../../../../features/currency/currencySlice'
 
 export default function CurrencyChart() {
     const data = useSelector(getCurrencyChartTimeseries)
     return (
-        <div style={{ backgroundColor: 'white', flex: 4, display: 'flex', justifyContent: 'center', alignItems: 'center', width: '600px', height: '600px' }}>
-            <ResponsiveContainer width="70%" height="50%">
+        <div style={{ flex: 4, display: 'flex', justifyContent: 'center', alignItems: 'center', width: '700px', height: '300px' }}>
+            <ResponsiveContainer width="100%" height="100%">
                 <AreaChart
                     width={500}
                     height={400}

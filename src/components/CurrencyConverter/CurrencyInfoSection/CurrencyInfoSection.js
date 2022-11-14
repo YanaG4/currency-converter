@@ -27,7 +27,7 @@ export default function CurrencyInfoSection() {
                 <br />
                 <p dangerouslySetInnerHTML={{ __html: textWithNewLine() }} />
                 <br />
-                <a href={currencyHistoryText.source} target="_blank">Source link</a>
+                <a href={currencyHistoryText.source} target="_blank" rel="noopener">Source link</a>
             </div>
         </div>
     )

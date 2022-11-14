@@ -12,7 +12,6 @@ export default function CurrencyTables() {
     const toCurrency = useSelector(getToCurrency)
     const fromCurrency = useSelector(getFromCurrency)
     const exchangeRate = useSelector(getExchangeRate)
-    console.log('!!!!!!!!exchangeRate: ' + exchangeRate);
     return (
         <div className='container-with-background'>
             <div className='single-color-background-container'></div>

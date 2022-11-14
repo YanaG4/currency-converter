@@ -40,14 +40,9 @@ export const fetchCurrencyInfo = createAsyncThunk('currency/fetchCurrencyInfo', 
 export const fetchCurrencyTimeseries = createAsyncThunk('currency/fetchCurrencyTimeseries',
     async (_, { getState }) => {
         const { currency } = getState()
-        console.log(`timeseries?start_date=${currency.currencyChartStartDate}&end_date=${currency.currencyChartEndtDate}&base=${currency.fromCurrency}&symbols=${currency.toCurrency}`);
+        //console.log(`timeseries?start_date=${currency.currencyChartStartDate}&end_date=${currency.currencyChartEndtDate}&base=${currency.fromCurrency}&symbols=${currency.toCurrency}`);
         const response = await currencyApi
             .get(`timeseries?start_date=${currency.currencyChartStartDate}&end_date=${currency.currencyChartEndtDate}&base=${currency.fromCurrency}&symbols=${currency.toCurrency}`)
-        //.get(`timeseries?start_date=
-        // ${currencyChartStartDate ? currencyChartStartDate : currency.currencyChartStartDate}
-        // &end_date=${currencyChartEndDate ? currencyChartEndDate : currency.currencyChartEndDate}
-        // &base=${fromCurrency ? fromCurrency : currency.fromCurrency}
-        // &symbols=${toCurrency ? toCurrency : currency.toCurrency}`)
         return response.data
     })
 //Slice

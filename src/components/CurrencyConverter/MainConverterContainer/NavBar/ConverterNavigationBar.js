@@ -1,15 +1,24 @@
 import React from 'react'
+import { converterNavBarSections } from '../../../../const/websiteSections'
 import './ConverterNavigationBar.scss'
 
-export default function ConverterNavigationBar() {
+export default function ConverterNavigationBar({ handleSectionChange, activeSection }) {
+    const activeSectionStyles = {
+        backgroundColor: 'transparent',
+        cursor: 'default'
+    }
     return (
-        <div>
-            <ul className="converter-menu-item">
-                <li><a href='/' data-item='Convert'><i className="fa fa-bitcoin"></i>Convert</a></li>
-                <li><a href='/' data-item='Send'><i className="fa fa-euro"></i>Send</a></li>
-                <li><a href='/' data-item='Charts'><i className="fa fa-cny"></i>Charts</a></li>
-                <li><a href='/' data-item='Alerts'><i className="fa fa-gbp"></i>Alerts</a></li>
-            </ul>
-        </div>
+        <ul className="converter-menu-item">
+            {converterNavBarSections.map(section =>
+                <li
+                    key={section.section}
+                    style={section.section === activeSection ? activeSectionStyles : {}}>
+                    <div onClick={() => handleSectionChange(section.section)}>
+                        <i className={section.icon}></i>
+                        {section.section}
+                    </div>
+                </li>
+            )}
+        </ul>
     )
 }
