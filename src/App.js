@@ -1,4 +1,9 @@
 import React, { useEffect } from 'react'
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from 'react-router-dom';
 //sections
 import NavigationBar from './components/Header/NavigationBar';
 import Home from './components/Home/Home';

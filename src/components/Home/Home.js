@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 //Components
 import Header from '../CurrencyConverter/ConverterHeader/Header'
-import Converter from '../CurrencyConverter/MainConverterContainer/MainContainer/Converter'
+import MainContainer from '../CurrencyConverter/MainConverterContainer/MainContainer/MainContainer'
 import CurrencyTables from '../CurrencyConverter/CurrencyConversionTables/CurrencyTables'
 import MobileSection from '../MobileSection/MobileSection'
 import CurrencyInfoSection from '../CurrencyConverter/CurrencyInfoSection/CurrencyInfoSection'
@@ -23,7 +23,7 @@ export default function Home() {
     return (
         <>
             <Header />
-            <Converter />
+            <MainContainer />
             <CurrencyTables />
             <MobileSection />
             <CurrencyInfoSection />

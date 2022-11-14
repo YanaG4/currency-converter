@@ -9,16 +9,19 @@ import { getCurrencyInfo, getFromCurrency, getToCurrency } from '../../../../../
 //styles
 import './CurrencyInputFields.css'
 
-export default function CurrencyRow() {
+export default function CurrencyRow({ withAmount }) {
     const reduxCurrencyInfo = useSelector(getCurrencyInfo)
     const fromCurrency = useSelector(getFromCurrency)
     const toCurrency = useSelector(getToCurrency)
     return (
         <div className='currency-input-fields'>
-            <div className='fields-container'>
-                <InputAmountField
-                    fromCurrencySymbol={reduxCurrencyInfo.find(currency => currency.code === fromCurrency)?.symbol || '€'} />
-            </div>
+            {
+                withAmount &&
+                <div className='fields-container amount-input'>
+                    <InputAmountField
+                        fromCurrencySymbol={reduxCurrencyInfo.find(currency => currency.code === fromCurrency)?.symbol || '€'} />
+                </div>
+            }
             <div className='fields-container'>
                 <CurrencyCodeSelector
                     currentCode={fromCurrency}
