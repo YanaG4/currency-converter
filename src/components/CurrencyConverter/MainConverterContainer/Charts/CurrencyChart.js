@@ -2,7 +2,7 @@ import React from 'react'
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import CustomTooltip from './CustomTooltip';
 import { useSelector } from 'react-redux';
-import { getCurrencyChartTimeseries } from '../../features/currency/currencySlice';
+import { getCurrencyChartTimeseries } from '../../../../features/currency'
 
 export default function CurrencyChart() {
     const data = useSelector(getCurrencyChartTimeseries)

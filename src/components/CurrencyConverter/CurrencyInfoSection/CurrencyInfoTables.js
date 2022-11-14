@@ -1,10 +1,10 @@
 import React from 'react'
 
-import CarouselWrapper from '../Elements/CarouselWrapper/CarouselWrapper';
+import CarouselWrapper from '../../Elements/CarouselWrapper/CarouselWrapper'
 import CurrencyInfoTable from './CurrencyInfoTable'
 
 import { useSelector } from 'react-redux'
-import { getToCurrency, getFromCurrency, getCurrencyInfo } from '../../features/currency/currencySlice'
+import { getToCurrency, getFromCurrency, getCurrencyInfo } from '../../../features/currency/currencySlice'
 
 export default function CurrencyInfoTables() {
 

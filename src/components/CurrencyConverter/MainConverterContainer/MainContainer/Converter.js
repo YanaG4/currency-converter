@@ -2,13 +2,12 @@
 import React from 'react'
 //redux
 import { useSelector } from 'react-redux';
-import { getDate } from '../../features/currency/currencySlice';
+import { getDate } from '../../../../features/currency/currencySlice'
 //components
-import ConverterNavigationBar from './ConverterNavigationBar'
-import CurrencyInputFields from './CurrencyConversionInput/CurrencyInputFields';
-import CurrencyOutput from './CurrencyConversionOutput/CurrencyOutput';
-import CurrencyTable from './CurrencyConversionOutput/CurrencyTable'
-import { Notification } from '../Elements/Notifications/Notification'
+import ConverterNavigationBar from '../../MainConverterContainer/NavBar/ConverterNavigationBar'
+import CurrencyInputFields from '../Converter/CurrencyConversionInput/CurrencyInputFields'
+import CurrencyOutput from '../Converter/CurrencyConversionOutput/CurrencyOutput'
+import { Notification } from '../../../Elements/Notifications/Notification'
 //styles
 import './Converter.scss'
 
@@ -24,7 +23,6 @@ function Converter() {
                     <Notification>{`The latest update of the rates was on ${date}. We use api.exchangerate.host to get the latest exchange rates.`}</Notification>
                 </div>
             </div>
-            <CurrencyTable />
         </>
     );
 }

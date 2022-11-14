@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import './CurrencyInfoSection.css'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { getFacts, fetchInterestingFacts } from '../../features/interestingFacts/interestingFactsSlice'
+import { getFacts, fetchInterestingFacts } from '../../../features/interestingFacts/interestingFactsSlice'
 
 export default function CurrencyInfoSection() {
     const dispatch = useDispatch()

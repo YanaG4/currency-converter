@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 //redux
 import { useDispatch } from 'react-redux'
-import { setAmount } from '../../../features/currency/currencySlice'
+import { setAmount } from '../../../../../features/currency/currencySlice'
 //styles
 import './InputAmountField.css'
 

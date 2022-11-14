@@ -5,7 +5,7 @@ import InputAmountField from './InputAmountField'
 import ReverseButton from './ReverseButton/ReverseButton'
 //redux
 import { useSelector } from 'react-redux'
-import { getCurrencyInfo, getFromCurrency, getToCurrency } from '../../../features/currency/currencySlice';
+import { getCurrencyInfo, getFromCurrency, getToCurrency } from '../../../../../features/currency/currencySlice'
 //styles
 import './CurrencyInputFields.css'
 

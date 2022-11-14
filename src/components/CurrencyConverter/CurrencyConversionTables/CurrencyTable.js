@@ -1,5 +1,5 @@
 import React from 'react'
-import './CurrencyConversionTable.scss'
+import './CurrencyTable.scss'
 
 export default function CurrencyConversionTable(params) {
     const {

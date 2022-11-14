@@ -3,10 +3,10 @@ import React from 'react'
 import SvgComponent from './ReverseSvg'
 //redux
 import { useDispatch, useSelector } from 'react-redux'
-import { setToCurrency, setFromCurrency, getToCurrency, getFromCurrency } from '../../../../features/currency/currencySlice'
+import { setToCurrency, setFromCurrency, getToCurrency, getFromCurrency } from '../../../../../../features/currency/currencySlice'
 //styles
 import './ReverseButton.css'
-import '../../../Elements/Buttons/Button.css'
+import '../../../../../Elements/Buttons/Button.css'
 
 export default function ReverseButton() {
     const dispatch = useDispatch()
