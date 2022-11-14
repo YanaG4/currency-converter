@@ -6,7 +6,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import InputAdornment from '@mui/material/InputAdornment';
 //redux
 import { useSelector, useDispatch } from 'react-redux'
-import { setFromCurrency, setToCurrency, getCurrencyInfo } from '../../../../../features/currency/currencySlice'
+import { setFromCurrency, setToCurrency, getCurrencyInfo, fetchCurrencyTimeseries } from '../../../../../features/currency/currencySlice'
 //styles
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
@@ -16,6 +16,7 @@ export default function CurrencyCodeSelector({ currentCode, labelName }) {
     const reduxCurrencyInfo = useSelector(getCurrencyInfo)
     function handleChangeCode(code) {
         labelName === 'From' ? dispatch(setFromCurrency(code)) : dispatch(setToCurrency(code))
+        dispatch(fetchCurrencyTimeseries())
     }
 
     const theme = createTheme({

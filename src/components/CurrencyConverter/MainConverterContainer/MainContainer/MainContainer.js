@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 //redux
 import { useSelector } from 'react-redux';
 import { getDate } from '../../../../features/currency/currencySlice'
