@@ -1,17 +1,26 @@
 import React from 'react'
-import './NavigationBar.scss'
+//components
 import ToggleTheme from '../Elements/ToggleTheme/ToggleTheme'
+//data
+import { headerNavBarSections } from '../../const/websiteSections'
+//styles
+import './NavigationBar.scss'
 
 export default function NavigationBar() {
     return (
         <nav className='nav-header'>
             <img src='icons/dollar_white.png' alt="Logo" />
-            <div className='menu'><a href='/'>☰</a>
+            <div className='menu'><a href='/' onClick={e => { e.preventDefault() }} >☰</a>
                 <ul className="menuItems dropdown">
-                    <li><a href='/' data-item='Converter'>Converter</a></li>
-                    <li><a href='/' data-item='Currency API'>Currency API</a></li>
-                    <li><a href='/' data-item='Tech stack'>Tech stack</a></li>
-                    <li><a href='/' data-item='About'>About</a></li>
+                    {
+                        headerNavBarSections.map(section => (
+                            <li key={section.section}>
+                                <a href={`/${section.link}`} data-item={section.section}>
+                                    {section.section}
+                                </a>
+                            </li>
+                        ))
+                    }
                 </ul>
             </div>
             <ToggleTheme />
