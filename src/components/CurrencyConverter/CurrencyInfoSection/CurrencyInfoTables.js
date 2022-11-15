@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import CarouselWrapper from '../../Elements/CarouselWrapper/CarouselWrapper'
 import CurrencyInfoTable from './CurrencyInfoTable'
@@ -9,13 +9,33 @@ export default function CurrencyInfoTables() {
   const toCurrencyInfo = useToCurrencyFullInfo()
   const fromCurrencyInfo = useFromCurrencyFullInfo()
 
-  return (
+  const [isHidden, setIsHidden] = useState(true)
+  function handleIsHiddenChange() {
+    setIsHidden(false)
+  }
+
+  let renderTables = ''
+  renderTables = (
     <>
       <CarouselWrapper>
-        <CurrencyInfoTable currencyInfo={fromCurrencyInfo} />
-        <CurrencyInfoTable currencyInfo={toCurrencyInfo} />
+        <CurrencyInfoTable
+          currencyInfo={fromCurrencyInfo}
+          isHidden={isHidden}
+          handleIsHiddenChange={handleIsHiddenChange}
+        />
+        <CurrencyInfoTable currencyInfo={toCurrencyInfo}
+          isHidden={isHidden}
+          handleIsHiddenChange={handleIsHiddenChange} />
       </CarouselWrapper>
       <div style={{ height: '60px' }}></div>
+    </>
+  )
+
+  return (
+    <>
+      {
+        isHidden ? renderTables : renderTables
+      }
     </>
   )
 }

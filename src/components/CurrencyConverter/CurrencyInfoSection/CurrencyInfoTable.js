@@ -1,7 +1,17 @@
 import React from 'react'
 
-export default function CurrencyInfoTables({ currencyInfo }) {
-
+export default function CurrencyInfoTables({ currencyInfo, isHidden, handleIsHiddenChange }) {
+    const countriesArray = currencyInfo?.countries.split(', ')
+    let renderCountries = ''
+    renderCountries = countriesArray <= 3 ?
+        (<>{currencyInfo?.countries}</>)
+        :
+        (<>{countriesArray?.slice(0, 3).join(', ')}
+            {isHidden ?
+                <span className='three-dots-hidden-text' onClick={() => handleIsHiddenChange(false)}> ...</span>
+                :
+                <>, {countriesArray?.slice(3).join(', ')}</>}
+        </>)
     return (
         <div className='conversion-container'>
             <h2 className='container-header'>{currencyInfo?.code}</h2>
@@ -21,7 +31,7 @@ export default function CurrencyInfoTables({ currencyInfo }) {
                     </tr>
                     <tr>
                         <td>Countries</td>
-                        <td>{currencyInfo?.countries}</td>
+                        <td>{renderCountries}</td>
                     </tr>
                     <tr>
                         <td>Flag</td>
