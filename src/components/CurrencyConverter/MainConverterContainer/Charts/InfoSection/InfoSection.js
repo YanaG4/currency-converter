@@ -9,16 +9,16 @@ export default function InfoSection({ date }) {
     const fromCurrencyInfo = useFromCurrencyFullInfo()
     const toCurrencyInfo = useToCurrencyFullInfo()
     return (
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '30px' }}>
+        <div className="charts-info-container">
             <div className='charts-info-title'>
                 {fromCurrencyInfo.code} to {toCurrencyInfo.code} Chart
             </div>
-            <div className='charts-info-conversion'>
-                1 {fromCurrencyInfo.code} = {exchangeRate} {toCurrencyInfo.code}
-                <span className='charts-info-date'>
-                    {date}
-                </span>
+            <div className='charts-info-conversion'></div>
+            1 {fromCurrencyInfo.code} = {exchangeRate} {toCurrencyInfo.code}
+            <div className='charts-info-date'>
+                {date}
             </div>
+
         </div>
     )
 }

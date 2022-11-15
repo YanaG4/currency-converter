@@ -1,15 +1,23 @@
+.charts-info-container{
+    display: flex; 
+    gap: 10px;
+    align-items: center; 
+    flex-wrap: wrap; 
+    margin-top: 30px;
+}
 .charts-info-title {
-    font-size: 1.8rem;
+    flex-grow: 2;
+    font-size: 1.7rem;
     font-weight: 600;
     color: rgb(71, 58, 80);
+    text-align: left;
 }
 .charts-info-conversion {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 500;
     color: var(--notification-color)
 }
 .charts-info-date {
     font-weight: 300;
-    padding-left: 10px;
-    color: var(--text-subtle-color)
+    color: var(--text-subtle-color);
 }
