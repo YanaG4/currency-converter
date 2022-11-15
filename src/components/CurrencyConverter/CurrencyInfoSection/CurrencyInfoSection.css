@@ -1,12 +1,12 @@
 .data-container {
     position: relative;
     background-color: var(--container-background-color);
-      border-radius: 1rem;
-      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-      border: none;
-      width: 100%;
-      max-width: 1000px;
-      margin-top: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: none;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 2.5rem;
     margin-bottom: 3rem;
     z-index: 5;
   }
@@ -16,18 +16,7 @@
     padding-bottom: 4rem;
     text-align: justify;
   }
-  .text {
-    width: 80vw;
-    max-width: 100%;
-  }
-.text-container h3 {
-    font-size: 1.6rem;
-    font-weight: 500;
-    text-align: center;
-    color: var(--active-element-color);
-    margin-bottom: 50px;
-}
-.text-header-background {
+  .text-header-background {
     position: absolute;
     background-color: var(--background-inactive-menu-color);
     top: 0;
@@ -38,14 +27,21 @@
     border-top-right-radius: 1rem;
     z-index: -1;
 }
-.text h4 {
+.text-container h3 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-align: center;
+    color: var(--active-element-color);
+    margin-bottom: 50px;
+}
+.text-container h4 {
     font-size: 1.1rem;
     font-weight: 600;
 }
-.text a {
+ .text-container a {
     font-size: 1rem;
     font-weight: 300;
     text-decoration: none;
     color: var(--text-subtle-color); 
     float: right;
-}
+} 

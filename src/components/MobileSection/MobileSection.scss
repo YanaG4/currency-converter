@@ -8,18 +8,21 @@
 }
 .mobile-container img{
     max-width: 55%;
-
+    transition: max-width 1s ease;
 }
 .mobile-text {
     text-align: center;
     color: white;
     min-width: 30%;
 }
+.mobile-text div {
+    width: 80vw;
+    max-width: 100%;
+  }
 .mobile-text h4 {
     font-size: 1.8rem;
     margin-bottom: 2rem;
-    margin-top: 2rem;
-    
+    margin-top: 2rem;  
 }
 .mobile-text h4:first-child {
     margin-top: 0;
@@ -53,3 +56,26 @@
 		background-position: 0% 50%;
 	}
 }
+
+@media only screen and (max-width: 880px){
+    .mobile-container{
+      display: flex;
+      flex-direction: column;
+    } 
+    .mobile-container img{
+        max-width: 75%;
+        margin-bottom: 2rem;
+        transition: max-width 1s ease;
+    }
+    .mobile-text {
+        max-width: 400px;
+    }
+  }
+  @media only screen and (max-width: 560px){
+    .mobile-container img{
+        max-width: 90%;
+        margin-bottom: 2rem;
+        transition: max-width 1s ease;
+    }
+
+  }
