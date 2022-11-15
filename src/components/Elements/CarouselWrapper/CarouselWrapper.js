@@ -32,7 +32,7 @@ export default function CarouselWrapper({ children }) {
             </Swiper>
         )
         :
-        (<div style={{ display: 'flex', justifyContent: 'space-between', gap: '30px' }}>
+        (<div style={{ display: 'flex', justifyContent: 'space-between', gap: '30px', width: '100%' }}>
             {Children.map(children, (child, index) =>
                 <>{child}</>
             )

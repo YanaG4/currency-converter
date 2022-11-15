@@ -13,6 +13,7 @@ import CurrencyChart from '../Charts/CurrencyChart'
 import './MainContainer.scss'
 //data
 import { converterNavBarSections } from '../../../../const/websiteSections'
+import InfoSection from '../Charts/InfoSection/InfoSection';
 
 function MainContainer() {
     const date = useSelector(getDate)
@@ -38,6 +39,7 @@ function MainContainer() {
                     {activeSection === converterNavBarSections[1].section &&
                         <>
                             <CurrencyInputFields withAmount={false} />
+                            <InfoSection date={date} />
                             <CurrencyChart />
                         </>
                     }

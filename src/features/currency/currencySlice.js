@@ -95,10 +95,11 @@ const currencySlice = createSlice({
         },
         [fetchCurrencyTimeseries.fulfilled]: (state, { payload }) => {
             console.log("Currency Charts fetched successfully")
+            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
             const currencyChartTimeseries = []
             for (const [date, exchnageRateObject] of Object.entries(payload.rates)) {
                 currencyChartTimeseries.push({
-                    'date': date,
+                    'date': `${monthNames[date.slice(5, 7) - 1]} ${date.slice(8)}`,
                     'exchangeRate': Object.values(exchnageRateObject)[0]
                 })
             }

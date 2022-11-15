@@ -1,0 +1,15 @@
+.charts-info-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: rgb(71, 58, 80);
+}
+.charts-info-conversion {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--notification-color)
+}
+.charts-info-date {
+    font-weight: 300;
+    padding-left: 10px;
+    color: var(--text-subtle-color)
+}

@@ -3,21 +3,23 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import CustomTooltip from './CustomTooltip';
 import { useSelector } from 'react-redux';
 import { getCurrencyChartTimeseries } from '../../../../features/currency/currencySlice'
+import useWindowSize from '../../../../utils/useWindowSize';
 
 export default function CurrencyChart() {
     const data = useSelector(getCurrencyChartTimeseries)
+    const { innerWidth } = useWindowSize()
     return (
-        <div style={{ flex: 4, display: 'flex', justifyContent: 'center', alignItems: 'center', width: '700px', height: '300px' }}>
+        <div style={{ flex: 4, display: 'flex', justifyContent: 'center', alignItems: 'center', postition: 'relative', width: '100%', height: '350px' }}>
             <ResponsiveContainer width="100%" height="100%">
                 <AreaChart
                     width={500}
                     height={400}
                     data={data}
                     margin={{
-                        top: 10,
-                        right: 30,
+                        top: 40,
+                        right: 20,
                         left: 0,
-                        bottom: 0,
+                        bottom: 20,
                     }}
                 >
                     <defs>
@@ -27,8 +29,8 @@ export default function CurrencyChart() {
                         </linearGradient>
                     </defs>
                     <CartesianGrid strokeDasharray="4" vertical={false} />
-                    <XAxis dataKey="date" interval={0} />
-                    <YAxis dataKey='exchangeRate' domain={[dataMin => ((dataMin) / 1.1).toFixed(4), dataMax => (dataMax * 1.1).toFixed(4)]} />
+                    <XAxis dataKey="date" interval={innerWidth > 680 ? 0 : 1} tick={{ fontSize: '12px', fontWeight: '400', transform: 'translate(0, 6)' }} />
+                    <YAxis dataKey='exchangeRate' domain={[dataMin => ((dataMin) / 1.1).toFixed(3), dataMax => (dataMax * 1.1).toFixed(3)]} tick={{ fontSize: '13px', fontWeight: '500', transform: 'translate(-3, -5)' }} />
                     <Tooltip wrapperStyle={{ border: 'none', outline: 'none' }} content={<CustomTooltip />} />
                     <Area type="monotone" dataKey="exchangeRate" stroke="rgb(65, 88, 208)" fillOpacity={1} fill="url(#currencyChartGradient)" />
                 </AreaChart>
