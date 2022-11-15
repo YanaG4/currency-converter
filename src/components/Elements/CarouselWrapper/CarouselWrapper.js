@@ -6,6 +6,7 @@ import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import './CarouselWrapper.css'
 
 export default function CarouselWrapper({ children }) {
     const { innerWidth } = useWindowSize()
@@ -17,6 +18,8 @@ export default function CarouselWrapper({ children }) {
                 slidesPerView={1}
                 spaceBetween={30}
                 loop={true}
+                observeParents={true}
+                observer={true}
                 autoHeight={true}
                 pagination={{
                     clickable: true,
@@ -26,7 +29,7 @@ export default function CarouselWrapper({ children }) {
                 className="mySwiper"
             >
                 {Children.map(children, (child, index) =>
-                    <SwiperSlide>{child}</SwiperSlide>
+                    <SwiperSlide key={index}>{child}</SwiperSlide>
                 )
                 }
             </Swiper>
@@ -34,15 +37,15 @@ export default function CarouselWrapper({ children }) {
         :
         (<div style={{ display: 'flex', justifyContent: 'space-between', gap: '30px', width: '100%' }}>
             {Children.map(children, (child, index) =>
-                <>{child}</>
+                <div style={{ height: '100%' }} key={index}>{child}</div>
             )
             }
         </div>
         )
 
     return (
-        <>
+        <div style={{ width: '100%', height: '100%', flexGrow: 2 }}>
             {renderWithOrWithoutCarousel}
-        </>
+        </div>
     )
 }

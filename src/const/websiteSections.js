@@ -12,7 +12,7 @@ export const converterNavBarSections = [
 export const headerNavBarSections = [
     {
         section: 'Converter',
-        link: 'converter',
+        link: '',
         icon: null,
         subSections: {
 

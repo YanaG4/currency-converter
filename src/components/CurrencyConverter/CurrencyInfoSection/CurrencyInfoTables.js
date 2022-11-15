@@ -10,9 +10,12 @@ export default function CurrencyInfoTables() {
   const fromCurrencyInfo = useFromCurrencyFullInfo()
 
   return (
-    <CarouselWrapper>
-      <CurrencyInfoTable currencyInfo={fromCurrencyInfo} />
-      <CurrencyInfoTable currencyInfo={toCurrencyInfo} />
-    </CarouselWrapper>
+    <>
+      <CarouselWrapper>
+        <CurrencyInfoTable currencyInfo={fromCurrencyInfo} />
+        <CurrencyInfoTable currencyInfo={toCurrencyInfo} />
+      </CarouselWrapper>
+      <div style={{ height: '60px' }}></div>
+    </>
   )
 }

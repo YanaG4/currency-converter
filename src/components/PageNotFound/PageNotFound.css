@@ -1,0 +1,15 @@
+.page-not-found {
+    margin-top: 50px;
+    text-align: left;
+    font-size: 1.2rem;
+    line-height: 2;
+    color: white;
+}
+.page-not-found div:first-child {
+    font-weight: 600;
+    font-size: 3.2rem;
+    line-height: 1.6;
+}
+.page-not-found div:last-of-type {
+    font-weight: 200;
+}

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {
   BrowserRouter,
   Routes,
@@ -7,6 +7,7 @@ import {
 //sections
 import NavigationBar from './components/Header/NavigationBar';
 import Home from './components/Home/Home';
+import PageNotFound from './components/PageNotFound/PageNotFound';
 import Footer from './components/Footer/Footer';
 //styles
 import { useTheme } from "./utils/useTheme";
@@ -18,14 +19,18 @@ function App() {
 
   return (
     <div className={theme}>
-      <div className='nav-header-full-width'></div>
-      <section className='body-section'>
+      <BrowserRouter>
         <div className='main-container'>
           <NavigationBar />
-          <Home />
+          <section className='data-section' style={{ width: '100%', height: '100%', flexGrow: 1 }}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="*" element={<PageNotFound />} />
+            </Routes>
+          </section>
           <Footer />
         </div>
-      </section>
+      </BrowserRouter>
     </div>
   );
 }
