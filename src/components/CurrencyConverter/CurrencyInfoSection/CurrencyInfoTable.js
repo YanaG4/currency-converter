@@ -1,9 +1,13 @@
 import React from 'react'
+import ProgressBar from '../../Elements/ProgressBar/ProgressBar'
+import { useSelector } from 'react-redux'
+import { getStatus } from '../../../features/currency/currencySlice'
 
 export default function CurrencyInfoTables({ currencyInfo }) {
-
-    return (
-        <div className='conversion-container'>
+    const status = useSelector(getStatus)
+    let renderTable = ''
+    renderTable = status?.currencyRates === 'fulfilled' ?
+        (<div className='conversion-container'>
             <h2 className='container-header'>{currencyInfo?.code}</h2>
             <table className='conversion-container-table info-table'>
                 <tbody>
@@ -32,7 +36,13 @@ export default function CurrencyInfoTables({ currencyInfo }) {
                     </tr>
                 </tbody>
             </table>
+        </div>)
+        :
+        (<ProgressBar />)
 
-        </div>
+    return (
+        <>
+            {renderTable}
+        </>
     )
 }

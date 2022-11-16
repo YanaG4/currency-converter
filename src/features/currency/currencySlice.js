@@ -24,7 +24,7 @@ const initialState = {
         return formatedDate
     })(),
     date: '',
-    status: 'idle',
+    status: {},
 }
 //Fetching data
 export const fetchCurrencyRates = createAsyncThunk('currency/fetchCurrencyRates', async () => {
@@ -63,6 +63,14 @@ const currencySlice = createSlice({
         },
     },
     extraReducers: {
+        [fetchCurrencyInfo.pending]: () => {
+            console.log("Currency Info fetching in progress...")
+        },
+        [fetchCurrencyInfo.fulfilled]: (state, { payload }) => {
+            console.log("Currency Info fetched successfully")
+            const currencyCodes = payload.map(currency => currency.code)
+            return { ...state, currencyCodes, currencyInfo: payload, status: { ...state.status, currencyInfo: 'fulfilled' } }
+        },
         [fetchCurrencyRates.pending]: () => {
             console.log("Currency fetching in progress...");
         },
@@ -80,18 +88,11 @@ const currencySlice = createSlice({
                 exchangeRates[code] = payload.rates[code]
             });
 
-            return { ...state, currencyCodes, currencyBase: payload.base, fromCurrency, toCurrency, currentExchangeRate, exchangeRates, date: payload.date, status: 'success' }
+            return { ...state, currencyCodes, currencyBase: payload.base, fromCurrency, toCurrency, currentExchangeRate, exchangeRates, date: payload.date, status: { ...state.status, currencyRates: 'fulfilled' } }
         },
-        [fetchCurrencyInfo.pending]: () => {
-            console.log("Currency Info fetching in progress...")
-        },
-        [fetchCurrencyInfo.fulfilled]: (state, { payload }) => {
-            console.log("Currency Info fetched successfully")
-            const currencyCodes = payload.map(currency => currency.code)
-            return { ...state, currencyCodes, currencyInfo: payload, status: 'fetching' }
-        },
-        [fetchCurrencyTimeseries.pending]: () => {
+        [fetchCurrencyTimeseries.pending]: (state) => {
             console.log("Currency Charts fetching in progress...")
+            return { ...state, status: { ...state.status, currencyTimeseries: 'pending' } }
         },
         [fetchCurrencyTimeseries.fulfilled]: (state, { payload }) => {
             console.log("Currency Charts fetched successfully")
@@ -103,8 +104,11 @@ const currencySlice = createSlice({
                     'exchangeRate': Object.values(exchnageRateObject)[0]
                 })
             }
-            return { ...state, currencyChartTimeseries, status: 'fetching' }
+            return { ...state, currencyChartTimeseries, status: { ...state.status, currencyTimeseries: 'fulfilled' } }
         },
+        [fetchCurrencyTimeseries.rejected]: (state) => {
+            return { ...state, status: { ...state.status, currencyTimeseries: 'rejected' } }
+        }
     }
 })
 
