@@ -1,22 +1,15 @@
 
 import React, { useState } from 'react'
-//redux
-import { useSelector } from 'react-redux';
-import { getDate } from '../../../../features/currency/currencySlice'
 //components
 import ConverterNavigationBar from '../NavBar/ConverterNavigationBar'
-import CurrencyInputFields from '../Converter/CurrencyConversionInput/CurrencyInputFields'
-import CurrencyOutput from '../Converter/CurrencyConversionOutput/CurrencyOutput'
-import { Notification } from '../../../Elements/Notifications/Notification'
-import CurrencyChart from '../Charts/CurrencyChart'
+import ConverterContainer from './ConverterContainer';
+import ChartsContainer from './ChartsContainer';
 //styles
 import './MainContainer.scss'
 //data
 import { converterNavBarSections } from '../../../../const/websiteSections'
-import InfoSection from '../Charts/InfoSection/InfoSection';
 
 function MainContainer() {
-    const date = useSelector(getDate)
     const [activeSection, setActiveSection] = useState(converterNavBarSections[0].section)
     function handleSectionChange(section) {
         setActiveSection(section)
@@ -30,18 +23,10 @@ function MainContainer() {
                     activeSection={activeSection} />
                 <div className='converter-container-items'>
                     {activeSection === converterNavBarSections[0].section &&
-                        <>
-                            <CurrencyInputFields withAmount={true} />
-                            <CurrencyOutput />
-                            <Notification>{`The latest update of the rates was on ${date}. We use api.exchangerate.host to get the latest exchange rates.`}</Notification>
-                        </>
+                        <ConverterContainer />
                     }
                     {activeSection === converterNavBarSections[1].section &&
-                        <>
-                            <CurrencyInputFields withAmount={false} />
-                            <InfoSection date={date} />
-                            <CurrencyChart />
-                        </>
+                        <ChartsContainer />
                     }
                 </div>
             </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import ProgressBar from '../../Elements/ProgressBar/ProgressBar'
+import Skeleton from '@mui/material/Skeleton';
 import { useSelector } from 'react-redux'
 import { getStatus } from '../../../features/currency/currencySlice'
 
@@ -7,7 +7,7 @@ export default function CurrencyInfoTables({ currencyInfo }) {
     const status = useSelector(getStatus)
     let renderTable = ''
     renderTable = status?.currencyRates === 'fulfilled' ?
-        (<div className='conversion-container'>
+        (<>
             <h2 className='container-header'>{currencyInfo?.code}</h2>
             <table className='conversion-container-table info-table'>
                 <tbody>
@@ -36,13 +36,39 @@ export default function CurrencyInfoTables({ currencyInfo }) {
                     </tr>
                 </tbody>
             </table>
-        </div>)
+        </>)
         :
-        (<ProgressBar />)
+        (<>
+            <h2 className='container-header'><Skeleton variant="rounded" width={200} height={50} sx={{ margin: 'auto' }} /></h2>
+            <table className='conversion-container-table info-table'>
+                <tbody>
+                    <tr>
+                        <td>Symbol</td>
+                        <td><Skeleton variant="text" sx={{ fontSize: '1.1rem' }} /></td>
+                    </tr>
+                    <tr>
+                        <td>Code</td>
+                        <td><Skeleton variant="text" sx={{ fontSize: '1.1rem' }} /></td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td><Skeleton variant="text" sx={{ fontSize: '1.1rem' }} /></td>
+                    </tr>
+                    <tr>
+                        <td>Countries</td>
+                        <td><Skeleton variant="rounded" width={'100%'} height={800} /></td>
+                    </tr>
+                    <tr>
+                        <td>Flag</td>
+                        <td><Skeleton variant="circular" width={40} height={40} /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </>)
 
     return (
-        <>
+        <div className='conversion-container'>
             {renderTable}
-        </>
+        </div>
     )
 }

@@ -1,13 +1,11 @@
 import React from 'react'
-import './CurrencyOutput.scss'
 
 import { useSelector } from 'react-redux'
 import { getToCurrency, getFromCurrency, getExchangeRate, getAmount } from '../../../../../features/currency/currencySlice'
 
+import './CurrencyOutput.scss'
 
 export default function CurrencyOutput() {
-
-
     const toCurrency = useSelector(getToCurrency)
     const fromCurrency = useSelector(getFromCurrency)
     const exchangeRate = useSelector(getExchangeRate)
@@ -29,7 +27,6 @@ export default function CurrencyOutput() {
 
     const [integerPartPointTwoDecimalDigits, remainingDecimalDigits] = formatCurrencyResult(exchangeRate);
     const fromCurrencyAmount = formatCurrencyResult(1)[0]
-
 
     return (
         <div className='to-currency-result-container'>

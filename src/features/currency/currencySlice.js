@@ -90,6 +90,9 @@ const currencySlice = createSlice({
 
             return { ...state, currencyCodes, currencyBase: payload.base, fromCurrency, toCurrency, currentExchangeRate, exchangeRates, date: payload.date, status: { ...state.status, currencyRates: 'fulfilled' } }
         },
+        [fetchCurrencyRates.rejected]: (state) => {
+            return { ...state, status: { ...state.status, currencyRates: 'rejected' } }
+        },
         [fetchCurrencyTimeseries.pending]: (state) => {
             console.log("Currency Charts fetching in progress...")
             return { ...state, status: { ...state.status, currencyTimeseries: 'pending' } }
@@ -108,7 +111,7 @@ const currencySlice = createSlice({
         },
         [fetchCurrencyTimeseries.rejected]: (state) => {
             return { ...state, status: { ...state.status, currencyTimeseries: 'rejected' } }
-        }
+        },
     }
 })
 

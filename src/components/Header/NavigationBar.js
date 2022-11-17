@@ -11,7 +11,7 @@ export default function NavigationBar() {
         <>
             <div className='nav-header-full-width'></div>
             <nav className='nav-header'>
-                <img src='icons/dollar_white.png' alt="Logo" />
+                <a href='/'><img src='icons/dollar_white.png' alt="Logo" /></a>
                 <div className='menu'><a href='/' onClick={e => { e.preventDefault() }} >☰</a>
                     <ul className="menuItems dropdown">
                         {

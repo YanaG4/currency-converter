@@ -6,10 +6,10 @@ import Autocomplete from '@mui/material/Autocomplete';
 import InputAdornment from '@mui/material/InputAdornment';
 //redux
 import { useSelector, useDispatch } from 'react-redux'
-import { setFromCurrency, setToCurrency, getCurrencyInfo, fetchCurrencyTimeseries } from '../../../../../features/currency/currencySlice'
+import { setFromCurrency, setToCurrency, getCurrencyInfo, fetchCurrencyTimeseries, getStatus } from '../../../../../features/currency/currencySlice'
 //styles
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import "/node_modules/flag-icons/css/flag-icons.min.css";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from './CurrencyCodeSelectorTheme';
 
 export default function CurrencyCodeSelector({ currentCode, labelName }) {
     const dispatch = useDispatch()
@@ -19,33 +19,18 @@ export default function CurrencyCodeSelector({ currentCode, labelName }) {
         dispatch(fetchCurrencyTimeseries())
     }
 
-    const theme = createTheme({
-        palette: {
-            primary: {
-                main: 'rgb(255, 102, 150)'
-            }
-        },
-        components: {
-            MuiOutlinedInput: {
-                styleOverrides: {
-                    root: {
-                        ".MuiOutlinedInput-notchedOutline": {
-                            minHeight: 60,
-                            borderRadius: 5,
-                            outline: 'none',
-                            border: '1px solid rgb(215, 215, 215)',
-                        },
-                        "&:hover .MuiOutlinedInput-notchedOutline": {
-                            border: '1px solid rgb(255, 102, 150)'
-                        },
-                        "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                            border: '2px solid rgb(255, 102, 150)'
-                        },
-                    }
-                }
-            }
-        }
-    });
+    const autocompleteProps = {
+        options: reduxCurrencyInfo,
+        value: reduxCurrencyInfo.find(currencyCode => currencyCode.code === currentCode) || null,
+        getOptionLabel: (option) => (option?.code + " — " + option?.name)
+    }
+    const options = ['Loading...']
+    const autocompleteLoadingProps = {
+        options: options,
+        value: options[0] || null,
+    }
+    const status = useSelector(getStatus)
+    const props = status.currencyRates === 'fulfilled' ? autocompleteProps : autocompleteLoadingProps
 
     return (
         <>
@@ -54,11 +39,9 @@ export default function CurrencyCodeSelector({ currentCode, labelName }) {
                 <Autocomplete
                     id={labelName.toLowerCase()}
                     sx={{ width: '100%' }}
-                    options={reduxCurrencyInfo}
-                    onChange={(event, value) => { handleChangeCode(value?.code) }}
-                    value={reduxCurrencyInfo.find(currencyCode => currencyCode.code === currentCode) || null}
+                    {...props}
                     autoHighlight
-                    getOptionLabel={(option) => option.code + " — " + option.name}
+                    onChange={(event, value) => { handleChangeCode(value?.code) }}
                     disableClearable={true}
                     renderOption={(props, option) => (
                         <Box
@@ -70,12 +53,14 @@ export default function CurrencyCodeSelector({ currentCode, labelName }) {
                                 textAlign: 'left',
                                 display: "flex",
                                 alignItems: "flex-start"
-                            }} {...props}>
+                            }}
+                            {...props}
+                        >
                             <img
                                 loading="lazy"
                                 width="20"
-                                src={`https://flagcdn.com/w20/${option.countryCode.toLowerCase()}.png`}
-                                srcSet={`https://flagcdn.com/w40/${option.countryCode.toLowerCase()}.png 2x`}
+                                src={`https://flagcdn.com/w20/${option.countryCode?.toLowerCase()}.png`}
+                                srcSet={`https://flagcdn.com/w40/${option.countryCode?.toLowerCase()}.png 2x`}
                                 alt=""
                             />
                             <span className='optionCode'> {option.code}</span> <span className='optionName'> {option.name}</span>
@@ -84,14 +69,13 @@ export default function CurrencyCodeSelector({ currentCode, labelName }) {
                     renderInput={(params) => {
                         params.InputProps.startAdornment = (
                             <>
-                                <InputAdornment position="start"><img src={`https://flagcdn.com/w40/${reduxCurrencyInfo.find(currencyCode => currencyCode.code === (params.inputProps?.value).split(' ')[0])?.countryCode.toLowerCase() || 'eu'}.png`} /></InputAdornment>
+                                <InputAdornment position="start"><img src={`https://flagcdn.com/w40/${reduxCurrencyInfo.find(currencyCode => currencyCode.code === (params.inputProps?.value).split(' ')[0])?.countryCode?.toLowerCase() || 'eu'}.png`} alt="" /></InputAdornment>
                                 {params.InputProps.startAdornment}
                             </>
                         );
 
                         return <TextField {...params} variant="outlined" />;
-                    }
-                    }
+                    }}
                 />
             </ThemeProvider>
         </>

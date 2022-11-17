@@ -20,7 +20,7 @@ const interestingFactsSlice = createSlice({
     extraReducers: {
         [fetchInterestingFacts.fulfilled]: (state, { payload }) => {
             console.log('Interesting facts successfuly fetched');
-            return { ...state, facts: payload, status: 'success' }
+            return { ...state, facts: payload, status: 'fulfilled' }
         }
     }
 })
@@ -28,5 +28,6 @@ const interestingFactsSlice = createSlice({
 export const { } = interestingFactsSlice.actions
 
 export const getFacts = (state) => state.interestingFacts.facts
+export const getStatus = (state) => state.interestingFacts.status
 
 export default interestingFactsSlice.reducer
