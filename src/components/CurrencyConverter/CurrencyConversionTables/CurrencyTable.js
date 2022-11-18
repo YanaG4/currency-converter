@@ -76,7 +76,7 @@ export default function CurrencyConversionTable(params) {
         :
         (
             <>
-                <h2 className='container-header' style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+                <h2 className='container-header' style={{ gap: '10px' }}>
                     <Skeleton variant="rounded" sx={{ maxWidth: '300px' }} width={'70%'} height={50} />
                 </h2>
                 <table className='conversion-container-table'>

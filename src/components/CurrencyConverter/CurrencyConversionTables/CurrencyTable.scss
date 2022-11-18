@@ -35,6 +35,8 @@
     
 }
 .container-header{
+    display: flex;
+    justify-content: center;
     color: var(--main-button-active-color);
     padding-top: 1rem;
     padding-bottom: 1rem;
