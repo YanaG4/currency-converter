@@ -19,7 +19,7 @@ export const headerNavBarSections = [
         }
     },
     {
-        section: 'Currency API',
+        section: 'API & Data',
         link: 'currencyapi',
         icon: null,
         subSections: {

@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Sono:wght@200;300;400;500;600&display=swap');
+.text-page {
+    margin: 50px 10px;
+    text-align: left;
+    line-height: 2.1;
+    white-space: pre-line;
+    background-color: white;
+    padding: 35px 45px 60px 35px;
+    border-radius: 15px;
+    word-wrap:break-word;
+}
+.text-page h1 {
+    font-weight: 500;
+    font-size: 1.9rem;
+    line-height: 2.6;
+}
+.text-page h2 {
+    font-weight: 500;
+    font-size: 1.5rem;
+    line-height: 5;
+}
+.text-page h3 {
+    font-weight: 500;
+    font-size: 1.3rem;
+    line-height: 5;
+}
+.code-text {
+    font-family: 'Sono', sans-serif;
+    background-color: var(--background-inactive-menu-color);
+    padding: 30px;
+    padding-left: 40px;
+    line-height: 1.7;
+    width: 50%;
+    min-width: 315px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.link-text {
+    font-family: 'Sono', sans-serif;
+    background-color: var(--background-inactive-menu-color);
+    padding: 15px;
+    line-height: 1.7;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+pre {
+    font-family: 'Sono', monospace;
+}
+.website-options-text {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.website-option-text {
+    width: 45%;
+    min-width: 300px;
+}
+.website-option-text p:first-child {
+    font-weight: 600;
+    background-color: var(--main-element-color);
+    color: white;
+    margin: 5px;
+}
+.website-option-text p:last-child {
+    background-color: var(--light-main-color);
+    color: white;
+    margin: 5px;
+}
+.text-page i {
+    background-color: var(--main-element-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h2 i {  
+    width: 35px;
+    height: 35px;  
+}
+h3 i {
+    width: 30px;
+    height: 30px
+}
+h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.text-page a {
+    font-family: 'Sono', sans-serif;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+.website-options-text a {
+    color: white
+}
