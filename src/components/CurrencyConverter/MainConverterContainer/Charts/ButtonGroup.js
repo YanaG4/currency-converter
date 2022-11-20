@@ -28,7 +28,15 @@ export default function ButtonGroup() {
     return (
         <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '20px' }}>
             {DAYS_AGO.map(someDaysAgo => (
-                <button key={someDaysAgo.name} className='oval-button' onClick={() => handleOnClickButton(someDaysAgo.value)} disabled={daysAgo === someDaysAgo.value}>{someDaysAgo.name}</button>
+                <button
+                    key={someDaysAgo.name}
+                    className='oval-button'
+                    onClick={() => handleOnClickButton(someDaysAgo.value)}
+                    disabled={daysAgo === someDaysAgo.value}
+                    style={daysAgo === someDaysAgo.value ? { cursor: 'default', opacity: '80%' } : {}}
+                >
+                    {someDaysAgo.name}
+                </button>
             ))}
         </div>
     )
