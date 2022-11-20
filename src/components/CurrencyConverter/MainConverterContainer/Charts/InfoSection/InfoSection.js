@@ -18,7 +18,6 @@ export default function InfoSection({ date }) {
             <div className='charts-info-date'>
                 {date}
             </div>
-
         </div>
     )
 }

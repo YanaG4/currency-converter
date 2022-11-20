@@ -1,3 +1,4 @@
+/* .main-button */
 .main-button {
     border: none;
     outline: none;
@@ -13,15 +14,15 @@
     border:none;
     outline: none;
   }
-  .main-button:hover{
+  .main-button:hover, .oval-button:hover{
     background-color: var(--main-button-background-color);
   }
-  .main-button:focus{
+  .main-button:focus, .oval-button:focus{
     background-color: var(--main-button-background-color);
-    outline: 2px solid var(--main-button-active-color);
+    outline: 3px solid var(--main-element-color);
   }
-  .main-button:active {
-    background-color: var(--main-button-active-color);
+  .main-button:active, .oval-button:active{
+    background-color: var(--main-element-color);
   }
 /* .secondary-button */
   .secondary-button:focus, .secondary-button:active, .secondary-button:hover{
@@ -36,4 +37,21 @@
   }
   .secondary-button:active {
     outline: 2px solid var(--main-button-background-color);
+  }
+/* .oval-button */
+  .oval-button {
+    border: none;
+    outline: none;
+    color: var(--main-button-text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: .5rem 1rem;
+    background-color: var(--main-element-color);
+    border-radius: 60px;
+    cursor: pointer;
+  }
+  @media only screen and (max-width: 390px){
+    .oval-button{
+      font-size: .8rem; 
+    } 
   }

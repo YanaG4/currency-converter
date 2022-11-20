@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import { getDate, getStatus } from '../../../../features/currency/currencySlice'
 //data
 import InfoSection from '../Charts/InfoSection/InfoSection';
+import ButtonGroup from '../Charts/ButtonGroup';
 
 export default function ChartsContainer() {
     const date = useSelector(getDate)
@@ -19,6 +20,7 @@ export default function ChartsContainer() {
             <>
                 <CurrencyInputFields withAmount={false} />
                 <InfoSection date={date} />
+                <ButtonGroup />
                 <CurrencyChart />
             </>
         )
@@ -27,6 +29,7 @@ export default function ChartsContainer() {
             <>
                 <CurrencyInputFields withAmount={false} />
                 <Skeleton variant="rounded" width={'100%'} height={40} />
+                <ButtonGroup />
                 <CurrencyChart />
             </>
         )

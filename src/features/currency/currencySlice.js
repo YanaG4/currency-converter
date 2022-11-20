@@ -61,6 +61,12 @@ const currencySlice = createSlice({
         setAmount: (state, { payload }) => {
             state.amount = payload
         },
+        setCurrencyChartStartDate: (state, { payload }) => {
+            const now = new Date();
+            const timeAgo = new Date(now.getFullYear(), now.getMonth(), now.getDate() - (payload - 1));
+            const [formatedDate] = timeAgo.toISOString().split('T');
+            state.currencyChartStartDate = formatedDate
+        },
     },
     extraReducers: {
         [fetchCurrencyInfo.pending]: () => {
@@ -115,7 +121,7 @@ const currencySlice = createSlice({
     }
 })
 
-export const { setFromCurrency, setToCurrency, setAmount } = currencySlice.actions
+export const { setFromCurrency, setToCurrency, setAmount, setCurrencyChartStartDate } = currencySlice.actions
 
 export const getCurrencyCodes = (state) => state.currency.currencyCodes
 export const getFromCurrency = (state) => state.currency.fromCurrency
