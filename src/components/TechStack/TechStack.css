@@ -1,0 +1,56 @@
+.subheader {
+    padding: 4px 14px;
+    background-color: var(--background-inactive-menu-color);
+    color: var(--main-element-color);
+    width: 30%;
+    border-radius: 1px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 6px;
+}
+.subheader-container {
+    margin: 15px 0;
+}
+
+.text-page .logo {
+    padding: 3px;
+    width: 35px;
+    height: auto; 
+}
+.text-page h2 div {  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px; 
+    background-color: var(--main-element-color);
+    border-radius: 50%;
+}
+.tech-stack-page p {
+    font-size: 1rem;
+    font-weight: 400;
+}
+.text-page ul {
+    margin-left: 40px;
+}
+
+@media only screen and (max-width: 630px){
+    .subheader-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+    .subheader {
+        min-width: 70%;
+    }
+  }
+  @media only screen and (max-width: 500px){
+    .subheader-container {
+        text-align: center;
+    }
+    .subheader {
+        min-width: 100%;
+    }
+  }
