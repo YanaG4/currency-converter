@@ -7,6 +7,8 @@ const initialState = {
     curencyBase: '',
     fromCurrency: '',
     toCurrency: '',
+    fromCurrencyMUV: 2, //minorUnitValue
+    toCurrencyMUV: 2, //minorUnitValue
     currentExchangeRate: 1,
     exchangeRates: {},
     amount: 1.00,
@@ -51,10 +53,12 @@ const currencySlice = createSlice({
     initialState,
     reducers: {
         setFromCurrency: (state, { payload }) => {
+            state.fromCurrencyMUV = state.currencyInfo.find(currency => currency.code === payload).minorUnitValue
             state.fromCurrency = payload
             state.currentExchangeRate = 1 / state.exchangeRates[payload] * state.exchangeRates[state.toCurrency]
         },
         setToCurrency: (state, { payload }) => {
+            state.toCurrencyMUV = state.currencyInfo.find(currency => currency.code === payload).minorUnitValue
             state.toCurrency = payload
             state.currentExchangeRate = 1 / state.exchangeRates[state.fromCurrency] * state.exchangeRates[payload]
         },
@@ -126,6 +130,8 @@ export const { setFromCurrency, setToCurrency, setAmount, setCurrencyChartStartD
 export const getCurrencyCodes = (state) => state.currency.currencyCodes
 export const getFromCurrency = (state) => state.currency.fromCurrency
 export const getToCurrency = (state) => state.currency.toCurrency
+export const getFromCurrencyMUV = (state) => state.currency.fromCurrencyMUV
+export const getToCurrencyMUV = (state) => state.currency.toCurrencyMUV
 export const getExchangeRate = (state) => state.currency.currentExchangeRate
 export const getCurrencyInfo = (state) => state.currency.currencyInfo
 export const getAmount = (state) => state.currency.amount

@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react'
 //redux
-import { useDispatch } from 'react-redux'
-import { setAmount } from '../../../../../features/currency/currencySlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { setAmount, getFromCurrencyMUV } from '../../../../../features/currency/currencySlice'
 //styles
 import './InputAmountField.css'
 
 export default function InputAmountField({ fromCurrencySymbol }) {
+    const minorUnitValue = useSelector(getFromCurrencyMUV)
     const dispatch = useDispatch(setAmount)
-    const [amount, setCurrentAmount] = useState((1).toFixed(2))
+    const [amount, setCurrentAmount] = useState((1).toFixed(minorUnitValue))
+    useEffect(() => {
+        setCurrentAmount(parseFloat(amount).toFixed(minorUnitValue))
+    }, [minorUnitValue])
 
     const [errorMessage, setErrorMessage] = useState('')
     const [amountChanged, setCurrentAmountChaned] = useState(false)
@@ -25,7 +29,7 @@ export default function InputAmountField({ fromCurrencySymbol }) {
         }
         dispatch(setAmount(amount))
         setErrorMessage('')
-    }, [amount])
+    }, [amount, dispatch])
 
     function onFocusAmount() {
         if (!amountChanged) {
@@ -39,7 +43,7 @@ export default function InputAmountField({ fromCurrencySymbol }) {
     }
     function onBlurAmount(e) {
         if (!amountChanged) {
-            setCurrentAmount((1).toFixed(2))
+            setCurrentAmount((1).toFixed(minorUnitValue))
             return
         }
         const checkAmount = parseFloat(((e.target.value).toString()).replaceAll(',', ''))
@@ -47,7 +51,7 @@ export default function InputAmountField({ fromCurrencySymbol }) {
             setCurrentAmount('')
             return
         }
-        setCurrentAmount(checkAmount.toFixed(2))
+        setCurrentAmount(checkAmount.toFixed(minorUnitValue))
     }
 
     return (

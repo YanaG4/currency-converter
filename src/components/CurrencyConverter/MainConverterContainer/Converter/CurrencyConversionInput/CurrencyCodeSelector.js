@@ -11,17 +11,24 @@ import { setFromCurrency, setToCurrency, getCurrencyInfo, fetchCurrencyTimeserie
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from './CurrencyCodeSelectorTheme';
 
-export default function CurrencyCodeSelector({ currentCode, labelName }) {
+export default function CurrencyCodeSelector({ currentCode, labelName, setMinorUnitValue }) {
     const dispatch = useDispatch()
-    const reduxCurrencyInfo = useSelector(getCurrencyInfo)
+    const currencyInfo = useSelector(getCurrencyInfo)
     function handleChangeCode(code) {
-        labelName === 'From' ? dispatch(setFromCurrency(code)) : dispatch(setToCurrency(code))
+        if (labelName === 'From') {
+            dispatch(setFromCurrency(code))
+            const minorUnitValue = (currencyInfo.find(currencyCode => currencyCode.code === code))?.minorUnitValue
+            setMinorUnitValue(minorUnitValue)
+        }
+        else {
+            dispatch(setToCurrency(code))
+        }
         dispatch(fetchCurrencyTimeseries())
     }
 
     const autocompleteProps = {
-        options: reduxCurrencyInfo,
-        value: reduxCurrencyInfo.find(currencyCode => currencyCode.code === currentCode) || null,
+        options: currencyInfo,
+        value: currencyInfo.find(currencyCode => currencyCode.code === currentCode) || null,
         getOptionLabel: (option) => (option?.code + " — " + option?.name)
     }
     const options = ['Loading...']
@@ -69,7 +76,7 @@ export default function CurrencyCodeSelector({ currentCode, labelName }) {
                     renderInput={(params) => {
                         params.InputProps.startAdornment = (
                             <>
-                                <InputAdornment position="start"><img src={`https://flagcdn.com/w40/${reduxCurrencyInfo.find(currencyCode => currencyCode.code === (params.inputProps?.value).split(' ')[0])?.countryCode?.toLowerCase() || 'eu'}.png`} alt="" /></InputAdornment>
+                                <InputAdornment position="start"><img src={`https://flagcdn.com/w40/${currencyInfo.find(currencyCode => currencyCode.code === (params.inputProps?.value).split(' ')[0])?.countryCode?.toLowerCase() || 'eu'}.png`} alt="" /></InputAdornment>
                                 {params.InputProps.startAdornment}
                             </>
                         );

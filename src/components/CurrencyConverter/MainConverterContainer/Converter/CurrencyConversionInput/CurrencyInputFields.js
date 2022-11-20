@@ -10,22 +10,24 @@ import { getCurrencyInfo, getFromCurrency, getToCurrency } from '../../../../../
 import './CurrencyInputFields.css'
 
 export default function CurrencyRow({ withAmount }) {
-    const reduxCurrencyInfo = useSelector(getCurrencyInfo)
+    const currencyInfo = useSelector(getCurrencyInfo)
     const fromCurrency = useSelector(getFromCurrency)
     const toCurrency = useSelector(getToCurrency)
+
     return (
         <div className='currency-input-fields'>
             {
                 withAmount &&
                 <div className='fields-container amount-input'>
                     <InputAmountField
-                        fromCurrencySymbol={reduxCurrencyInfo.find(currency => currency.code === fromCurrency)?.symbol || '€'} />
+                        fromCurrencySymbol={currencyInfo.find(currency => currency.code === fromCurrency)?.symbol || '€'} />
                 </div>
             }
             <div className='fields-container'>
                 <CurrencyCodeSelector
                     currentCode={fromCurrency}
-                    labelName={"From"} />
+                    labelName={"From"}
+                />
             </div>
             <div className='fields-container fields-container-reverse'>
                 <ReverseButton />

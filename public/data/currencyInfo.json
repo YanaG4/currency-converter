@@ -1219,7 +1219,7 @@
         "code": "USD",
         "minorUnitValue": 2,
         "name": "United States dollar",
-        "countries": "United States,  American Samoa (AS),  British Indian Ocean Territory (IO),  British Virgin Islands (VG),  Caribbean Netherlands (BQ – Bonaire, Sint Eustatius and Saba),  Ecuador (EC),  El Salvador (SV),  Guam (GU),  Marshall Islands (MH),  Federated States of Micronesia (FM),  Northern Mariana Islands (MP),  Palau (PW),  Panama (PA) (as well as Panamanian Balboa),  Puerto Rico (PR),  Timor-Leste (TL),  Turks and Caicos Islands (TC),  U.S. Virgin Islands (VI),  United States Minor Outlying Islands (UM)",
+        "countries": "United States,  American Samoa (AS),  British Indian Ocean Territory (IO),  British Virgin Islands (VG),  Caribbean Netherlands (BQ Bonaire, Sint Eustatius and Saba),  Ecuador (EC),  El Salvador (SV),  Guam (GU),  Marshall Islands (MH),  Federated States of Micronesia (FM),  Northern Mariana Islands (MP),  Palau (PW),  Panama (PA) (as well as Panamanian Balboa),  Puerto Rico (PR),  Timor-Leste (TL),  Turks and Caicos Islands (TC),  U.S. Virgin Islands (VI),  United States Minor Outlying Islands (UM)",
         "countryFlag": "United States",
         "countryCode": "US"
     },
