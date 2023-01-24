@@ -34,7 +34,7 @@ export default function About() {
             <br /><br />
             My team, where I was the only frontend developer, won a prize at a company Hackathon for our product's frontend experience.
             <br /><br />
-            Besides this project, I've been working on a bunch of open-source projects, which you can find on my GitHub account: 👉🏻 https://github.com/sinxenon/
+            Besides this project, I've been working on a bunch of open-source projects, which you can find on my 👉🏻 <a href='https://github.com/sinxenon/'>GitHub account</a>
             <br /><br />
             My hobbies are: learning foreign languages, drawing, playing D&D (tabletop roleplaying game), and reading.
         </div>
