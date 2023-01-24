@@ -74,18 +74,18 @@ const currencySlice = createSlice({
     },
     extraReducers: {
         [fetchCurrencyInfo.pending]: () => {
-            console.log("Currency Info fetching in progress...")
+            //console.log("Currency Info fetching in progress...")
         },
         [fetchCurrencyInfo.fulfilled]: (state, { payload }) => {
-            console.log("Currency Info fetched successfully")
+            //console.log("Currency Info fetched successfully")
             const currencyCodes = payload.map(currency => currency.code)
             return { ...state, currencyCodes, currencyInfo: payload, status: { ...state.status, currencyInfo: 'fulfilled' } }
         },
         [fetchCurrencyRates.pending]: () => {
-            console.log("Currency fetching in progress...");
+            //console.log("Currency fetching in progress...");
         },
         [fetchCurrencyRates.fulfilled]: (state, { payload }) => {
-            console.log("Currencies fetched successfully")
+            //console.log("Currencies fetched successfully")
             const apiCurrencyCodes = Object.keys(payload.rates)
             const fromCurrency = payload.base
             const toCurrency = (apiCurrencyCodes.includes('USD') && fromCurrency !== 'USD') ? 'USD' : 'EUR'
@@ -104,11 +104,11 @@ const currencySlice = createSlice({
             return { ...state, status: { ...state.status, currencyRates: 'rejected' } }
         },
         [fetchCurrencyTimeseries.pending]: (state) => {
-            console.log("Currency Charts fetching in progress...")
+            //console.log("Currency Charts fetching in progress...")
             return { ...state, status: { ...state.status, currencyTimeseries: 'pending' } }
         },
         [fetchCurrencyTimeseries.fulfilled]: (state, { payload }) => {
-            console.log("Currency Charts fetched successfully")
+            //console.log("Currency Charts fetched successfully")
             const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
             const currencyChartTimeseries = []
             for (const [date, exchnageRateObject] of Object.entries(payload.rates)) {

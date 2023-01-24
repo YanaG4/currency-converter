@@ -22,6 +22,7 @@
 .info-table td:first-child {
     color: var(--text-subtle-color);
     font-weight: 500;
+    content-visibility: auto;
 }
 .conversion-container-table tr:last-child td {
     padding-bottom: 1.8rem;

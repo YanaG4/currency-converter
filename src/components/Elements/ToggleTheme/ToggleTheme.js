@@ -11,7 +11,7 @@ export default function ToggleTheme() {
     useEffect(() => {
         if (darkMode.value !== inputElement.current.checked)
             inputElement.current.checked = darkMode.value
-        console.log(darkMode.value);
+        //console.log(darkMode.value);
     }, [darkMode])
     return (
         <div className="toggle-container">

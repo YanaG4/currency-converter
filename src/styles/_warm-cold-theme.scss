@@ -115,7 +115,7 @@ $themes: (
     @include styles("coldTheme");
   }
   
-  .light-mode {
+.light-mode {
     @include styles("warmTheme");
   }
 

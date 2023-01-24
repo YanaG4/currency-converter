@@ -19,7 +19,7 @@ const interestingFactsSlice = createSlice({
     },
     extraReducers: {
         [fetchInterestingFacts.fulfilled]: (state, { payload }) => {
-            console.log('Interesting facts successfuly fetched');
+            //console.log('Interesting facts successfuly fetched');
             return { ...state, facts: payload, status: 'fulfilled' }
         }
     }

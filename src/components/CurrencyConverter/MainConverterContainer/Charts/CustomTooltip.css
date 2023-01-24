@@ -18,7 +18,7 @@ font-weight: 600;
 .custom-tooltip:hover,
 .custom-tooltip:focus,
 .custom-tooltip:active {
-    box-shadow: 1px 3px 10px rgb(0, 0, 0, .5);
+box-shadow: 1px 3px 10px rgb(0, 0, 0, .5);
 outline: none !important;
 border: none !important;
 }

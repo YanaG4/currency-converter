@@ -10,6 +10,7 @@
     word-wrap:break-word;
     font-size: 1.1rem;
     text-align: justify;
+    content-visibility: auto;
 }
 .text-page h1 {
     font-weight: 500;
@@ -22,6 +23,7 @@
     font-size: 1.7rem;
     line-height: 1.4;
     margin: 35px 0;
+    content-visibility: auto;
 }
 .text-page h3 {
     font-weight: 500;
@@ -39,6 +41,7 @@
     min-width: 315px;
     margin-top: 20px;
     margin-bottom: 20px;
+    content-visibility: auto;
 }
 .link-text {
     font-family: 'Sono', sans-serif;
@@ -47,9 +50,11 @@
     line-height: 1.7;
     margin-top: 20px;
     margin-bottom: 20px;
+    content-visibility: auto;
 }
 pre {
     font-family: 'Sono', monospace;
+    content-visibility: auto;
 }
 .website-options-text {
     display: flex;
@@ -85,10 +90,12 @@ pre {
 h2 i {  
     width: 43px;
     height: 43px;  
+    content-visibility: auto;
 }
 h3 i {
     width: 35px;
-    height: 35px
+    height: 35px;
+    content-visibility: auto;
 }
 .text-page h2 {
     color : var(--main-element-color);

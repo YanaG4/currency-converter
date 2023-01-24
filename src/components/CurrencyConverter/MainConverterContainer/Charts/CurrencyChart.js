@@ -9,7 +9,7 @@ export default function CurrencyChart() {
     const data = useSelector(getCurrencyChartTimeseries)
     const { innerWidth } = useWindowSize()
     function getInterval() {
-        console.log(data.length);
+        //console.log(data.length);
         if (data.length < 10) //1 week chart
             return innerWidth > 680 ? 0 : 1
         if (data.length < 35) { //1 month & 1 year chart

@@ -8,9 +8,11 @@
     font-size: 1.1rem;
     font-weight: 500;
     border-radius: 6px;
+    content-visibility: auto;
 }
 .subheader-container {
     margin: 15px 0;
+    content-visibility: auto;
 }
 
 .text-page .logo {
