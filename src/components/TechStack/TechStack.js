@@ -39,11 +39,15 @@ export default function TechStack() {
             Technologies used:
 
             <div className='subheader-container'><span className='subheader'>Media Queries</span></div>
+            For making a screen adaptive design.
             <div className='subheader-container'><span className='subheader'>Animations</span></div>
+            For responsiveness and design features.
             <div className='subheader-container'><span className='subheader'>Mixin</span></div>
+            For code reusing (more precisely for color switching).
             <div className='subheader-container'><span className='subheader'>Variables</span></div>
+            For making code clearer.
             <div className='subheader-container'><span className='subheader'>Custom MUI theme</span></div>
-
+            For styling the MUI components.
             <h2>
                 <div><img src='icons/technologies/jsx_white.png' alt="" className='logo' /></div>
                 HTML5 & JSX</h2>
@@ -74,11 +78,13 @@ export default function TechStack() {
             sometimes avoiding MUI might be too inefficient. Thus I used the following components:
 
             <div className='subheader-container'><span className='subheader'>Autocomplete</span></div>
+            I used it in the currency select dropdown.
             <div className='subheader-container'><span className='subheader'>Input Adornments</span></div>
+            Used for displaying the flags
             <div className='subheader-container'><span className='subheader'>Skeleton</span></div>
-            At first, I wanted to implement a circle progress bar, but I researched modern design practices and found out that the 'Skeleton' approach
-            is more user-friendly.
+            I was choosing between a circle progress bar and a skeleton. The latter is more user-friendly and is recommended by modern UX standards, so I decided to go with the MUI Skeleton.
             <div className='subheader-container'><span className='subheader'>ThemeProvider</span></div>
+            For being able to customize MUI theme.
 
             <h2>
                 <div><img src='icons/technologies/swiper_white.png' alt="" className='logo' /></div>
