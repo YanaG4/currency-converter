@@ -2,8 +2,7 @@
 
 ## Design
 
- <img src="https://github.com/sinxenon/Currency-converter/blob/master/public/images/iphone_ipad2.png?raw=true" width="850" alt="Design samples">
-
+ <img src="https://github.com/sinxenon/currency-converter/blob/master/public/images/iphone_ipad2.png?raw=true" width="850" alt="Design samples">
 
 ## Description
 
@@ -15,14 +14,12 @@ A currency converter, that provides an actual Central Bank exchange rates for mo
 
 - Screen adaptive, responsive design
 
-
 ## How to Use
 
 1. Enter the amount for exchange
 2. Pick your currencies, if needed
 
 The result will change automatically
-
 
 ## Tech Stack
 
@@ -39,12 +36,10 @@ The result will change automatically
 - Media queries
 - CSS animations
 
-
 ## Resources
 
 - Exchange rate API: https://exchangerate.host
-- Design inspiration: Xe.com 
-
+- Design inspiration: Xe.com
 
 ## Author
 
