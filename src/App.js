@@ -29,9 +29,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/currency-converter" element={<Home />} />
-            <Route path="/currencyapi" element={<CurrencyApi />} />
-            <Route path="/techstack" element={<TechStack />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/currency-converter/currencyapi" element={<CurrencyApi />} />
+            <Route path="/currency-converter/techstack" element={<TechStack />} />
+            <Route path="/currency-converter/about" element={<About />} />
+            <Route path="/currency-converter/*" element={<PageNotFound />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </section>
