@@ -28,6 +28,7 @@ function App() {
         <section className='data-section' style={{ width: '100%', height: '100%', flexGrow: 1 }}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/currency-converter" element={<Home />} />
             <Route path="/currencyapi" element={<CurrencyApi />} />
             <Route path="/techstack" element={<TechStack />} />
             <Route path="/about" element={<About />} />

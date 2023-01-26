@@ -12,7 +12,7 @@ export const converterNavBarSections = [
 export const headerNavBarSections = [
     {
         section: 'Converter',
-        link: '/',
+        link: ['/', '/currency-converter'],
         icon: null,
         subSections: {
 

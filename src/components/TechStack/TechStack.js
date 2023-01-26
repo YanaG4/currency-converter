@@ -1,15 +1,25 @@
 import React from 'react'
 import './TechStack.css'
+
+import JS from '../../assets/icons/technologies/JS_white.png'
+import react from '../../assets/icons/technologies/React_white.png'
+import css from '../../assets/icons/technologies/css_white.png'
+import jsx from '../../assets/icons/technologies/jsx_white.png'
+import redux from '../../assets/icons/technologies/Redux_white.png'
+import axios from '../../assets/icons/technologies/Axios_white.png'
+import mui from '../../assets/icons/technologies/MUI_white.png'
+import swiper from '../../assets/icons/technologies/swiper_white.png'
+
 export default function TechStack() {
     return (
         <div className='text-page tech-stack-page'>
             <h1>Tech Stack</h1>
             <h2>
-                <div><img src='icons/technologies/js_white.png' alt="" className='logo' /></div>
+                <div><img src={JS} alt="" className='logo' /></div>
                 JS(ES6+)</h2>
             This whole project is written in JavaScript.
             <h2>
-                <div><img src='icons/technologies/React_white.png' alt="" className='logo' /></div>
+                <div><img src={react} alt="" className='logo' /></div>
                 React</h2>
             I used React.js to create an interactive UI.
             I followed the best React development practices, such as:
@@ -33,7 +43,7 @@ export default function TechStack() {
             It's a custom hook package that allows you to set up a dark mode on the website.
 
             <h2>
-                <div><img src='icons/technologies/css_white.png' alt="" className='logo' style={{ width: 'auto', height: '30px' }} /></div>
+                <div><img src={css} alt="" className='logo' style={{ width: 'auto', height: '30px' }} /></div>
                 CSS & SCSS & MUI theme</h2>
             For styling, I use mainly CSS and sometimes SCSS. And for the styling of MUI components, I used the custom MUI theme.
             Technologies used:
@@ -49,12 +59,12 @@ export default function TechStack() {
             <div className='subheader-container'><span className='subheader'>Custom MUI theme</span></div>
             For styling the MUI components.
             <h2>
-                <div><img src='icons/technologies/jsx_white.png' alt="" className='logo' /></div>
+                <div><img src={jsx} alt="" className='logo' /></div>
                 HTML5 & JSX</h2>
             Inside the React app, the markup was written in JSX.
 
             <h2>
-                <div><img src='icons/technologies/Redux_white.png' alt="" className='logo' /></div>
+                <div><img src={redux} alt="" className='logo' /></div>
                 Redux</h2>
             I used the Redux library for state management.
 
@@ -68,11 +78,11 @@ export default function TechStack() {
             Immutability is essential in writing JS code, especially in React, but in this project, this concept shines inside the extra reducers' state management.
 
             <h2>
-                <div><img src='icons/technologies/Axios_white.png' alt="" className='logo' /></div>
+                <div><img src={axios} alt="" className='logo' /></div>
                 Axios</h2>
             Axios is used for data fetching.
             <h2>
-                <div><img src='icons/technologies/MUI_white.png' alt="" className='logo' /></div>
+                <div><img src={mui} alt="" className='logo' /></div>
                 MUI</h2>
             In this project, MUI helped me to create complex components easier and faster. Even though I tried to use it rarely here for learning purposes,
             sometimes avoiding MUI might be too inefficient. Thus I used the following components:
@@ -87,7 +97,7 @@ export default function TechStack() {
             For being able to customize MUI theme.
 
             <h2>
-                <div><img src='icons/technologies/swiper_white.png' alt="" className='logo' /></div>
+                <div><img src={swiper} alt="" className='logo' /></div>
                 Swiper</h2>
             Swiper is an easy-to-use slider (carousel) library. I tried a lot of other libraries and even tried to write my own carousel, but eventually,
             I found that Swiper is the better choice in my case, not only because it's quite simple and beautiful out of the box, but it has fewer bugs
