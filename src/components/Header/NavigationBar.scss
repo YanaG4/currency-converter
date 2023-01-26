@@ -27,6 +27,7 @@
 }
 .nav-header img {
   max-height: 40px;
+  padding-top: 5px;
 }
 .menuItems {
   display: flex;
@@ -47,7 +48,7 @@
   display: inline-block;
   color: var(--nav-bar-link-color);
   text-decoration: none; 
-  padding: 0.6rem 1rem 0.6rem 1rem;
+  padding: 0.4rem 1rem 0.4rem 1rem;
 }
 .menuItems li:hover {
   background-color: rgb(255, 255, 255, 0.2);

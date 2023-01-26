@@ -5,7 +5,7 @@ import './ConverterNavigationBar.scss'
 export default function ConverterNavigationBar({ handleSectionChange, activeSection }) {
     const activeSectionStyles = {
         backgroundColor: 'transparent',
-        cursor: 'default'
+        pointerEvents: 'none'
     }
     return (
         <ul className="converter-menu-item">

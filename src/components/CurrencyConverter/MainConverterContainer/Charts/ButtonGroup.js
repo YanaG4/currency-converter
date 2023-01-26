@@ -33,7 +33,7 @@ export default function ButtonGroup() {
                     className='oval-button'
                     onClick={() => handleOnClickButton(someDaysAgo.value)}
                     disabled={daysAgo === someDaysAgo.value}
-                    style={daysAgo === someDaysAgo.value ? { cursor: 'default', opacity: '80%' } : {}}
+                    style={daysAgo === someDaysAgo.value ? { cursor: 'default', opacity: '80%', pointerEvents: 'none' } : {}}
                 >
                     {someDaysAgo.name}
                 </button>
