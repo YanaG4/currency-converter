@@ -1,8 +1,12 @@
 # Currency Converter
 
+## DEMO
+
+[👉🏻 Try Currency Converter Now!](https://sinxenon.github.io/currency-converter/#/)
+
 ## Design
 
- <img src="https://github.com/sinxenon/currency-converter/blob/master/public/images/iphone_ipad2.png?raw=true" width="850" alt="Design samples">
+ <img src="https://github.com/sinxenon/currency-converter/blob/master/src/assets/images/iphone_ipad2.png?raw=true" width="850" alt="Design samples">
 
 ## Description
 
