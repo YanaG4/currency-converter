@@ -16,14 +16,13 @@ export default function CurrencyCodeSelector({ currentCode, labelName, setMinorU
     const currencyInfo = useSelector(getCurrencyInfo)
     function handleChangeCode(code) {
         if (labelName === 'From') {
-            dispatch(setFromCurrency(code))
+            dispatch(setFromCurrency(code)).then(dispatch(fetchCurrencyTimeseries()))
             const minorUnitValue = (currencyInfo.find(currencyCode => currencyCode.code === code))?.minorUnitValue
             setMinorUnitValue(minorUnitValue)
         }
         else {
-            dispatch(setToCurrency(code))
+            dispatch(setToCurrency(code)).then(dispatch(fetchCurrencyTimeseries()))
         }
-        dispatch(fetchCurrencyTimeseries())
     }
 
     const autocompleteProps = {

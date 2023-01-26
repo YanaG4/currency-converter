@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { fetchCurrencyTimeseries, setCurrencyChartStartDate } from '../../../../features/currency/currencySlice'
 
@@ -18,8 +18,15 @@ const DAYS_AGO = [
 ]
 
 export default function ButtonGroup() {
-    const [daysAgo, setDaysAgo] = useState(DAYS_AGO[0])
+    const defaultValue = DAYS_AGO[0].value
+    const [daysAgo, setDaysAgo] = useState(defaultValue)
     const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(setCurrencyChartStartDate(defaultValue))
+        dispatch(fetchCurrencyTimeseries())
+    }, [])
+
     function handleOnClickButton(days) {
         dispatch(setCurrencyChartStartDate(days))
         dispatch(fetchCurrencyTimeseries())

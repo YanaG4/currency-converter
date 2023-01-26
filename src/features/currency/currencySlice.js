@@ -19,12 +19,13 @@ const initialState = {
         const [formatedDate] = now.toISOString().split('T');
         return formatedDate
     })(),
-    currencyChartStartDate: (() => {
-        const now = new Date();
-        const weekAgo = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 6);
-        const [formatedDate] = weekAgo.toISOString().split('T');
-        return formatedDate
-    })(),
+    currencyChartStartDate: '',
+    // (() => {
+    //     const now = new Date();
+    //     const weekAgo = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 6);
+    //     const [formatedDate] = weekAgo.toISOString().split('T');
+    //     return formatedDate
+    // })(),
     date: '',
     status: {},
 }
