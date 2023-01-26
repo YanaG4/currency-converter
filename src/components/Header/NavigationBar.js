@@ -1,4 +1,5 @@
 import React, { useRef, createRef } from 'react'
+import { useLocation } from "react-router-dom";
 //components
 import ToggleTheme from '../Elements/ToggleTheme/ToggleTheme'
 //data
@@ -8,17 +9,13 @@ import './NavigationBar.scss'
 import dollarSign from '../../assets/icons/dollar_white.png'
 
 export default function NavigationBar() {
-    const currentSection = useRef(window.location.pathname)
+    const currentSection = `#${useLocation().pathname}`
     const sections = useRef(Array(headerNavBarSections.length).fill(createRef()));
-
-
     const checkLink = (link) => {
         if (!Array.isArray(link))
-            return currentSection.current === link ? { borderBottom: '2px solid white', pointerEvents: 'none' } : {}
+            return currentSection === link ? { borderBottom: '2px solid white', pointerEvents: 'none' } : {}
         for (const singleLink of link) {
-            console.log(singleLink + '===' + currentSection.current);
-            if (currentSection.current === singleLink) {
-                console.log("yes!!!" + singleLink);
+            if (currentSection === singleLink) {
                 return { borderBottom: '2px solid white', pointerEvents: 'none' }
             }
         }
@@ -38,7 +35,7 @@ export default function NavigationBar() {
                                     key={section.section}
                                     ref={sections[i]}
                                     style={checkLink(section.link)}
-                                    onClick={e => { if (currentSection.current === section.link) e.preventDefault() }}
+                                    onClick={e => { if (currentSection.current === section.link) e.preventDefault(); e.target.blur() }}
                                 >
                                     <a href={Array.isArray(section.link) ? section.link[0] : section.link} data-item={section.section}>
                                         {section.section}

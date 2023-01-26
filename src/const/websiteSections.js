@@ -12,7 +12,7 @@ export const converterNavBarSections = [
 export const headerNavBarSections = [
     {
         section: 'Converter',
-        link: ['/', '/currency-converter'],
+        link: ['#/', '#/currency-converter'],
         icon: null,
         subSections: {
 
@@ -20,7 +20,7 @@ export const headerNavBarSections = [
     },
     {
         section: 'API & Data',
-        link: '/currency-converter/currencyapi',
+        link: '#/currency-converter/currencyapi',
         icon: null,
         subSections: {
 
@@ -28,7 +28,7 @@ export const headerNavBarSections = [
     },
     {
         section: 'Tech Stack',
-        link: '/currency-converter/techstack',
+        link: '#/currency-converter/techstack',
         icon: null,
         subSections: {
 
@@ -36,7 +36,7 @@ export const headerNavBarSections = [
     },
     {
         section: 'About',
-        link: '/currency-converter/about',
+        link: '#/currency-converter/about',
         icon: null,
         subSections: {
 

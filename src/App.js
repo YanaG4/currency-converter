@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  BrowserRouter,
+  HashRouter,
   Routes,
   Route
 } from 'react-router-dom';
@@ -22,23 +22,23 @@ function App() {
 
   return (
     // <div className={theme}>
-    <BrowserRouter>
+    <HashRouter>
       <div className='main-container'>
         <NavigationBar />
         <section className='data-section' style={{ width: '100%', height: '100%', flexGrow: 1 }}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/currency-converter" element={<Home />} />
+          <Routes basename="#">
             <Route path="/currency-converter/currencyapi" element={<CurrencyApi />} />
             <Route path="/currency-converter/techstack" element={<TechStack />} />
             <Route path="/currency-converter/about" element={<About />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/currency-converter" element={<Home />} />
             <Route path="/currency-converter/*" element={<PageNotFound />} />
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </section>
         <Footer />
       </div>
-    </BrowserRouter>
+    </HashRouter>
     // </div>
   );
 }
