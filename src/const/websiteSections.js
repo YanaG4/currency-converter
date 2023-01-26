@@ -8,6 +8,7 @@ export const converterNavBarSections = [
         icon: "fa fa-eur"
     }
 ]
+
 export const headerNavBarSections = [
     {
         section: 'Converter',
@@ -19,7 +20,7 @@ export const headerNavBarSections = [
     },
     {
         section: 'API & Data',
-        link: '#/currencyapi',
+        link: '#/currency-converter/currencyapi',
         icon: null,
         subSections: {
 
@@ -27,7 +28,7 @@ export const headerNavBarSections = [
     },
     {
         section: 'Tech Stack',
-        link: '#/techstack',
+        link: '#/currency-converter/techstack',
         icon: null,
         subSections: {
 
@@ -35,7 +36,7 @@ export const headerNavBarSections = [
     },
     {
         section: 'About',
-        link: '#/about',
+        link: '#/currency-converter/about',
         icon: null,
         subSections: {
 
