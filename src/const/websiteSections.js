@@ -8,7 +8,6 @@ export const converterNavBarSections = [
         icon: "fa fa-eur"
     }
 ]
-
 export const headerNavBarSections = [
     {
         section: 'Converter',
