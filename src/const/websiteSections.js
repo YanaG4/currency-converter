@@ -20,7 +20,7 @@ export const headerNavBarSections = [
     },
     {
         section: 'API & Data',
-        link: '#/currency-converter/currencyapi',
+        link: '#/currencyapi',
         icon: null,
         subSections: {
 
@@ -28,7 +28,7 @@ export const headerNavBarSections = [
     },
     {
         section: 'Tech Stack',
-        link: '#/currency-converter/techstack',
+        link: '#/techstack',
         icon: null,
         subSections: {
 
@@ -36,7 +36,7 @@ export const headerNavBarSections = [
     },
     {
         section: 'About',
-        link: '#/currency-converter/about',
+        link: '#/about',
         icon: null,
         subSections: {
 

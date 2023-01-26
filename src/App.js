@@ -27,9 +27,9 @@ function App() {
         <NavigationBar />
         <section className='data-section' style={{ width: '100%', height: '100%', flexGrow: 1 }}>
           <Routes basename="#">
-            <Route path="/currency-converter/currencyapi" element={<CurrencyApi />} />
-            <Route path="/currency-converter/techstack" element={<TechStack />} />
-            <Route path="/currency-converter/about" element={<About />} />
+            <Route path="/currencyapi" element={<CurrencyApi />} />
+            <Route path="/techstack" element={<TechStack />} />
+            <Route path="/about" element={<About />} />
             <Route path="/" element={<Home />} />
             <Route path="/currency-converter" element={<Home />} />
             <Route path="/currency-converter/*" element={<PageNotFound />} />
