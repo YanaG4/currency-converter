@@ -1,7 +1,7 @@
 {
   "name": "web-currency-converter",
   "version": "0.1.0",
-  "homepage": "http://sinxenon.github.io/currency-converter/#",
+  "homepage": "https://yanag4.github.io/currency-converter/#",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",

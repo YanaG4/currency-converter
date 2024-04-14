@@ -12,6 +12,7 @@ import TechStack from './components/TechStack/TechStack';
 import CurrencyApi from './components/CurrencyApi/CurrencyApi';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import Footer from './components/Footer/Footer';
+import Alert from './components/Alert/Alert';
 //styles
 import { useTheme } from "./utils/useTheme";
 import './styles/VariablesWarmTheme.css'
@@ -25,6 +26,7 @@ function App() {
     <HashRouter>
       <div className='main-container'>
         <NavigationBar />
+        <Alert />
         <section className='data-section' style={{ width: '100%', height: '100%', flexGrow: 1 }}>
           <Routes basename="#">
             <Route path="/currency-converter/currencyapi" element={<CurrencyApi />} />
