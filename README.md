@@ -2,7 +2,7 @@
 
 ## DEMO
 
-[👉🏻 Try Currency Converter Now!](https://sinxenon.github.io/currency-converter/#/)
+[👉🏻 Try Currency Converter Now!](https://yanag4.github.io/currency-converter/#)
 
 ## Design
 
