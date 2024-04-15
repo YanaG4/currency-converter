@@ -20,12 +20,6 @@ const initialState = {
         return formatedDate
     })(),
     currencyChartStartDate: '',
-    // (() => {
-    //     const now = new Date();
-    //     const weekAgo = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 6);
-    //     const [formatedDate] = weekAgo.toISOString().split('T');
-    //     return formatedDate
-    // })(),
     date: '',
     status: {},
 }
@@ -43,7 +37,6 @@ export const fetchCurrencyInfo = createAsyncThunk('currency/fetchCurrencyInfo', 
 export const fetchCurrencyTimeseries = createAsyncThunk('currency/fetchCurrencyTimeseries',
     async (_, { getState }) => {
         const { currency } = getState()
-        //console.log(`timeseries?start_date=${currency.currencyChartStartDate}&end_date=${currency.currencyChartEndtDate}&base=${currency.fromCurrency}&symbols=${currency.toCurrency}`);
         const response = await currencyApi
             .get(`timeseries?start_date=${currency.currencyChartStartDate}&end_date=${currency.currencyChartEndtDate}&base=${currency.fromCurrency}&symbols=${currency.toCurrency}`)
         return response.data
@@ -75,18 +68,14 @@ const currencySlice = createSlice({
     },
     extraReducers: {
         [fetchCurrencyInfo.pending]: () => {
-            //console.log("Currency Info fetching in progress...")
         },
         [fetchCurrencyInfo.fulfilled]: (state, { payload }) => {
-            //console.log("Currency Info fetched successfully")
             const currencyCodes = payload.map(currency => currency.code)
             return { ...state, currencyCodes, currencyInfo: payload, status: { ...state.status, currencyInfo: 'fulfilled' } }
         },
         [fetchCurrencyRates.pending]: () => {
-            //console.log("Currency fetching in progress...");
         },
         [fetchCurrencyRates.fulfilled]: (state, { payload }) => {
-            //console.log("Currencies fetched successfully")
             const apiCurrencyCodes = Object.keys(payload.rates)
             const fromCurrency = payload.base
             const toCurrency = (apiCurrencyCodes.includes('USD') && fromCurrency !== 'USD') ? 'USD' : 'EUR'
@@ -105,11 +94,13 @@ const currencySlice = createSlice({
             return { ...state, status: { ...state.status, currencyRates: 'rejected' } }
         },
         [fetchCurrencyTimeseries.pending]: (state) => {
-            //console.log("Currency Charts fetching in progress...")
             return { ...state, status: { ...state.status, currencyTimeseries: 'pending' } }
         },
         [fetchCurrencyTimeseries.fulfilled]: (state, { payload }) => {
-            //console.log("Currency Charts fetched successfully")
+            if (!payload.rates) {
+                console.error('No rates available in the payload:', payload);
+                return { ...state, status: { ...state.status, currencyRates: 'error - no rates data' } };
+            }
             const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
             const currencyChartTimeseries = []
             for (const [date, exchnageRateObject] of Object.entries(payload.rates)) {

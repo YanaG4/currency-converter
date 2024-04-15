@@ -3,7 +3,7 @@ import React from 'react'
 import SvgComponent from './ReverseSvg'
 //redux
 import { useDispatch, useSelector } from 'react-redux'
-import { setToCurrency, setFromCurrency, getToCurrency, getFromCurrency, getCurrencyChartTimeseries, fetchCurrencyTimeseries } from '../../../../../../features/currency/currencySlice'
+import { setToCurrency, setFromCurrency, getToCurrency, getFromCurrency, fetchCurrencyTimeseries } from '../../../../../../features/currency/currencySlice'
 //styles
 import './ReverseButton.css'
 import '../../../../../Elements/Buttons/Button.css'

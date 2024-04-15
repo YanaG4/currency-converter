@@ -38,14 +38,13 @@ export default function TechStack() {
             <div className='subheader-container'><span className='subheader'>Custom Hooks</span></div>
             I created my own hooks. For example, there is 'useWindowSize', which is frequently used inside components to determine which version of
             a page to render (mobile or desktop).
-            All of the custom hooks are located inside the 'utils' folder.
             <div className='subheader-container'><span className='subheader'>use-dark-mode</span></div>
             It's a custom hook package that allows you to set up a dark mode on the website.
 
             <h2>
                 <div><img src={css} alt="" className='logo' style={{ width: 'auto', height: '30px' }} /></div>
                 CSS & SCSS & MUI theme</h2>
-            For styling, I use mainly CSS and sometimes SCSS. And for the styling of MUI components, I used the custom MUI theme.
+            For styling, I use CSS and SCSS. And for the styling of MUI components, I used the custom MUI theme.
             Technologies used:
 
             <div className='subheader-container'><span className='subheader'>Media Queries</span></div>
@@ -53,7 +52,7 @@ export default function TechStack() {
             <div className='subheader-container'><span className='subheader'>Animations</span></div>
             For responsiveness and design features.
             <div className='subheader-container'><span className='subheader'>Mixin</span></div>
-            For code reusing (more precisely for color switching).
+            For code reusing.
             <div className='subheader-container'><span className='subheader'>Variables</span></div>
             For making code clearer.
             <div className='subheader-container'><span className='subheader'>Custom MUI theme</span></div>
@@ -84,17 +83,16 @@ export default function TechStack() {
             <h2>
                 <div><img src={mui} alt="" className='logo' /></div>
                 MUI</h2>
-            In this project, MUI helped me to create complex components easier and faster. Even though I tried to use it rarely here for learning purposes,
-            sometimes avoiding MUI might be too inefficient. Thus I used the following components:
+            In this project, MUI helped me to create complex components easier and faster. I used the following components:
 
             <div className='subheader-container'><span className='subheader'>Autocomplete</span></div>
-            I used it in the currency select dropdown.
+            Currency select dropdown
             <div className='subheader-container'><span className='subheader'>Input Adornments</span></div>
-            Used for displaying the flags
+            Displaying the flags
             <div className='subheader-container'><span className='subheader'>Skeleton</span></div>
-            I was choosing between a circle progress bar and a skeleton. The latter is more user-friendly and is recommended by modern UX standards, so I decided to go with the MUI Skeleton.
+            Skeleton as more friendly alternative to progress bar
             <div className='subheader-container'><span className='subheader'>ThemeProvider</span></div>
-            For being able to customize MUI theme.
+            MUI theme customization
 
             <h2>
                 <div><img src={swiper} alt="" className='logo' /></div>

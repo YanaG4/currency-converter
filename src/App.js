@@ -12,17 +12,14 @@ import TechStack from './components/TechStack/TechStack';
 import CurrencyApi from './components/CurrencyApi/CurrencyApi';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import Footer from './components/Footer/Footer';
-import Alert from './components/Alert/Alert';
+import Alert from './components/Elements/Alert/Alert';
 //styles
-import { useTheme } from "./utils/useTheme";
 import './styles/VariablesWarmTheme.css'
 import './App.scss';
 
 function App() {
-  const theme = useTheme();
 
   return (
-    // <div className={theme}>
     <HashRouter>
       <div className='main-container'>
         <NavigationBar />
@@ -41,7 +38,6 @@ function App() {
         <Footer />
       </div>
     </HashRouter>
-    // </div>
   );
 }
 
