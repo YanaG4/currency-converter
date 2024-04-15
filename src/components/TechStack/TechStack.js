@@ -17,27 +17,24 @@ export default function TechStack() {
             <h2>
                 <div><img src={JS} alt="" className='logo' /></div>
                 JS(ES6+)</h2>
-            This whole project is written in JavaScript.
+            The whole project is written in JavaScript.
             <h2>
                 <div><img src={react} alt="" className='logo' /></div>
                 React</h2>
-            I used React.js to create an interactive UI.
+            I used React to create an interactive UI.
             I followed the best React development practices, such as:
             <ul>
                 <li>Keeping the components small and specific;</li>
-                <li>Making components as reusable as possible (DRY code);</li>
-                <li>Actually, reusing those components;</li>
-                <li>I kept the folder structure neat and clean and gave thoughtful names;</li>
-                <li>I avoided redundancy in tags and comments, and in general, I aim to keep the code clean, readable and easy to maintain.</li>
+                <li>Making components as reusable. DRY code;</li>
+                <li>Neat and clean folder structure;</li>
             </ul>
 
             <div className='subheader-container'><span className='subheader'>React Router DOM</span></div>
             Multipage functionality implemented with React Router DOM.
             <div className='subheader-container'><span className='subheader'>React Hooks</span></div>
-            This project utilizes UseState, useRef & useEffect.
+            Such as UseState, useRef & useEffect.
             <div className='subheader-container'><span className='subheader'>Custom Hooks</span></div>
-            I created my own hooks. For example, there is 'useWindowSize', which is frequently used inside components to determine which version of
-            a page to render (mobile or desktop).
+            One of which is 'useWindowSize'. This one determines which version of a page to render (mobile or desktop).
             <div className='subheader-container'><span className='subheader'>use-dark-mode</span></div>
             It's a custom hook package that allows you to set up a dark mode on the website.
 
@@ -60,7 +57,7 @@ export default function TechStack() {
             <h2>
                 <div><img src={jsx} alt="" className='logo' /></div>
                 HTML5 & JSX</h2>
-            Inside the React app, the markup was written in JSX.
+            Inside the React app, the markup was written in JSX (obviously).
 
             <h2>
                 <div><img src={redux} alt="" className='logo' /></div>
@@ -68,13 +65,13 @@ export default function TechStack() {
             I used the Redux library for state management.
 
             <div className='subheader-container'><span className='subheader'>Redux Toolkit</span></div>
-            Redux Toolkit makes it easier to use Redux.
+            Redux Toolkit makes it easier to use Redux as you don't need to worry about immutability - it happens under the hood. It also reduces the boilerplate code.
             <div className='subheader-container'><span className='subheader'>Redux AsyncThunk</span></div>
             AsyncThunk is used in async operations such as data fetching.
             <div className='subheader-container'><span className='subheader'>Async Dispatch Chaining</span></div>
-            Some of the dispatches in this project have a tightly-coupled sequence of calls. To make them work together properly, I used dispatch chaining.
+            Some of the dispatches in this project have a tightly-coupled sequence of calls. To keep the sequence I used dispatch chaining.
             <div className='subheader-container'><span className='subheader'>Immutability</span></div>
-            Immutability is essential in writing JS code, especially in React, but in this project, this concept shines inside the extra reducers' state management.
+            Immutability is essential in writing JS code, especially in React. In this project, this concept shines inside the extra reducers' state management.
 
             <h2>
                 <div><img src={axios} alt="" className='logo' /></div>
@@ -83,7 +80,7 @@ export default function TechStack() {
             <h2>
                 <div><img src={mui} alt="" className='logo' /></div>
                 MUI</h2>
-            In this project, MUI helped me to create complex components easier and faster. I used the following components:
+            MUI facilitates the creation of complex components. I used the following components:
 
             <div className='subheader-container'><span className='subheader'>Autocomplete</span></div>
             Currency select dropdown

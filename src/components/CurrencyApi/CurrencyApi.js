@@ -37,24 +37,24 @@ export default function CurrencyApi() {
                         https://exchangerate.host/</a></p>
                 </div>
             </div>
-            It's a great choice for study projects, because the API is free and the amount of requests is not limited (for now).
+            It was chosen as at the moment the API is free and the amount of requests is not limited (for now).
 
-            It's easy to use and there is a nice documentation on how to use it. It has a bunch of useful endpoints.
+            It's easy to use and the documentation is clean.
 
-            In this project 'Latest rates' & 'Time-Serieas data' endpoints are used.
+            In this project 'Latest rates' & 'Time-Serieas data' endpoints are used. For the curious individuals:
             <h3><i className="fa fa-jpy" aria-hidden="true"></i> Latest rates</h3>
             The request URL looks like this:
             <div className='link-text'>https://api.exchangerate.host/latest</div>
-            And the response is an object with base currency (EUR in our case), exchange rates of the currencies side by side with their codes, and the date of the latest rates update.
+            The response is an object with base currency (EUR in our case), exchange rates of the currencies side by side with their codes, and the date of the latest rates update.
             <h3><i className="fa fa-calendar" aria-hidden="true"></i> Time-Serieas data</h3>
-            Request URL looks like this:
+            Request URL:
             <div className='link-text'>https://api.exchangerate.host/timeseries?start_date=[date]&end_date=[date]</div>
             [date] should be in the format YYYY-MM-DD
             <br />
             Since in this project we need only two currencies time-series exchange rates, the next parameters are used: base as "from currency" and symbols as 'to currency'.
-            So the request looks like this:
+            So this is how the request should look like:
             <div className='link-text'>https://api.exchangerate.host/timeseries?start_date=2022-01-01&end_date=2022-01-04&base=EUR&symbols=USD</div>
-            As a response we get an object and the most important field for us there is 'rates'. It consists of the objects of dates and their corresponding exchange rate in the following format:
+            In the response object the most important field is 'rates'. It consists of the dates and their corresponding exchange rate in the following format:
             <br />
             {<div className='code-text'><pre>{JSON.stringify(jsonExample, null, 2)}</pre></div>}
 
@@ -66,9 +66,9 @@ export default function CurrencyApi() {
             <div className='link-text'><a href='https://flagpedia.net/download/api' target='_blank' rel="noreferrer">
                 https://flagpedia.net/download/api
             </a></div>
-            It's quite easy to use: to get the flag icon of the country, you can use this pattern:
+            It's quite easy to use. This is how you can do that:
             <div className='link-text'>https://flagcdn.com/[size]/[country code].[image format]</div>
-            Also it's free to use and it has a bunch of nice features as well.
+            Also it's free to use and it has a bunch of nice features.
 
             <h2><i className="fa fa-database" aria-hidden="true"></i> Data</h2>
             I gathered and merged together the currency data needed for this project, such as currency symbols,
